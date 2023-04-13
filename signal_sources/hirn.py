@@ -1,7 +1,5 @@
 import time
 import utility
-import binance_wrap
-import trade_classes
 import database_logging as db
 from trade_conditions import FutureBasic, SpotBasic
 from datetime import datetime

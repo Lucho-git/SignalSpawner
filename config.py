@@ -37,7 +37,7 @@ def get_firebase_config():
     return pyrebase.initialize_app(config)
 
 def get_timezone_config():
-    """Returns consistent timezon"""
+    """Returns consistent timezone"""
     return pytz.timezone('Australia/Perth')
 
 def get_binance_config():
@@ -54,10 +54,10 @@ def get_telegram_config():
     api_hash = os.getenv('TELEGRAM_HASH')
     if local[0]:
         #stringsesh = os.getenv('TELEGRAM_LOCALSAVE')
-        stringsesh = '1BVtsOMQBuyhIoQWYzzU2C-IyIo0X2VTfU4lUdUxZh06BWVCHo9vpxyZuRqyFVS-dmQ2qF48TJKZZBWjHEqnx6E9VVSRxruaqVoeeLWWlFgAR4Vqij25d65tbdI5rKdJzEDkDfz2z5u11WwgAjFnOmdrQLgg4qFnOj8AlJxQyEqxZ3DRgJKy5uMg8nKg_BZx8uvNhAD-PI2NDMS96YJWSSt5LTS63v5GmBDOFq551Tf0zbmUaINqmwVQdHbPel7hTJahlP3UcuGD3ij0o96mu6kwk0bhFgg7QpD8LPJYVNMFFMGiDS7jHnF_2_wrpV_bHJY7Mn-J8qZuYJpm4__cYIk4yBFW_lTg='
+        stringsesh = '1BVtsOLwBu0hmEIqmsNK5ET45Dd5SmhdWWmE-QIpB4Nac9w91f8HDNsyFoPBCz0AMkWunpZ8X_TtBL3BTZWwDFjz6lEPgnfQYHhzRZsbVX8W4OvKRQaAeZrPLcKvguGmeF7SrjslAsf6ZW8GzPKLoINPccn3Tf1y3tp-uSdt7H2teXjeLAckXNgtXIa9HDJ68A9UvdolCHTgslsilgnXqS5U7gX7kvFuI0lNtSWzsHdJb-z6f3MdnMFOWDIz1l4nnkyNQqF-nj_e40ATa6fdXilPlAz-UCfn-KRiqEY_vzryad9h27tZV_IraHBb643b_8O3XaHQnljWRo6T9-yR8zmNWmtYqN2o='
     else:
         #stringsesh = os.getenv('TELEGRAM_SERVERSAVE')
-        stringsesh = '1BVtsOLsBu0NPznbcJmwVPJcAOaKZsQbaYMV79eL7fX-xPQeBR_KCtgNMRY1pBJimEcZGRPOoyBh7W_9ewyxdhoO2bxMJiJNsup0KLc7OyuoxP6sy_bVnFEQYtmafplDGnWfiWwKggzhZdnYRKD8VVB8KRmjzti4-2CGVplf8xLyhnlWvRZWbIE8S7yNUgcpll7Xi48KGw0gNbBLgUDrMd5jIj2ERGt8fecbO79RzNTqzLsnzyLB_aHjUdHB6Mj1Per2pmITweBkMHcAE5bvrBT_YBerGvReCz7hG3AC72kXo1l9p7zenPf-ZGzcLC_ip2Xl9yEFNBvECC_ZLFyy-6Nl6zzWE2Io='
+        stringsesh = '1BVtsOLwBu4hcT8OcvUQvRWj_qyRziM09BjUX1MnpdfeCK-5XefuW9ptEa_VWmYK9RhEFcVgSivPRrfRrUBXqJLDnhtgloGTZL24WMDREK3_xXweqtilgCJBxkCL83kBXzkBw42cXKYYOMz8v7CZ-2CKbG_585wfcfLccXmcMNoNzhH9cWc3liazHS7vSv8qSnjRamX9zVOb_EGtRxZ8BU_JjIh2FoYmwqJgVUFz68SI37JuymnCCDl4IaIp3Sngu1bNXb4r3WHIcpN7gdgjf4lCHWtuODYBBzL7l-TtvjcuNdPYwoMU6zlPxC6EFhsoSf9XXq_14OarSYp8Nc4XSXDK_I1MYzhY='
     return TelegramClient(StringSession(stringsesh), api_id, api_hash)
 
 def get_discord_config():
@@ -128,7 +128,7 @@ def get_commands():
         'DISPLAY_PORTFOLIO': '/display_folio!',
         'SNAPSHOT': '/snapshot!',
         'CLOSE_FUTURE': '/close_future!',
-        'SIGNAL_GROUP': ['1548802426', '1248393106'],
+        'SIGNAL_GROUP': ['1548802426', '1248393106', '1558766055'],
         'GENERAL_GROUP': ['1576065688', '1220789766']
         }
     return munch.munchify(chat_commands)

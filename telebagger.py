@@ -14,7 +14,6 @@ from types import SimpleNamespace
 
 # Local imports
 
-from trade_stream import TradeStream
 import utility
 import new_signal
 from config import get_telegram_config, get_commands
@@ -22,9 +21,8 @@ import database_logging as db
 
 class TelegramEvents:
     '''Handles telegram events'''
-    def __init__(self, trade_stream, clientChannel):
+    def __init__(self, clientChannel):
         self.com = config.get_commands()
-        self.trade_stream = trade_stream
         self.clientChannel = clientChannel
         self.client = config.get_telegram_config()
         self.lock = asyncio.Lock()
@@ -92,49 +90,28 @@ class TelegramEvents:
         db.gen_log('Telegram Robot: ' + signal.message)
         # Bot commands
         if signal.message == self.com.STOP:
-            await self.trade_stream.close_stream()
             print('Disconnecting Telebagger...')
             await self.clientChannel[0].put('close')
             await self.client.disconnect()
         # Stream Commands
-        elif signal.message == self.com.STREAM:
-            await self.trade_stream.streamer()
-        elif signal.message == self.com.STOPSTREAM:
-            await self.trade_stream.close_stream()
-        elif signal.message == '/savestream':
-            self.trade_stream.save()
-        elif signal.message == '/loadstream':
-            await self.trade_stream.load()
-        elif signal.message == self.com.RESTART:
-            await self.trade_stream.restart_stream()
-        elif signal.message == self.com.MENU:
-            await self.trade_stream.stopstream()
         elif signal.message == self.com.HIRN_SIGNAL:
             with open('docs/hirn_example.txt', 'r', encoding='utf-8') as f:
                 signal.message = f.read()
             signal.origin.id = '1248393106'
             signal.origin.name = 'Hirn'
-            await new_signal.new_signal(signal, self.trade_stream)
+            await new_signal.new_signal(signal)
         elif signal.message == self.com.RAND_HIRN_SIGNAL:
             signal.origin.id = '1248393106'
             signal.origin.name = 'randomHirn'
             for m in await self.client.get_messages('https://t.me/HIRN_CRYPTO', limit=20):
                 if 'Buy Price:' in m.message:
                     signal.message = m.message
-                    await new_signal.new_signal(signal, self.trade_stream)
+                    await new_signal.new_signal(signal)
                     break
-        elif signal.message == self.com.UPDATE_NOW:
-            self.trade_stream.update_trades_now()
-        elif signal.message == self.com.STATUS:
-            print(self.trade_stream.stream_status())
         elif signal.message == self.com.PAST:
             await self.get_past_messages('1248393106')
         elif signal.message == self.com.EXCEPT:
             raise Exception('Log this exception please')
-        elif signal.message == self.com.DUMP:
-            await self.trade_stream.dump_stream()
-        elif signal.message == self.com.SMOOTH_DUMP:
-            await self.trade_stream.smooth_dump_stream()
         elif '/get ' in signal.message:
             try:
                 data = db.get_from_realtime(signal.message.split('/get ')[1])
@@ -158,6 +135,15 @@ class TelegramEvents:
             channel_link = signal.message.split(' ')[1]
             channel_id = await self.client.get_entity(channel_link)
             print(channel_id)
+        elif signal.message == '/predictum':
+            signal.origin.id = '1558766055'
+            signal.origin.name = 'lastPredictum'
+            for m in await self.client.get_messages('https://t.me/+40crYIr9z5RkNWVk', limit=20):
+                if '/USDT ⚡️⚡️' in m.message:
+                    signal.message = m.message
+                    await new_signal.new_signal(signal)
+                    break
+
 
     async def start_telegram_handler(self, client):
         '''telegram message event handler'''
@@ -171,7 +157,7 @@ class TelegramEvents:
                 signal = await self.generate_signal(event)
 
                 if signal.origin.id in self.com.SIGNAL_GROUP:
-                    await new_signal.new_signal(signal, self.trade_stream)
+                    await new_signal.new_signal(signal)
 
                 elif signal.origin.id == '5894740183' or signal.origin.id == '5935711140':
                     await self.telegram_command(signal)
