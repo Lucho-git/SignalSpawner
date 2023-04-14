@@ -31,8 +31,8 @@ class PredictumSignal():
         lines = signal.message.split('\n')
         print(lines)
         pair = lines[0].split('⚡️')[2]
-        coin = pair.split('/')[0].trim()
-        base = pair.split('/')[1].trim()
+        coin = pair.split('/')[0].strip()
+        base = pair.split('/')[1].strip()
         pair = pair.split('/')[0] + base
         entry = lines[5].split(': ')[1]
         if '-' in entry:
