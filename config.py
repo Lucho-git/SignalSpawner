@@ -64,7 +64,7 @@ def get_discord_config():
     """Returns Discord Client"""
     SELF_TOKEN = os.getenv('DISCORD_TOKEN')
     
-    bot = commands.Bot(command_prefix='>', self_bot=True)
+    bot = commands.Bot(command_prefix='!', self_bot=True)
     return [bot, SELF_TOKEN]
 
 def get_commands():
@@ -97,7 +97,7 @@ def get_commands():
         'DISPLAY_PORTFOLIO': '/display_folio',
         'SNAPSHOT': '/snapshot',
         'CLOSE_FUTURE': '/close_future',
-        'SIGNAL_GROUP': ['1548802426', '1248393106'],
+        'SIGNAL_GROUP': ['1548802426', '1248393106', '1558766055'],
         'GENERAL_GROUP': ['1576065688', '1220789766', '1798277168', '1109500936', '1250090891']
         }
     else:

@@ -18,7 +18,8 @@ async def get_signal(signal):
     elif signal.origin.id == '1248393106':
         signal = hirn_controller.new_hirn_signal(signal)
         if signal:
-            return signal
+            if signal[0].base == 'USDT':
+                return signal
 
 async def new_signal(signal):
     '''Controller for signals coming from a signal group'''

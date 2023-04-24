@@ -33,17 +33,43 @@ class DiscordEvents:
 
     async def start_discord_handler(self, client):
         '''discord message event handler'''
-        @client.command()
-        async def ping(ctx):
-            print('Sending Ping')
-            await ctx.send('pong')
         
         @client.event
         async def on_message(message):
-
             if message.channel.id == 1064541939640324137:
-                print('Discord Robot ++')
-                await self.telegram_command(message)
+                if message.content.startswith('!'):
+                    command = message.content[len('!'):].split()[0]
+                    args = message.content.split()[1:]
+                    print(command)
+                    print(args)
+                    if command == 'get_message_history':
+                        chuid = str(args[0])
+                        num_messages = int(args[1])
+                        print('channels')
+                        print(type(chuid))
+                        for guild_data in self.channels.values():
+                            data = guild_data.get(str(chuid))
+                            if data is not None:
+                                guid = str(data['guild_id'])
+                                id_found = any(item['channel_id'] == chuid for item in list(self.channels[guid].values())[:])
+                                if (id_found):
+                                    print('getting guild', message.guild.id, '|')
+                                    print(type(message.guild.id))
+                                    guild = await client.fetch_guild(message.guild.id)
+                                    print(guild)
+                                if guild is None:
+                                    print(f'Could not find guild with ID {guid}')
+                                    return
+                                channel = await client.fetch_channel(chuid)
+                                if channel is None:
+                                    print(f'Could not find channel with ID {data["channel_id"]}')
+                                    return
+       
+                                messages = await channel.history(limit=num_messages).flatten()
+                                for message in messages:
+                                    print(f'{message.author}: {message.content}')
+                                return
+                #await self.discord_command(message)
 
             elif message.author == client.user:
                 return
@@ -62,6 +88,10 @@ class DiscordEvents:
                             print('New signal')
                             print(message)
                             print(message.content)
+                            print('getting guild', message.guild.id, '|')
+                            print(type(message.guild.id))
+                            guild = await client.fetch_guild(message.guild.id)
+                            print(guild)
                     else:
                         print('No channel found in ')
                         print('Adding new channel: ', message)
@@ -72,35 +102,16 @@ class DiscordEvents:
                 print('No guild id')
 
 
-        # async def my_event_handler(event):
-        #     try:
-        #         signal = await self.generate_signal(event)
-
-        #         if signal.origin.id in self.com.SIGNAL_GROUPS:
-        #             await new_signal.new_signal(signal)
-
-        #         elif signal.origin.id == '5963551324' or signal.origin.id == '5935711140':
-        #             await self.telegram_command(signal)
-        #         elif signal.origin.id in self.com.GENERAL_GROUPS:
-        #             pass
-
-        #         else:
-        #             print('new chat ID:', signal.origin.id, signal.origin.name)
-        #             db.gen_log('new chat ID:' + str(signal.origin.id) + signal.origin.name)
-        #             #Deal with unrecognized telegram channels
-
-        #     except Exception as e:
-        #         db.error_log(str(e) + '\nMessage:' + event.raw_text + '\nExcept:' + str(traceback.format_exc()))
-
-
-    async def telegram_command(self, signal):
+    async def discord_command(self, message):
         '''Commands which can be manually triggered through the telegram client'''
         #db.gen_log('Telegram Robot: ' + signal.message)
         # Bot commands
-        if signal.content == self.com.STOP:
+        print('Discord command:', message.content)
+        if message.content == self.com.STOP:
             print('Disconnecting Discbagger...')
             await self.clientChannel[1].put('close')
             await self.client.close()
+
         # Stream Commands
         # elif signal.message == self.com.HIRN_SIGNAL:
         #     with open('docs/hirn_example.txt', 'r', encoding='utf-8') as f:
