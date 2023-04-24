@@ -46,7 +46,6 @@ class TelegramEvents:
         signal = SimpleNamespace()
         sender_obj = await event.get_sender()
         chat = await event.get_chat()
-        print('chat:',chat)
         sender = str(chat.id)
         origin.name = utils.get_display_name(sender_obj)
         origin.id = sender
