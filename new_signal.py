@@ -21,6 +21,9 @@ async def get_signal(signal):
             if signal[0].base == 'USDT':
                 return signal
 
+    elif signal.origin.id == '1825288627':
+        print('GGShot Signal')
+
 async def new_signal(signal):
     '''Controller for signals coming from a signal group'''
     # Get trade details from signal
