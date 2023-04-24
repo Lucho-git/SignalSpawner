@@ -37,6 +37,7 @@ class DiscordEvents:
         @client.event
         async def on_message(message):
             if message.channel.id == 1064541939640324137:
+                #Deals with command messages inside of command channel
                 if message.content.startswith('!'):
                     print('Discord command:', message.content)
                     command = message.content[len('!'):].split()[0]
@@ -69,9 +70,11 @@ class DiscordEvents:
                         await self.client.close()
                             #await self.discord_command(message)
             elif message.author == client.user:
+                #Ignore non command messages from self
                 return
             
             elif (message.guild):
+                #Regular Message and signal handler, will add new discord channels, and receive signals
                 guid = str(message.guild.id)
                 chuid = str(message.channel.id)
                 if not guid in self.channels:

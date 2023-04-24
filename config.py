@@ -98,7 +98,7 @@ def get_commands():
         'SNAPSHOT': '/snapshot',
         'CLOSE_FUTURE': '/close_future',
         'SIGNAL_GROUP': ['1548802426', '1248393106', '1558766055'],
-        'GENERAL_GROUP': ['1576065688', '1220789766', '1798277168', '1109500936', '1250090891']
+        'GENERAL_GROUP': ['1576065688', '1220789766', '1794870864', '1798277168', '1109500936', '1250090891']
         }
     else:
         # Stream Commands Heroku Hosted
@@ -129,7 +129,7 @@ def get_commands():
         'SNAPSHOT': '/snapshot!',
         'CLOSE_FUTURE': '/close_future!',
         'SIGNAL_GROUP': ['1548802426', '1248393106', '1558766055'],
-        'GENERAL_GROUP': ['1576065688', '1220789766']
+        'GENERAL_GROUP': ['1576065688', '1220789766', '1794870864', '1798277168', '1109500936', '1250090891']
         }
     return munch.munchify(chat_commands)
 
