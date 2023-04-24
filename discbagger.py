@@ -38,25 +38,19 @@ class DiscordEvents:
         async def on_message(message):
             if message.channel.id == 1064541939640324137:
                 if message.content.startswith('!'):
+                    print('Discord command:', message.content)
                     command = message.content[len('!'):].split()[0]
                     args = message.content.split()[1:]
-                    print(command)
-                    print(args)
                     if command == 'get_message_history':
                         chuid = str(args[0])
                         num_messages = int(args[1])
-                        print('channels')
-                        print(type(chuid))
                         for guild_data in self.channels.values():
                             data = guild_data.get(str(chuid))
                             if data is not None:
                                 guid = str(data['guild_id'])
                                 id_found = any(item['channel_id'] == chuid for item in list(self.channels[guid].values())[:])
                                 if (id_found):
-                                    print('getting guild', message.guild.id, '|')
-                                    print(type(message.guild.id))
                                     guild = await client.fetch_guild(message.guild.id)
-                                    print(guild)
                                 if guild is None:
                                     print(f'Could not find guild with ID {guid}')
                                     return
@@ -69,8 +63,11 @@ class DiscordEvents:
                                 for message in messages:
                                     print(f'{message.author}: {message.content}')
                                 return
-                #await self.discord_command(message)
-
+                    if command == self.com.STOP:
+                        print('Disconnecting Discbagger...')
+                        await self.clientChannel[1].put('close')
+                        await self.client.close()
+                            #await self.discord_command(message)
             elif message.author == client.user:
                 return
             
@@ -88,10 +85,6 @@ class DiscordEvents:
                             print('New signal')
                             print(message)
                             print(message.content)
-                            print('getting guild', message.guild.id, '|')
-                            print(type(message.guild.id))
-                            guild = await client.fetch_guild(message.guild.id)
-                            print(guild)
                     else:
                         print('No channel found in ')
                         print('Adding new channel: ', message)
@@ -106,11 +99,7 @@ class DiscordEvents:
         '''Commands which can be manually triggered through the telegram client'''
         #db.gen_log('Telegram Robot: ' + signal.message)
         # Bot commands
-        print('Discord command:', message.content)
-        if message.content == self.com.STOP:
-            print('Disconnecting Discbagger...')
-            await self.clientChannel[1].put('close')
-            await self.client.close()
+
 
         # Stream Commands
         # elif signal.message == self.com.HIRN_SIGNAL:
