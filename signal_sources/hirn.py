@@ -61,7 +61,7 @@ class HirnSignal():
         timenow = datetime.now().timestamp()
         if timenow < self.timer:
             self.tradeheat = True
-            raise ValueError('Hirn Signal while Cooling Down')
+            raise ValueError('Duplicate Signal while Cooling Down')
         else:
             self.tradeheat = False
             self.timer = timenow + HIRN_COOLDOWN_TIME

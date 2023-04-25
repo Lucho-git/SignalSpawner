@@ -142,7 +142,13 @@ class TelegramEvents:
                     signal.message = m.message
                     await new_signal.new_signal(signal)
                     break
-
+        elif signal.message == '/ggshot':
+            with open('docs/ggshot_example.txt', 'r', encoding='utf-8') as f:
+                signal.message = f.read()
+            signal.origin.id = '1825288627'
+            signal.origin.name = 'testGGshot'
+            print('GGSHOT EXAMPLE')
+            await new_signal.new_signal(signal)
 
     async def start_telegram_handler(self, client):
         '''telegram message event handler'''

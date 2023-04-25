@@ -5,8 +5,14 @@ from trade_conditions import FutureBasic, SpotBasic
 from datetime import datetime
 
 TRADE_TIMEOUT = 604800000  # 7 Days in econds
+SIGNAL_COOLDOWN_TIME = 10  # In seconds
 
 class PredictumSignal():
+    def __init__(self):
+        self.timer = datetime.now().timestamp()
+        self.tradeheat = False
+        self.first = True
+
 
     def new_message(self, signal):
         '''Entry point, returns nothing, or a trade signal'''
@@ -18,14 +24,37 @@ class PredictumSignal():
         except ValueError as e:
             print('Exception in Predictum Signal')
             print(e)
-            
+    
+
     def validate_signal(self, msg):
         '''Verifies if the message from Predictum is a trade signal'''
         if '/USDT ⚡️⚡️' in msg:
-            return True
+            try:
+                self.cooldown()
+                return True
+            except ValueError:
+                print('Cooling Down')
+                return False
         else:
             return False
-        
+    
+
+    def cooldown(self):
+        '''Telegram sometimes double posts their messages, this makes sure we are only trading once'''
+        if not self.first:
+            time.sleep(5)
+        self.first = False
+
+        timenow = datetime.now().timestamp()
+        if timenow < self.timer:
+            self.tradeheat = True
+            raise ValueError('Duplicate Signal while Cooling Down')
+        else:
+            self.tradeheat = False
+            self.timer = timenow + SIGNAL_COOLDOWN_TIME
+            self.first = True
+
+
     def parse(self, signal):
         '''Parses out the signal message into values'''
         lines = signal.message.split('\n')
@@ -49,3 +78,4 @@ class PredictumSignal():
         loss_price = entry * stop_loss/lev
         timeout = utility.get_timestamp_now() + TRADE_TIMEOUT # 7 Days timeout in seconds
         return [SpotBasic('Predictum', signal, coin, base, entry, profit_price, stop_loss, timeout)]
+    
