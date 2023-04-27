@@ -256,3 +256,14 @@ def post_signal(data):
     else:
         print(f"Request failed with status code {response.status_code}")
         print("Response content:", response.text)
+
+def save_raw_signal(signal):
+    signal_group = signal.source
+    path = paths.RAW_SIGNALS + signal_group
+
+    print('Saving to realtime...',path)
+    jsonData = signal.get_json()
+    json_data_dict = json.loads(jsonData)
+
+    key = str(json_data_dict['time_generated'])
+    database.child(path).child(key).update(json_data_dict)   

@@ -146,6 +146,7 @@ def get_storage_paths():
         "REALTIME_SAVE": 'signal/',
         "DISCORD_CHANNEL": 'discord_channel/',
         "TELEGRAM_CHANNEL": 'telegram_channel/',
+        "RAW_SIGNALS": 'raw_signals/',
         "SIGNAL_ENDPOINT_URL": 'https://luchodore.pythonanywhere.com/test_data'
         }
     else:
@@ -159,6 +160,7 @@ def get_storage_paths():
         "REALTIME_SAVE": UNIQUE_ID + 'signals/',
         "DISCORD_CHANNEL": UNIQUE_ID + 'discord_channels/',
         "TELEGRAM_CHANNEL": UNIQUE_ID + 'telegram_channels/',
+        "RAW_SIGNALS": UNIQUE_ID + 'raw_signals/',
         "SIGNAL_ENDPOINT_URL": 'https://luchodore.pythonanywhere.com/save_data'
         }
     return munch.munchify(file_paths)

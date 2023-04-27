@@ -21,6 +21,7 @@ class SpotBasic:
         self.profit = profit
         self.loss = loss
         self.timeout = timeout
+        self.market_price = self.get_price()
         self.time_generated = utility.get_timestamp_now()
         if (not self.loss) and (not self.timeout):
             self.timeout = utility.get_timestamp_now() + 604800000 # 7 Days timeout in seconds
@@ -81,8 +82,8 @@ class SpotBasic:
 
 class SpotAdvanced(SpotBasic):
     """Spot advanced allows for multiple exit prices and percentages"""
-    def __init__(self, source, signal, coin, base, entry, profit, loss, profit_amount, loss_amount, timeout=None):
-        super().__init__(source, signal, coin, base, entry, profit, loss, timeout)
+    def __init__(self, source, signal, coin, base, entry, profit_targets, stop_loss, profit_amount, loss_amount, timeout=None):
+        super().__init__(source, signal, coin, base, entry, profit_targets, stop_loss, timeout)
         self.profit_amount = profit_amount
         self.loss_amount = loss_amount
 
@@ -96,8 +97,8 @@ class FutureBasic(SpotBasic):
 
 class FutureAdvanced(SpotAdvanced):
     '''Futures advanced combines all of the previous features in a derivatives market'''
-    def __init__(self, source, signal, coin, entry, profit, loss, profit_amount, loss_amount, direction, leverage, timeout=None):
-        super().__init__(source, signal, 'USD', coin, entry, profit, loss, profit_amount, loss_amount, timeout)
+    def __init__(self, source, signal, coin, base, entry, profit_targets, stop_loss, profit_amount, loss_amount, direction, leverage, timeout=None):
+        super().__init__(source, signal, base, coin, entry, profit_targets, stop_loss, profit_amount, loss_amount, timeout)
         self.direction = direction
         self.leverage = leverage
 

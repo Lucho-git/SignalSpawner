@@ -1,7 +1,5 @@
 """Main entry point for telebagger"""
 import asyncio
-import os
-import signal
 import nest_asyncio
 from colorama import init
 from telebagger import TelegramEvents

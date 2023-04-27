@@ -43,14 +43,14 @@ class TelegramEvents:
     async def generate_signal(self, event):
         '''Builds a signal from the telegram event'''
         origin = SimpleNamespace()
-        signal = SimpleNamespace()
+        signal_message = SimpleNamespace()
         sender_obj = await event.get_sender()
         chat = await event.get_chat()
         sender = str(chat.id)
         origin.name = utils.get_display_name(sender_obj)
         origin.id = sender
-        signal.origin, signal.message, signal.timestamp = origin, event.raw_text, event.date
-        return signal
+        signal_message.origin, signal_message.message, signal_message.timestamp = origin, event.raw_text, event.date
+        return signal_message
 
     async def get_past_messages(self, channel_id):
         '''Gets past messages from a channel'''
@@ -60,7 +60,7 @@ class TelegramEvents:
             for msg in msgs:
                 print(msg)
                 print(msg.chat_id)
-                print(msg.signal.message)
+                print(msg.signal_message.message)
                 print('______________________')
                 if not msg.photo:
                     #await self.client.send_message(1576065688, msg)
@@ -83,72 +83,70 @@ class TelegramEvents:
         self.last_message['time'] = current_time
         return False
 
-    async def telegram_command(self, signal):
+    async def telegram_command(self, signal_message):
         '''Commands which can be manually triggered through the telegram client'''
         print("Robot Section +++")
-        db.gen_log('Telegram Robot: ' + signal.message)
+        db.gen_log('Telegram Robot: ' + signal_message.message)
         # Bot commands
-        if signal.message == self.com.STOP:
+        if signal_message.message == self.com.STOP:
             print('Disconnecting Telebagger...')
             await self.clientChannel[0].put('close')
             await self.client.disconnect()
         # Stream Commands
-        elif signal.message == self.com.HIRN_SIGNAL:
+        elif signal_message.message == self.com.HIRN_SIGNAL:
             with open('docs/hirn_example.txt', 'r', encoding='utf-8') as f:
-                signal.message = f.read()
-            signal.origin.id = '1248393106'
-            signal.origin.name = 'Hirn'
-            await new_signal.new_signal(signal)
-        elif signal.message == self.com.RAND_HIRN_SIGNAL:
-            signal.origin.id = '1248393106'
-            signal.origin.name = 'randomHirn'
+                signal_message.message = f.read()
+            signal_message.origin.id = '1248393106'
+            signal_message.origin.name = 'Hirn'
+            await new_signal.new_signal(signal_message)
+        elif signal_message.message == self.com.RAND_HIRN_SIGNAL:
+            signal_message.origin.id = '1248393106'
+            signal_message.origin.name = 'randomHirn'
             for m in await self.client.get_messages('https://t.me/HIRN_CRYPTO', limit=20):
                 if 'Buy Price:' in m.message:
-                    signal.message = m.message
-                    await new_signal.new_signal(signal)
+                    signal_message.message = m.message
+                    await new_signal.new_signal(signal_message)
                     break
-        elif signal.message == self.com.PAST:
+        elif signal_message.message == self.com.PAST:
             await self.get_past_messages('1248393106')
-        elif signal.message == self.com.EXCEPT:
+        elif signal_message.message == self.com.EXCEPT:
             raise Exception('Log this exception please')
-        elif '/get ' in signal.message:
+        elif '/get ' in signal_message.message:
             try:
-                data = db.get_from_realtime(signal.message.split('/get ')[1])
+                data = db.get_from_realtime(signal_message.message.split('/get ')[1])
                 for user in data.each():
                     print(f"{user.key()}: {user.val()}")
             except Exception as e:
                 print(e)
-        elif '/new_disc_channel ' in signal.message:
+        elif '/new_disc_channel ' in signal_message.message:
             #Format like  /newchannel guildid-channelid nameofchannel category(ignore/signal)
-            channelinfo = signal.message.split(' ')
+            channelinfo = signal_message.message.split(' ')
             channel_id_combo, channel_name, channel_category = channelinfo[1], channelinfo[2], channelinfo[3]
             if channel_category not in ['signal', 'ignore']:
                 raise Exception('Wrong channel category, should be "signal" or "ignore"')
             db.add_discord_channel(channel_id_combo, channel_name, channel_category)
-        elif '/new_tele_channel ' in signal.message:
-            channelinfo = signal.message.split(' ')
+        elif '/new_tele_channel ' in signal_message.message:
+            channelinfo = signal_message.message.split(' ')
             channel_id, channel_name, channel_category = channelinfo[1], channelinfo[2], channelinfo[3]
             if len(channel_id) == 10:
                 db.add_telegram_channel(channel_id, channel_name, channel_category)
-        elif '/channel_link' in signal.message:
-            channel_link = signal.message.split(' ')[1]
+        elif '/channel_link' in signal_message.message:
+            channel_link = signal_message.message.split(' ')[1]
             channel_id = await self.client.get_entity(channel_link)
             print(channel_id)
-        elif signal.message == '/predictum':
-            signal.origin.id = '1558766055'
-            signal.origin.name = 'lastPredictum'
-            for m in await self.client.get_messages('https://t.me/+40crYIr9z5RkNWVk', limit=20):
-                if '/USDT ⚡️⚡️' in m.message:
-                    signal.message = m.message
-                    await new_signal.new_signal(signal)
-                    break
-        elif signal.message == '/ggshot':
+        elif signal_message.message == '/predictum':
+            with open('docs/predictum_example.txt', 'r', encoding='utf-8') as f:
+                signal_message.message = f.read()
+            signal_message.origin.id = '1558766055'
+            signal_message.origin.name = 'lastPredictum'
+            await new_signal.new_signal(signal_message)
+        elif signal_message.message == '/ggshot':
             with open('docs/ggshot_example.txt', 'r', encoding='utf-8') as f:
-                signal.message = f.read()
-            signal.origin.id = '1825288627'
-            signal.origin.name = 'testGGshot'
+                signal_message.message = f.read()
+            signal_message.origin.id = '1825288627'
+            signal_message.origin.name = 'testGGshot'
             print('GGSHOT EXAMPLE')
-            await new_signal.new_signal(signal)
+            await new_signal.new_signal(signal_message)
 
     async def start_telegram_handler(self, client):
         '''telegram message event handler'''
@@ -159,19 +157,19 @@ class TelegramEvents:
                 if await self.is_duplicate(event):
                     return
             try:
-                signal = await self.generate_signal(event)
+                signal_message = await self.generate_signal(event)
 
-                if signal.origin.id in self.com.SIGNAL_GROUP:
-                    await new_signal.new_signal(signal)
+                if signal_message.origin.id in self.com.SIGNAL_GROUP:
+                    await new_signal.new_signal(signal_message)
 
-                elif signal.origin.id == '5894740183' or signal.origin.id == '5935711140':
-                    await self.telegram_command(signal)
-                elif signal.origin.id in self.com.GENERAL_GROUP:
+                elif signal_message.origin.id == '5894740183' or signal_message.origin.id == '5935711140':
+                    await self.telegram_command(signal_message)
+                elif signal_message.origin.id in self.com.GENERAL_GROUP:
                     pass
 
                 else:
-                    print('new chat ID:', signal.origin.id, signal.origin.name)
-                    db.gen_log('new chat ID:' + str(signal.origin.id) + signal.origin.name)
+                    print('new chat ID:', signal_message.origin.id, signal_message.origin.name)
+                    db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name)
                     #Deal with unrecognized telegram channels
 
             except Exception as e:
