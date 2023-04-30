@@ -266,4 +266,4 @@ def save_raw_signal(signal):
     json_data_dict = json.loads(jsonData)
 
     key = str(json_data_dict['time_generated'])
-    database.child(path).child(key).update(json_data_dict)   
+    database.child(path).child(key).update(json_data_dict)

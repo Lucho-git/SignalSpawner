@@ -1,16 +1,19 @@
 import time
-from datetime import datetime
 from trade_conditions import FutureBasic, SpotBasic
 import utility
 import database_logging as db
+import traceback
 
 
 class SignalProviderBase():
-    def __init__(self):
-        self.timer = datetime.now().timestamp()
+    #source is the name of signal group
+    #identifier is the text that identifies if a message is a signal, can be an array for multiple identifiers
+    def __init__(self, source='Default', signal_identifier='None'):
+        self.timer = utility.get_timestamp_now()
         self.first = True
         self.cooldown_time = 10
-        self.source = 'Default-Source'
+        self.source = source
+        self.signal_identifier = signal_identifier
 
     def new_message(self, message):
         '''Entry point, returns nothing, or a trade signal'''
@@ -24,11 +27,15 @@ class SignalProviderBase():
         
         try:
             sanitised_message = self.sanitise_message(raw_message)
-            return self.parse(message, sanitised_message)
+            signal = self.parse(message, sanitised_message)
+            if signal:
+                db.save_raw_signal(signal)
+                return signal
         except Exception as e:
             #should database log this
             print('Unexpected exception parsing signal message:')
             print(e)
+            traceback.print_exc()
 
     def cooldown(self):
         '''Avoids processing duplicate signals'''
@@ -36,7 +43,7 @@ class SignalProviderBase():
             time.sleep(5)
         self.first = False
 
-        timenow = datetime.now().timestamp()
+        timenow = utility.get_timestamp_now()
         if timenow < self.timer:
             raise ValueError('Duplicate Signal in ' + str(self.source) + ' while Cooling Down')
         else:
@@ -51,14 +58,24 @@ class SignalProviderBase():
         lines = text.split('\n')
         return lines
 
-    def validate_signal(self, message):
-        '''This function should be implemented in subclasses'''
-        raise NotImplementedError()
+    def validate_signal(self, msg):
+        if (isinstance(self.signal_identifier, list)):
+            if all(substring in msg.upper() for substring in self.signal_identifier):
+                self.cooldown()
+                return True
+
+        elif isinstance(self.signal_identifier, str):
+            if self.signal_identifier in msg:
+                self.cooldown()
+                return True
+        else:
+            print('Not a signal')
 
     def parse(self, message, sanitised_message):
         '''This function should be implemented in subclasses'''
         raise NotImplementedError()
     
-    def create_trade(self, signal):
+    def get_trade_from_signal(self, signal):
         '''This function should be implemented in subclasses'''
         raise NotImplementedError()
+    

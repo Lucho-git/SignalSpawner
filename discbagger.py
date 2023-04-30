@@ -88,6 +88,7 @@ class DiscordEvents:
                             print('New signal')
                             print(message)
                             print(message.content)
+                            
                     else:
                         print('No channel found in ')
                         print('Adding new channel: ', message)
@@ -130,6 +131,18 @@ class DiscordEvents:
         # elif signal.message == '/except':
         #     raise Exception('Log this exception please')
 
+
+    async def generate_signal(self, event):
+        '''Builds a signal from the telegram event'''
+        origin = SimpleNamespace()
+        signal = SimpleNamespace()
+        sender_obj = await event.get_sender()
+        chat = await event.get_chat()
+        sender = str(chat.id)
+        origin.name = utils.get_display_name(sender_obj)
+        origin.id = sender
+        signal.origin, signal.message, signal.timestamp = origin, event.raw_text, event.date
+        return signal
 
 
 

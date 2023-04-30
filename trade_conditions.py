@@ -11,20 +11,24 @@ These values should be static
 class SpotBasic:
     '''Spot basic is a market spot order, with a takeprofit value, optional stoploss or
     timelimit to exit trade,if no stoploss is entered then a mandatory 7 day limit is applied'''
-    def __init__(self, source, signal, coin, base, entry, profit, loss=None, timeout=None):
-        self.source = source
+    def __init__(self, signal, entry, take_profit, stop_loss, timeout = None):
         self.signal = signal
-        self.coin = coin
-        self.base = base
-        self.pair = coin+base
         self.entry = entry
-        self.profit = profit
-        self.loss = loss
+        self.take_profit = take_profit
+        self.stop_loss = stop_loss
+        self.trade_market_price = self.get_price()
         self.timeout = timeout
-        self.market_price = self.get_price()
-        self.time_generated = utility.get_timestamp_now()
-        if (not self.loss) and (not self.timeout):
-            self.timeout = utility.get_timestamp_now() + 604800000 # 7 Days timeout in seconds
+        if not self.timeout:
+            self.timeout = signal.time_generated + 604800000 #7 Days timeout in seconds, check this is correct with utils timer
+
+        self.sanitise_price_data()
+
+    def sanitise_price_data(self):
+        '''Ensures binance will accept all price values for making orders'''
+        pair = self.signal.pair
+        self.entry = utility.sanitise_price_data(pair, self.entry)
+        self.take_profit = utility.sanitise_price_data(pair, self.take_profit)
+        self.stop_loss = utility.sanitise_price_data(pair, self.stop_loss)
 
     def check_timeout(self, trade):
         '''Checks to see if trade has timed out'''
@@ -34,10 +38,10 @@ class SpotBasic:
 
     def check_trade(self, trade):
         '''Checks to see if trade conditions have been met'''
-        if trade.highest_price > self.profit:
+        if trade.highest_price > self.take_profit:
             trade.status = 'profit'
             return
-        if trade.lowest_price < self.loss:
+        if trade.lowest_price < self.stop_loss:
             trade.status = 'loss'
 
     def get_value(self, trade):
@@ -52,32 +56,32 @@ class SpotBasic:
 
     def get_price(self):
         '''Gets current price from binanace'''
-        return float(config.get_binance_config().get_symbol_ticker(symbol=self.pair)['price'])
+        return float(config.get_binance_config().get_symbol_ticker(symbol=self.signal.pair)['price'])
     
     def __str__(self) -> str:
         return str({
-                "source": self.source,
-                "coin": self.coin,
-                "base": self.base,
-                "pair": self.pair,
+                "source": self.signal.source,
+                "coin": self.signal.coin,
+                "base": self.signal.base,
+                "pair": self.signal.pair,
                 "entry": self.entry,
-                "profit": self.profit,
-                "loss": self.loss,
+                "profit": self.take_profit,
+                "loss": self.stop_loss,
+                "time_generated": self.signal.time_generated,
                 "timeout": self.timeout,
-                "time_generated": self.time_generated
                 })
 
     def get_dict(self):
         return {
-            "source": self.source,
-            "coin": self.coin,
-            "base": self.base,
-            "pair": self.pair,
+            "source": self.signal.source,
+            "coin": self.signal.coin,
+            "base": self.signal.base,
+            "pair": self.signal.pair,
             "entry": self.entry,
-            "profit": self.profit,
-            "loss": self.loss,
+            "profit": self.take_profit,
+            "loss": self.stop_loss,
             "timeout": self.timeout,
-            "time_generated": self.time_generated
+            "time_generated": self.signal.time_generated
         }
 
 class SpotAdvanced(SpotBasic):

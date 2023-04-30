@@ -8,14 +8,14 @@ These values should be static
 
 '''
 class Signal:
-    def __init__(self, source, signal, coin, base, entry, profit_targets, stop_loss, direction):
+    def __init__(self, source, signal, coin, base, entry, take_profit, stop_loss, direction):
         self.source = source
         self.signal = signal
         self.coin = coin
         self.base = base
         self.pair = coin+base
         self.entry = entry
-        self.profit_targets = profit_targets
+        self.take_profit = take_profit
         self.stop_loss = stop_loss
         self.direction = direction
         self.market_price = self.get_market_price()
@@ -28,7 +28,7 @@ class Signal:
                 "base": self.base,
                 "pair": self.pair,
                 "entry": self.entry,
-                "profit_targets": self.profit_targets,
+                "profit_targets": self.take_profit,
                 "stop_loss": self.stop_loss,
                 "direction": self.direction,
                 "market_price": self.market_price,
