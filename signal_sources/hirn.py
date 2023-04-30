@@ -18,7 +18,7 @@ class HirnSignal():
         self.tradeheat = False
         self.first = True
 
-    def new_hirn_signal(self, signal):
+    def new_hirn_message(self, signal):
         '''Entry point, returns nothing, or a trade signal'''
         if not self.validate_signal(signal.message):
             return

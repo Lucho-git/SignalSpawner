@@ -43,14 +43,14 @@ class TelegramEvents:
     async def generate_signal(self, event):
         '''Builds a signal from the telegram event'''
         origin = SimpleNamespace()
-        signal_message = SimpleNamespace()
+        message = SimpleNamespace()
         sender_obj = await event.get_sender()
         chat = await event.get_chat()
         sender = str(chat.id)
         origin.name = utils.get_display_name(sender_obj)
         origin.id = sender
-        signal_message.origin, signal_message.message, signal_message.timestamp = origin, event.raw_text, event.date
-        return signal_message
+        message.origin, message.message, message.timestamp = origin, event.raw_text, event.date
+        return message
 
     async def get_past_messages(self, channel_id):
         '''Gets past messages from a channel'''

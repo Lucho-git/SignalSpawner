@@ -9,26 +9,25 @@ hirn_controller = hirn.HirnSignal()
 predictum_controller = predictum.PredictumSignal()
 ggshot_controller = ggshot.GGShotSignal()
 
-async def get_signal(signal):
+async def get_signal(message):
     '''Sends signal to the specified group'''
-    if signal.origin.id == '1558766055':
-        signal = predictum_controller.new_message(signal)
-        print('Predictum Message')
-        print(signal)
-        return signal
+    if message.origin.id == '1558766055':
+        signal = predictum_controller.new_message(message)
+        if signal:
+            return signal
 
-    elif signal.origin.id == '1248393106':
-        signal = hirn_controller.new_hirn_signal(signal)
+    elif message.origin.id == '1248393106':
+        signal = hirn_controller.new_hirn_signal(message)
         if signal:
             if signal[0].base == 'USDT':
                 return signal
 
-    elif signal.origin.id == '1825288627':
-        new_signals = ggshot_controller.new_message(signal)
-        if new_signals:
-            database_logging.save_raw_signal(new_signals[0])
-            if len(new_signals) > 1:
-                return [new_signals[1]]
+    elif message.origin.id == '1825288627':
+        signals = ggshot_controller.new_message(message)
+        if signals:
+            database_logging.save_raw_signal(signals[0])
+            if len(signals) > 1:
+                return [signals[1]]
 
 
 async def new_signal(signal):
