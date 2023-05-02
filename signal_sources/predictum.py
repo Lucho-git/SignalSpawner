@@ -36,3 +36,9 @@ class PredictumSignal(SignalProviderBase):
         '''Convert Signal into trade values'''
         trade = SpotBasic(signal, signal.entry[0], signal.take_profit[1], signal.stop_loss)
         return trade
+    
+    
+    def filter_trade(self, trade):
+        if trade.signal.direction == 'LONG':
+            return True
+        return False

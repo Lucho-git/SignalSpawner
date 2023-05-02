@@ -1,5 +1,6 @@
 """Module interacts with the database, for saving and loading various data/logs"""
-from datetime import datetime
+from datetime import datetime, timedelta
+import handle_signal_message
 import os
 import pickle
 import json
@@ -267,3 +268,30 @@ def save_raw_signal(signal):
 
     key = str(json_data_dict['time_generated'])
     database.child(path).child(key).update(json_data_dict)
+
+def generate_last_week_signals():
+    path = paths.RAW_SIGNALS
+    data = database.child(path).get().val()
+
+    one_week = datetime.now() - timedelta(days=6)
+
+
+    time_generated_list = []
+
+    # Iterate over the outer dictionary
+    for outer_key, outer_value in data.items():
+        # Iterate over the inner dictionary
+        for inner_key, inner_value in outer_value.items():
+            # Extract the time_generated field
+            time_generated = inner_value['time_generated']
+            time_generated_dt = datetime.fromtimestamp(time_generated/1000)
+            if time_generated_dt > one_week:
+                print(time_generated_dt-one_week)
+                time_generated_list.append(time_generated)
+                print(inner_value)
+                print(handle_signal_message.trade_from_signal_data(inner_value))
+
+
+
+    # Print the list of extracted values
+    print(time_generated_list)

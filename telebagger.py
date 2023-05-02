@@ -15,7 +15,7 @@ from types import SimpleNamespace
 # Local imports
 
 import utility
-import new_signal
+import handle_signal_message
 from config import get_telegram_config, get_commands
 import database_logging as db
 
@@ -40,7 +40,7 @@ class TelegramEvents:
                 await self.client.disconnect()
                 break
 
-    async def generate_signal(self, event):
+    async def generate_message(self, event):
         '''Builds a signal from the telegram event'''
         origin = SimpleNamespace()
         message = SimpleNamespace()
@@ -98,14 +98,14 @@ class TelegramEvents:
                 signal_message.message = f.read()
             signal_message.origin.id = '1248393106'
             signal_message.origin.name = 'Hirn'
-            await new_signal.new_signal(signal_message)
+            await handle_signal_message.process_message(signal_message)
         elif signal_message.message == self.com.RAND_HIRN_SIGNAL:
             signal_message.origin.id = '1248393106'
             signal_message.origin.name = 'randomHirn'
             for m in await self.client.get_messages('https://t.me/HIRN_CRYPTO', limit=20):
                 if 'Buy Price:' in m.message:
                     signal_message.message = m.message
-                    await new_signal.new_signal(signal_message)
+                    await handle_signal_message.process_message(signal_message)
                     break
         elif signal_message.message == self.com.PAST:
             await self.get_past_messages('1248393106')
@@ -139,14 +139,16 @@ class TelegramEvents:
                 signal_message.message = f.read()
             signal_message.origin.id = '1558766055'
             signal_message.origin.name = 'lastPredictum'
-            await new_signal.new_signal(signal_message)
+            await handle_signal_message.process_message(signal_message)
         elif signal_message.message == '/ggshot':
             with open('docs/ggshot_example.txt', 'r', encoding='utf-8') as f:
                 signal_message.message = f.read()
             signal_message.origin.id = '1825288627'
             signal_message.origin.name = 'testGGshot'
             print('GGSHOT EXAMPLE')
-            await new_signal.new_signal(signal_message)
+            await handle_signal_message.process_message(signal_message)
+        elif signal_message.message == '/lastweek':
+            db.generate_last_week_signals()
 
     async def start_telegram_handler(self, client):
         '''telegram message event handler'''
@@ -157,10 +159,10 @@ class TelegramEvents:
                 if await self.is_duplicate(event):
                     return
             try:
-                signal_message = await self.generate_signal(event)
+                signal_message = await self.generate_message(event)
 
                 if signal_message.origin.id in self.com.SIGNAL_GROUP:
-                    await new_signal.new_signal(signal_message)
+                    await handle_signal_message.process_message(signal_message)
 
                 elif signal_message.origin.id == '5894740183' or signal_message.origin.id == '5935711140':
                     await self.telegram_command(signal_message)

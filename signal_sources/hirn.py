@@ -24,3 +24,9 @@ class HirnSignal(SignalProviderBase):
         '''Convert Signal into trade values'''
         trade = SpotBasic(signal, signal.entry, signal.take_profit, signal.stop_loss)
         return trade
+
+
+    def filter_trade(self, trade):
+        if trade.signal.base == 'USDT':
+            return True
+        return False

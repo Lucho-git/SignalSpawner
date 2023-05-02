@@ -35,3 +35,9 @@ class GGShotSignal(SignalProviderBase):
         '''Convert Signal into trade values'''
         trade = SpotBasic(signal, signal.entry[0], signal.take_profit[0], signal.stop_loss)
         return trade
+    
+
+    def filter_trade(self, trade):
+        if trade.signal.direction == 'LONG':
+            return True
+        return False

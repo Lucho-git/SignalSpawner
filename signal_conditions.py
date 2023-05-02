@@ -8,9 +8,9 @@ These values should be static
 
 '''
 class Signal:
-    def __init__(self, source, signal, coin, base, entry, take_profit, stop_loss, direction):
+    def __init__(self, source, message, coin, base, entry, take_profit, stop_loss, direction):
         self.source = source
-        self.signal = signal
+        self.message = message
         self.coin = coin
         self.base = base
         self.pair = coin+base

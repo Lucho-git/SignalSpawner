@@ -1,5 +1,6 @@
 import time
 from trade_conditions import FutureBasic, SpotBasic
+from signal_conditions import Signal
 import utility
 import database_logging as db
 import traceback
@@ -15,16 +16,9 @@ class SignalProviderBase():
         self.source = source
         self.signal_identifier = signal_identifier
 
-    def new_message(self, message):
+    def new_signal_message(self, message):
         '''Entry point, returns nothing, or a trade signal'''
         raw_message = message.message
-        try:
-            if not(self.validate_signal(raw_message)):
-                return
-        except ValueError as e:
-            print(e)
-            return
-        
         try:
             sanitised_message = self.sanitise_message(raw_message)
             signal = self.parse(message, sanitised_message)
@@ -71,6 +65,9 @@ class SignalProviderBase():
         else:
             print('Not a signal')
 
+    def filter_trade(self, trade):
+        return True
+
     def parse(self, message, sanitised_message):
         '''This function should be implemented in subclasses'''
         raise NotImplementedError()
@@ -78,4 +75,8 @@ class SignalProviderBase():
     def get_trade_from_signal(self, signal):
         '''This function should be implemented in subclasses'''
         raise NotImplementedError()
-    
+
+    def get_filtered_trade_from_signal(self, signal):
+        trade = self.get_trade_from_signal(signal)
+        if self.filter_trade(trade):
+            return trade

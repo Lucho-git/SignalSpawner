@@ -16,7 +16,6 @@ class SpotBasic:
         self.entry = entry
         self.take_profit = take_profit
         self.stop_loss = stop_loss
-        self.trade_market_price = self.get_price()
         self.timeout = timeout
         if not self.timeout:
             self.timeout = signal.time_generated + 604800000 #7 Days timeout in seconds, check this is correct with utils timer

@@ -3,7 +3,7 @@ import config
 from types import SimpleNamespace
 
 import utility
-import new_signal
+import handle_signal_message
 from config import get_telegram_config, get_commands
 import database_logging as db
 import os
