@@ -28,7 +28,7 @@ class Signal:
                 "base": self.base,
                 "pair": self.pair,
                 "entry": self.entry,
-                "profit_targets": self.take_profit,
+                "take_profit": self.take_profit,
                 "stop_loss": self.stop_loss,
                 "direction": self.direction,
                 "market_price": self.market_price,

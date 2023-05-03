@@ -149,6 +149,9 @@ class TelegramEvents:
             await handle_signal_message.process_message(signal_message)
         elif signal_message.message == '/lastweek':
             db.generate_last_week_signals()
+        elif signal_message.message == '/change_value':
+            print('changing value')
+            db.change_database_value()
 
     async def start_telegram_handler(self, client):
         '''telegram message event handler'''

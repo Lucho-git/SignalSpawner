@@ -286,12 +286,32 @@ def generate_last_week_signals():
             time_generated = inner_value['time_generated']
             time_generated_dt = datetime.fromtimestamp(time_generated/1000)
             if time_generated_dt > one_week:
-                print(time_generated_dt-one_week)
-                time_generated_list.append(time_generated)
-                print(inner_value)
-                print(handle_signal_message.trade_from_signal_data(inner_value))
+
+                trade = handle_signal_message.trade_from_signal_data(inner_value)
+                time_generated_list.append(trade)
+    time_sorted_data = sorted(time_generated_list, key=lambda x: x['time_generated'])
+    print(time_sorted_data)
 
 
 
     # Print the list of extracted values
     print(time_generated_list)
+
+
+def change_database_value():
+    '''Can change the path, and values you want to replace in database to anything'''
+    find_value = 'profit_targets'
+    replacement_value = 'take_profit'
+    path = paths.RAW_SIGNALS
+    data = database.child(path).get().val()
+    print('\n\n',data,'\n\n')
+    # Iterate over the outer dictionary
+    for outer_key, outer_value in data.items():
+        # Iterate over the inner dictionary
+        for inner_key, inner_value in outer_value.items():
+            print(inner_key)
+            if(find_value in inner_value):
+                    print(inner_value)
+                    inner_value[replacement_value] = inner_value.pop(find_value)
+                    database.child(path).child(outer_key).child(inner_key).set(inner_value)
+                    print('\n\nReplaced Value\n\n')

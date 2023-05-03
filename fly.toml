@@ -1,5 +1,3 @@
-fly.toml file generated for signal-spawner on 2023-04-27T15:11:07Z
-
 app = "signal-spawner"
 kill_signal = "SIGINT"
 kill_timeout = 5

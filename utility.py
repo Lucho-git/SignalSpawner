@@ -38,7 +38,6 @@ def get_price_precision(symbol):
     for f in symbol_info['filters']:
         if f['filterType'] == 'PRICE_FILTER':
             tick_size = str(f['tickSize'])
-            print(tick_size)
     split = tick_size.split('.')
     if split[0] == '1':
         return 0

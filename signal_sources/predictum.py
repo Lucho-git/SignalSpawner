@@ -14,21 +14,21 @@ class PredictumSignal(SignalProviderBase):
         pair = sanitised_message[0].split('⚡️⚡️')[1]
         coin, base = pair.split('/')
         entry = sanitised_message[3].split(':')[1].split('-')
-        profit_targets = []
+        take_profit = []
         stop_loss = ''
         for count, line in enumerate(sanitised_message[4:], start=1):
             #If target and # in line, append it to profit targets
             targetCheck = 'TARGET'+str(count)
             if(targetCheck in line.upper()):
-                profit_targets.append(line.split(':')[1])
+                take_profit.append(line.split(':')[1])
             elif('STOPLOSS' in line.upper()):
                 stop_loss = line.split(':')[1]
 
         direction = 'LONG'
-        if entry[0] > profit_targets[0]:
+        if entry[0] > take_profit[0]:
             direction = 'SHORT'
  
-        signal =  Signal(self.source, message, coin, base, entry, profit_targets, stop_loss, direction)
+        signal =  Signal(self.source, message, coin, base, entry, take_profit, stop_loss, direction)
         return signal
 
 

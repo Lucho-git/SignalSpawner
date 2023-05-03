@@ -9,6 +9,7 @@ class GGShotSignal(SignalProviderBase):
 
     def parse(self, message, sanitised_message):
         '''Parses out the signal message into values'''
+        print(sanitised_message)
         coin = sanitised_message[0].split('#')[1].split('USDT')[0]
         base = 'USDT'
         direction = ''
@@ -17,17 +18,17 @@ class GGShotSignal(SignalProviderBase):
         elif('LONG' in sanitised_message[1].upper()):
             direction = 'LONG'
         entry = sanitised_message[1].split(':')[1].split('-')
-        profit_targets = []
+        take_profit = []
         stop_loss = ''
-        for count, line in enumerate(sanitised_message[5:], start=1):
-            #If target and # in line, append it to profit targets
-            targetCheck = 'TARGET'+str(count)
-            if(targetCheck in line.upper()):
-                profit_targets.append(line.split(':')[1])
+        for count, line in enumerate(sanitised_message[4:], start=1):
+            #If target in line, append it to profit targets
+            if('TARGET' in line.upper() and ':' in line):
+                print(line)
+                take_profit.append(line.split(':')[1])
             elif('STOP-LOSS' in line.upper()):
                 stop_loss = line.split(':')[1]
 
-        signal =  Signal(self.source, message, coin, base, entry, profit_targets, stop_loss, direction)
+        signal =  Signal(self.source, message, coin, base, entry, take_profit, stop_loss, direction)
         return signal
 
 
