@@ -291,6 +291,7 @@ def generate_last_week_signals():
                 time_generated_list.append(trade)
     time_sorted_data = sorted(time_generated_list, key=lambda x: x['time_generated'])
     print(time_sorted_data)
+    post_signal(time_sorted_data)
 
 
 
@@ -300,8 +301,8 @@ def generate_last_week_signals():
 
 def change_database_value():
     '''Can change the path, and values you want to replace in database to anything'''
-    find_value = 'profit_targets'
-    replacement_value = 'take_profit'
+    find_value = ''
+    replacement_value = ''
     path = paths.RAW_SIGNALS
     data = database.child(path).get().val()
     print('\n\n',data,'\n\n')

@@ -12,11 +12,11 @@ class HirnSignal(SignalProviderBase):
         print(sanitised_message)
         coin, base = sanitised_message[0].split('#')[1].split('/')
         entry = sanitised_message[1].split(':')[1]
-        profit_target = sanitised_message[2].split(':')[1].split('+')[0]
+        take_profit = sanitised_message[2].split(':')[1].split('+')[0]
         stop_loss = float(entry)*0.95
         direction = 'LONG'
 
-        newSignal = Signal(self.source, message, coin, base, entry, profit_target, stop_loss, direction)
+        newSignal = Signal(self.source, message, coin, base, entry, take_profit, stop_loss, direction)
         return newSignal
     
 

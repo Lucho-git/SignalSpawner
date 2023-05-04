@@ -147,7 +147,7 @@ class TelegramEvents:
             signal_message.origin.name = 'testGGshot'
             print('GGSHOT EXAMPLE')
             await handle_signal_message.process_message(signal_message)
-        elif signal_message.message == '/lastweek':
+        elif signal_message.message == '/last_week':
             db.generate_last_week_signals()
         elif signal_message.message == '/change_value':
             print('changing value')

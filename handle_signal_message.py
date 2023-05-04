@@ -28,6 +28,7 @@ async def process_message(message):
         print('posting signal', trade)
         print(trade.__str__())
         data = trade.get_dict()
+        print('Posting Signal Data:', data)
         db.post_signal(data)
 
 

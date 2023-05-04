@@ -84,6 +84,8 @@ def get_commands():
         'ALWAYS_WIN_SIGNAL': '/aw',
         'HIRN_SIGNAL': '/hirn',
         'RAND_HIRN_SIGNAL': '/new_hirn',
+        'PREDICTUM': '/predictum',
+        'GGSHOT': '/ggshot',
         'UPDATE_NOW': '/now',
         'STATUS': '/status',
         'PAST': '/past',
@@ -95,6 +97,9 @@ def get_commands():
         'DISPLAY_PORTFOLIO': '/display_folio',
         'SNAPSHOT': '/snapshot',
         'CLOSE_FUTURE': '/close_future',
+        'GET_DB': '/get',
+        'LAST_WEEK': '/last_week',
+        'CHANGE_VALUE': '/change_value',
         'SIGNAL_GROUP': ['1548802426', '1248393106', '1558766055', '1825288627'],
         'GENERAL_GROUP': ['1576065688', '1220789766', '1794870864', '1798277168', '1109500936', '1250090891']
         }
@@ -115,6 +120,8 @@ def get_commands():
         'ALWAYS_WIN_SIGNAL': '/aw!',
         'HIRN_SIGNAL': '/hirn!',
         'RAND_HIRN_SIGNAL': '/new_hirn!',
+        'PREDICTUM': '/predictum!',
+        'GGSHOT': '/ggshot!',
         'UPDATE_NOW': '/now!',
         'STATUS': '/status!',
         'PAST': '/past!',
@@ -126,6 +133,9 @@ def get_commands():
         'DISPLAY_PORTFOLIO': '/display_folio!',
         'SNAPSHOT': '/snapshot!',
         'CLOSE_FUTURE': '/close_future!',
+        'GET_DB': '/get!',
+        'LAST_WEEK': '/last_week!',
+        'CHANGE_VALUE': '/change_value!',        
         'SIGNAL_GROUP': ['1548802426', '1248393106', '1558766055', '1825288627'],
         'GENERAL_GROUP': ['1576065688', '1220789766', '1794870864', '1798277168', '1109500936', '1250090891']
         }
