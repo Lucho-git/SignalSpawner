@@ -13,7 +13,7 @@ from discord.ext import commands
 # Get environment variables
 local = [True]
 if os.name == 'nt':
-    local[0] = True
+    local[0] = False
     print('Windows Detected...')
 else:
     # code is reachable, vscode lying
