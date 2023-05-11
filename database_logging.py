@@ -272,11 +272,9 @@ def save_raw_signal(signal):
 def generate_last_week_signals():
     path = paths.RAW_SIGNALS
     data = database.child(path).get().val()
-
     one_week = datetime.now() - timedelta(days=6)
-
-
     time_generated_list = []
+    print('generating last week signals...')
 
     # Iterate over the outer dictionary
     for outer_key, outer_value in data.items():
@@ -292,7 +290,6 @@ def generate_last_week_signals():
     time_sorted_data = sorted(time_generated_list, key=lambda x: x['time_generated'])
     print(time_sorted_data)
     post_signal(time_sorted_data)
-
 
 
     # Print the list of extracted values

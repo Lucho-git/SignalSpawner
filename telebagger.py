@@ -93,12 +93,14 @@ class TelegramEvents:
             await self.clientChannel[0].put('close')
             await self.client.disconnect()
         # Stream Commands
+
         elif signal_message.message == self.com.HIRN_SIGNAL:
             with open('docs/hirn_example.txt', 'r', encoding='utf-8') as f:
                 signal_message.message = f.read()
             signal_message.origin.id = '1248393106'
             signal_message.origin.name = 'Hirn'
             await handle_signal_message.process_message(signal_message)
+
         elif signal_message.message == self.com.RAND_HIRN_SIGNAL:
             signal_message.origin.id = '1248393106'
             signal_message.origin.name = 'randomHirn'
@@ -107,17 +109,22 @@ class TelegramEvents:
                     signal_message.message = m.message
                     await handle_signal_message.process_message(signal_message)
                     break
+
         elif signal_message.message == self.com.PAST:
             await self.get_past_messages('1248393106')
+
         elif signal_message.message == self.com.EXCEPT:
             raise Exception('Log this exception please')
-        elif '/get ' in signal_message.message:
+        
+        elif self.com.GET_DB in signal_message.message:
+        #/get key
             try:
-                data = db.get_from_realtime(signal_message.message.split('/get ')[1])
+                data = db.get_from_realtime(signal_message.message.split(self.com.GET_DB)[1])
                 for user in data.each():
                     print(f"{user.key()}: {user.val()}")
             except Exception as e:
                 print(e)
+
         elif '/new_disc_channel ' in signal_message.message:
             #Format like  /newchannel guildid-channelid nameofchannel category(ignore/signal)
             channelinfo = signal_message.message.split(' ')
@@ -125,31 +132,37 @@ class TelegramEvents:
             if channel_category not in ['signal', 'ignore']:
                 raise Exception('Wrong channel category, should be "signal" or "ignore"')
             db.add_discord_channel(channel_id_combo, channel_name, channel_category)
+
         elif '/new_tele_channel ' in signal_message.message:
             channelinfo = signal_message.message.split(' ')
             channel_id, channel_name, channel_category = channelinfo[1], channelinfo[2], channelinfo[3]
             if len(channel_id) == 10:
                 db.add_telegram_channel(channel_id, channel_name, channel_category)
+
         elif '/channel_link' in signal_message.message:
             channel_link = signal_message.message.split(' ')[1]
             channel_id = await self.client.get_entity(channel_link)
             print(channel_id)
-        elif signal_message.message == '/predictum':
+
+        elif signal_message.message == self.com.PREDICTUM:
             with open('docs/predictum_example.txt', 'r', encoding='utf-8') as f:
                 signal_message.message = f.read()
             signal_message.origin.id = '1558766055'
             signal_message.origin.name = 'lastPredictum'
             await handle_signal_message.process_message(signal_message)
-        elif signal_message.message == '/ggshot':
+
+        elif signal_message.message == self.com.GGSHOT:
             with open('docs/ggshot_example.txt', 'r', encoding='utf-8') as f:
                 signal_message.message = f.read()
             signal_message.origin.id = '1825288627'
             signal_message.origin.name = 'testGGshot'
-            print('GGSHOT EXAMPLE')
             await handle_signal_message.process_message(signal_message)
-        elif signal_message.message == '/last_week':
+
+        elif signal_message.message == self.com.LAST_WEEK:
+            print('getting last week of signals')
             db.generate_last_week_signals()
-        elif signal_message.message == '/change_value':
+
+        elif signal_message.message == self.com.CHANGE_VALUE:
             print('changing value')
             db.change_database_value()
 
