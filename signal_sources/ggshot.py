@@ -13,10 +13,6 @@ class GGShotSignal(SignalProviderBase):
         coin = sanitised_message[0].split('#')[1].split('USDT')[0]
         base = 'USDT'
         direction = ''
-        if('SHORT' in sanitised_message[1].upper()):
-            direction = 'SHORT'
-        elif('LONG' in sanitised_message[1].upper()):
-            direction = 'LONG'
         entry = sanitised_message[1].split(':')[1].split('-')
         take_profit = []
         stop_loss = ''
@@ -28,6 +24,10 @@ class GGShotSignal(SignalProviderBase):
             elif('STOP-LOSS' in line.upper()):
                 stop_loss = line.split(':')[1]
 
+        direction = 'LONG'
+        if entry[0] > take_profit[0]:
+            direction = 'SHORT'
+            
         signal =  Signal(self.source, message, coin, base, entry, take_profit, stop_loss, direction)
         return signal
 

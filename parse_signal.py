@@ -1,6 +1,5 @@
 import time
 from trade_conditions import FutureBasic, SpotBasic
-from signal_conditions import Signal
 import utility
 import database_logging as db
 import traceback

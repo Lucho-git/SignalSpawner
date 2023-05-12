@@ -272,7 +272,7 @@ def save_raw_signal(signal):
 def generate_last_week_signals():
     path = paths.RAW_SIGNALS
     data = database.child(path).get().val()
-    one_week = datetime.now() - timedelta(days=6)
+    one_week = datetime.now() - timedelta(days=7)
     time_generated_list = []
     print('generating last week signals...')
 

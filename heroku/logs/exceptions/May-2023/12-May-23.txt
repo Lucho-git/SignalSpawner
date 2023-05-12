@@ -1,0 +1,162 @@
+08:20:37:| 'types.SimpleNamespace' object has no attribute 'take_profit'
+Message:/last_week
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 171, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "/app/telebagger.py", line 151, in telegram_command
+    db.generate_last_week_signals()
+  File "/app/database_logging.py", line 290, in generate_last_week_signals
+    trade = handle_signal_message.trade_from_signal_data(inner_value)
+  File "/app/handle_signal_message.py", line 36, in trade_from_signal_data
+    return trade_from_signal(signal_from_signal_data(signal_data))
+  File "/app/handle_signal_message.py", line 45, in signal_from_signal_data
+    signal = Signal(signal_data.source, signal_data.signal, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction)
+AttributeError: 'types.SimpleNamespace' object has no attribute 'take_profit'
+
+
+08:20:40:| 'types.SimpleNamespace' object has no attribute 'take_profit'
+Message:/last_week
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 171, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "/app/telebagger.py", line 151, in telegram_command
+    db.generate_last_week_signals()
+  File "/app/database_logging.py", line 290, in generate_last_week_signals
+    trade = handle_signal_message.trade_from_signal_data(inner_value)
+  File "/app/handle_signal_message.py", line 36, in trade_from_signal_data
+    return trade_from_signal(signal_from_signal_data(signal_data))
+  File "/app/handle_signal_message.py", line 45, in signal_from_signal_data
+    signal = Signal(signal_data.source, signal_data.signal, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction)
+AttributeError: 'types.SimpleNamespace' object has no attribute 'take_profit'
+
+
+08:20:45:| 'types.SimpleNamespace' object has no attribute 'take_profit'
+Message:/last_week
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 171, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "/app/telebagger.py", line 151, in telegram_command
+    db.generate_last_week_signals()
+  File "/app/database_logging.py", line 290, in generate_last_week_signals
+    trade = handle_signal_message.trade_from_signal_data(inner_value)
+  File "/app/handle_signal_message.py", line 36, in trade_from_signal_data
+    return trade_from_signal(signal_from_signal_data(signal_data))
+  File "/app/handle_signal_message.py", line 45, in signal_from_signal_data
+    signal = Signal(signal_data.source, signal_data.signal, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction)
+AttributeError: 'types.SimpleNamespace' object has no attribute 'take_profit'
+
+
+08:21:35:| 'types.SimpleNamespace' object has no attribute 'take_profit'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 184, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 163, in telegram_command
+    db.generate_last_week_signals()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 288, in generate_last_week_signals
+    trade = handle_signal_message.trade_from_signal_data(inner_value)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 36, in trade_from_signal_data
+    return trade_from_signal(signal_from_signal_data(signal_data))
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 45, in signal_from_signal_data
+    signal = Signal(signal_data.source, signal_data.signal, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction)
+AttributeError: 'types.SimpleNamespace' object has no attribute 'take_profit'
+
+
+08:27:37:| 'types.SimpleNamespace' object has no attribute 'take_profit'
+Message:/last_week
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 171, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "/app/telebagger.py", line 151, in telegram_command
+    db.generate_last_week_signals()
+  File "/app/database_logging.py", line 290, in generate_last_week_signals
+    trade = handle_signal_message.trade_from_signal_data(inner_value)
+  File "/app/handle_signal_message.py", line 36, in trade_from_signal_data
+    return trade_from_signal(signal_from_signal_data(signal_data))
+  File "/app/handle_signal_message.py", line 45, in signal_from_signal_data
+    signal = Signal(signal_data.source, signal_data.signal, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction)
+AttributeError: 'types.SimpleNamespace' object has no attribute 'take_profit'
+
+
+08:27:41:| 'types.SimpleNamespace' object has no attribute 'take_profit'
+Message:/last_week
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 171, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "/app/telebagger.py", line 151, in telegram_command
+    db.generate_last_week_signals()
+  File "/app/database_logging.py", line 290, in generate_last_week_signals
+    trade = handle_signal_message.trade_from_signal_data(inner_value)
+  File "/app/handle_signal_message.py", line 36, in trade_from_signal_data
+    return trade_from_signal(signal_from_signal_data(signal_data))
+  File "/app/handle_signal_message.py", line 45, in signal_from_signal_data
+    signal = Signal(signal_data.source, signal_data.signal, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction)
+AttributeError: 'types.SimpleNamespace' object has no attribute 'take_profit'
+
+
+08:27:44:| [Errno 2] No such file or directory: 'docs/ggshot_example.txt'
+Message:/ggshot
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 171, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "/app/telebagger.py", line 144, in telegram_command
+    with open('docs/ggshot_example.txt', 'r', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'docs/ggshot_example.txt'
+
+
+08:29:27:| [Errno 2] No such file or directory: 'docs/ggshot_example.txt'
+Message:/ggshot
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 171, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "/app/telebagger.py", line 144, in telegram_command
+    with open('docs/ggshot_example.txt', 'r', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'docs/ggshot_example.txt'
+
+
+08:32:50:| [Errno 2] No such file or directory: 'docs/ggshot_example.txt'
+Message:/ggshot
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 171, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "/app/telebagger.py", line 144, in telegram_command
+    with open('docs/ggshot_example.txt', 'r', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'docs/ggshot_example.txt'
+
+
+08:34:51:| [Errno 2] No such file or directory: 'docs/ggshot_example.txt'
+Message:/ggshot
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 171, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "/app/telebagger.py", line 144, in telegram_command
+    with open('docs/ggshot_example.txt', 'r', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'docs/ggshot_example.txt'
+
+
+08:36:08:| [Errno 2] No such file or directory: 'docs/ggshot_example.txt'
+Message:/ggshot
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 171, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "/app/telebagger.py", line 144, in telegram_command
+    with open('docs/ggshot_example.txt', 'r', encoding='utf-8') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'docs/ggshot_example.txt'
+
+
+08:50:57:| 'types.SimpleNamespace' object has no attribute 'take_profit'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 184, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 163, in telegram_command
+    db.generate_last_week_signals()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 288, in generate_last_week_signals
+    trade = handle_signal_message.trade_from_signal_data(inner_value)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 36, in trade_from_signal_data
+    return trade_from_signal(signal_from_signal_data(signal_data))
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 45, in signal_from_signal_data
+    signal = Signal(signal_data.source, signal_data.signal, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction)
+AttributeError: 'types.SimpleNamespace' object has no attribute 'take_profit'
+
+
