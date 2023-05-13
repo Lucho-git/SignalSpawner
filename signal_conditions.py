@@ -9,6 +9,13 @@ These values should be static
 '''
 class Signal:
     def __init__(self, source, message, coin, base, entry, take_profit, stop_loss, direction):
+
+        #Validate Signal
+        if not take_profit:
+            raise TypeError('No Take Profit value')
+        if not stop_loss:
+            raise TypeError('No Stop Loss value')
+
         self.source = source
         self.message = message
         self.coin = coin

@@ -164,7 +164,7 @@ class TelegramEvents:
 
         elif signal_message.message == self.com.CHANGE_VALUE:
             print('changing value')
-            db.change_database_value()
+            db.change_database_value()            
 
     async def start_telegram_handler(self, client):
         '''telegram message event handler'''

@@ -24,12 +24,15 @@ async def process_message(message):
     controller = controller_mapping.get(message.origin.id)
     if controller.validate_signal(message.message):
         signal = controller.new_signal_message(message)
-        trade = controller.get_trade_from_signal(signal)
-        print('posting signal', trade)
-        print(trade.__str__())
-        data = trade.get_dict()
-        print('Posting Signal Data:', data)
-        db.post_signal(data)
+        trade = controller.get_filtered_trade_from_signal(signal)
+        if trade:
+            print('posting signal', trade)
+            print(trade.__str__())
+            data = trade.get_dict()
+            print('Posting Signal Data:', data)
+            db.post_signal(data)
+        else:
+            print('\nFiltered Signal:', signal)
 
 
 def trade_from_signal_data(signal_data):

@@ -34,7 +34,7 @@ class PredictumSignal(SignalProviderBase):
 
     def get_trade_from_signal(self, signal):
         '''Convert Signal into trade values'''
-        trade = SpotBasic(signal, signal.entry[0], signal.take_profit[1], signal.stop_loss)
+        trade = FutureBasic(signal, signal.entry[0], signal.take_profit[1], signal.stop_loss, signal.direction, 1)
         return trade
     
     

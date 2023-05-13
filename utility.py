@@ -5,9 +5,10 @@ import binance
 import numpy as np
 import math
 from datetime import datetime
-from config import get_binance_config
+from config import get_binance_config, get_binance_exchange_info
 
 realclient = get_binance_config()
+binance_exchange_info = get_binance_exchange_info()
 
 def format_float(num):
     return np.format_float_positional(num, trim='-')
@@ -34,7 +35,7 @@ def get_timestamp_now():
     return stamp
 
 def get_price_precision(symbol):
-    symbol_info = realclient.get_symbol_info(symbol)
+    symbol_info = get_binance_symbol_info(symbol)
     for f in symbol_info['filters']:
         if f['filterType'] == 'PRICE_FILTER':
             tick_size = str(f['tickSize'])
@@ -53,4 +54,15 @@ def round_decimals_down(number: float, decimals: int = 2):
 
 def sanitise_price_data(symbol, price):
     precision = get_price_precision(symbol)
-    return round_decimals_down(float(price), precision)
+    print('Sanitising Price:', price, precision)
+    if isinstance(price, list):
+        for p in price:
+            p = round_decimals_down(float(p), precision)
+    elif isinstance(price, str) or isinstance(price, float):
+        price = round_decimals_down(float(price), precision)
+    else:
+        raise ValueError('Bad Data Type', str(type(price)))
+    return price
+
+def get_binance_symbol_info(symbol):
+    return binance_exchange_info.get(symbol)

@@ -58,17 +58,7 @@ class SpotBasic:
         return float(config.get_binance_config().get_symbol_ticker(symbol=self.signal.pair)['price'])
     
     def __str__(self) -> str:
-        return str({
-                "source": self.signal.source,
-                "coin": self.signal.coin,
-                "base": self.signal.base,
-                "pair": self.signal.pair,
-                "entry": self.entry,
-                "profit": self.take_profit,
-                "loss": self.stop_loss,
-                "time_generated": self.signal.time_generated,
-                "timeout": self.timeout,
-                })
+        return str(self.get_dict())
 
     def get_dict(self):
         return {
@@ -79,9 +69,34 @@ class SpotBasic:
             "entry": self.entry,
             "profit": self.take_profit,
             "loss": self.stop_loss,
+            "direction": "LONG",
             "timeout": self.timeout,
             "time_generated": self.signal.time_generated
         }
+
+class FutureBasic(SpotBasic):
+    '''Futures basic is a market futures order, can only be ISO,
+    must have stoploss before liquidation value'''
+    def __init__(self, signal, entry, take_profit, stop_loss, direction, leverage, timeout=None):
+        super().__init__(signal, entry, take_profit, stop_loss, timeout)
+        self.direction = direction
+        self.leverage = leverage
+
+    def get_dict(self):
+        return {
+            "source": self.signal.source,
+            "coin": self.signal.coin,
+            "base": self.signal.base,
+            "pair": self.signal.pair,
+            "entry": self.entry,
+            "profit": self.take_profit,
+            "loss": self.stop_loss,
+            "direction": self.direction,
+            "leverage": self.leverage,
+            "timeout": self.timeout,
+            "time_generated": self.signal.time_generated
+        }
+
 
 class SpotAdvanced(SpotBasic):
     """Spot advanced allows for multiple exit prices and percentages"""
@@ -90,13 +105,6 @@ class SpotAdvanced(SpotBasic):
         self.profit_amount = profit_amount
         self.loss_amount = loss_amount
 
-class FutureBasic(SpotBasic):
-    '''Futures basic is a market futures order, can only be ISO,
-    must have stoploss before liquidation value'''
-    def __init__(self, source, signal, coin, direction, leverage, entry, profit, loss=None, timeout=None):
-        super().__init__(source, signal, 'USD', coin, entry, profit, loss, timeout)
-        self.direction = direction
-        self.leverage = leverage
 
 class FutureAdvanced(SpotAdvanced):
     '''Futures advanced combines all of the previous features in a derivatives market'''

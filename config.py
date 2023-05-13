@@ -2,6 +2,7 @@
 import os
 import pyrebase
 import pytz
+import json
 from binance.client import Client
 from dotenv import load_dotenv
 from telethon import TelegramClient
@@ -174,3 +175,10 @@ def get_storage_paths():
         "SIGNAL_ENDPOINT_URL": 'https://luchodore.pythonanywhere.com/save_data'
         }
     return munch.munchify(file_paths)
+
+def get_binance_exchange_info():
+    with open('docs/binance_exchange_info.txt', 'r', encoding='utf-8') as f:
+        data = f.read()
+        json_data = json.loads(data)
+        symbols_dict = {item['symbol']: item for item in json_data['symbols']}
+        return symbols_dict

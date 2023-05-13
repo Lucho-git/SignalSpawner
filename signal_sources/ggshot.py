@@ -25,6 +25,8 @@ class GGShotSignal(SignalProviderBase):
                 stop_loss = line.split(':')[1]
 
         direction = 'LONG'
+        print(entry[0],'>', take_profit[0])
+        print(entry[0] > take_profit[0])
         if entry[0] > take_profit[0]:
             direction = 'SHORT'
             
@@ -34,7 +36,7 @@ class GGShotSignal(SignalProviderBase):
 
     def get_trade_from_signal(self, signal):
         '''Convert Signal into trade values'''
-        trade = SpotBasic(signal, signal.entry[0], signal.take_profit[0], signal.stop_loss)
+        trade = FutureBasic(signal, signal.entry[0], signal.take_profit[1], signal.stop_loss, signal.direction, 1)
         return trade
     
 
