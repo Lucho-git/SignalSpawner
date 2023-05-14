@@ -9,6 +9,7 @@ import time
 import os
 import traceback
 import config
+import backtesting
 from types import SimpleNamespace
 
 
@@ -164,7 +165,10 @@ class TelegramEvents:
 
         elif signal_message.message == self.com.CHANGE_VALUE:
             print('changing value')
-            db.change_database_value()            
+            db.change_database_value()   
+
+        elif signal_message.message == self.com.BACK_TEST:
+            backtesting.run_backtest()
 
     async def start_telegram_handler(self, client):
         '''telegram message event handler'''

@@ -12,3 +12,4 @@ discord.py-self==1.9.2
 nest-asyncio==1.5.6
 munch
 jsonpickle
+pandas

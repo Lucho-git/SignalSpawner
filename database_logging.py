@@ -284,9 +284,10 @@ def generate_last_week_signals():
             time_generated = inner_value['time_generated']
             time_generated_dt = datetime.fromtimestamp(time_generated/1000)
             if time_generated_dt > one_week:
-
-                trade = handle_signal_message.trade_from_signal_data(inner_value)
-                time_generated_list.append(trade)
+                trade = handle_signal_message.trade_from_signal_data(inner_value, True)
+                if trade:
+                    post_data = trade.get_dict()
+                    time_generated_list.append(post_data)
     time_sorted_data = sorted(time_generated_list, key=lambda x: x['time_generated'])
     print(time_sorted_data)
     post_signal(time_sorted_data)

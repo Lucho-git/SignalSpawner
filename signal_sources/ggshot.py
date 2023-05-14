@@ -41,6 +41,7 @@ class GGShotSignal(SignalProviderBase):
     
 
     def filter_trade(self, trade):
+        return True
         if trade.signal.direction == 'LONG':
             return True
         return False

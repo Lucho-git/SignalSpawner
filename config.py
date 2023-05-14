@@ -101,6 +101,8 @@ def get_commands():
         'GET_DB': '/get ',
         'LAST_WEEK': '/last_week',
         'CHANGE_VALUE': '/change_value',
+        'BACK_TEST': '/back_test',
+
         'SIGNAL_GROUP': ['1548802426', '1248393106', '1558766055', '1825288627'],
         'GENERAL_GROUP': ['1576065688', '1220789766', '1794870864', '1798277168', '1109500936', '1250090891']
         }
@@ -137,6 +139,7 @@ def get_commands():
         'GET_DB': '/get! ',
         'LAST_WEEK': '/last_week!',
         'CHANGE_VALUE': '/change_value!',        
+        'BACK_TEST': '/back_test!',
         'SIGNAL_GROUP': ['1548802426', '1248393106', '1558766055', '1825288627'],
         'GENERAL_GROUP': ['1576065688', '1220789766', '1794870864', '1798277168', '1109500936', '1250090891']
         }

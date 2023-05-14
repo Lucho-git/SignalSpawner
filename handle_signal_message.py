@@ -35,8 +35,8 @@ async def process_message(message):
             print('\nFiltered Signal:', signal)
 
 
-def trade_from_signal_data(signal_data):
-    return trade_from_signal(signal_from_signal_data(signal_data))
+def trade_from_signal_data(signal_data, filter):
+    return trade_from_signal(signal_from_signal_data(signal_data), filter)
 
 
 def signal_from_signal_data(signal_data):
@@ -51,12 +51,14 @@ def signal_from_signal_data(signal_data):
     return signal
 
 
-def trade_from_signal(signal):
+def trade_from_signal(signal, filter):
     '''Creates a trade from signal data'''
     controller = controller_mapping.get(signal.message.origin.id)
-    trade = controller.get_trade_from_signal(signal)
-    post_data = trade.get_dict()
-    return post_data
+    if filter:
+        return controller.get_filtered_trade_from_signal(signal)
+    else:
+        return controller.get_trade_from_signal(signal)
+
 
 
 def deep_namespace(d):

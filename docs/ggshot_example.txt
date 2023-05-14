@@ -1,19 +1,19 @@
-📩 #NEARUSDT 30m | Mid-Term
-📈 Short Entry Zone:1.8-2
-🎯Accuracy of this strategy - 82.00%
-
+📩 #MAGICUSDT 30m | Mid-Term
+📈 Long Entry Zone:0.836-0.815
+🎯Accuracy of this strategy - 88.00%
+Exchange: Binance Future,Kucoin,Bybit USDT
 
 - ⏳ -  Signal details:
 
 
 
-Target1 :1.791
-Target2 : 1.773
-Target3 : 1.755
-Target4 : 1.7208
-Target5:1.701
+Target1 :0.84043
+Target2 : 0.85021
+Target3 : 0.85941
+Target4 : 0.90288
+
 
 _____
 Leverage : 20x
-❌Stop-Loss: 2.08
+❌Stop-Loss: 0.7661
 💡After reaching the first target you can put the rest of the position to breakeven
