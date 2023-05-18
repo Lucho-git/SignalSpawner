@@ -68,81 +68,45 @@ def get_discord_config():
 
 def get_commands():
     """Returns set of telegram commands"""
-    if local[0]:
-        # Stream Commands Local
-        chat_commands = {
-        'STOP': '/stop',
-        'STREAM': '/stream',
-        'STOPSTREAM': '/stopstream',
-        'RESTART': '/restart',
-        'MENU': '/menu',
-        'ADD': '/add',
-        'ADD2': '/add2',
-        'ADD3': '/add3',
-        'UPDATE': '/update',
-        'UPDATE2': '/update2',
-        'PRE_AW': '/pre_aw',
-        'ALWAYS_WIN_SIGNAL': '/aw',
-        'HIRN_SIGNAL': '/hirn',
-        'RAND_HIRN_SIGNAL': '/new_hirn',
-        'PREDICTUM': '/predictum',
-        'GGSHOT': '/ggshot',
-        'UPDATE_NOW': '/now',
-        'STATUS': '/status',
-        'PAST': '/past',
-        'EXCEPT': '/except',
-        'DUMP': '/dump',
-        'SMOOTH_DUMP': '/smooth_dump',
-        'NEW_PORTFOLIO': '/newport',
-        'CLEAR_PORTFOLIO': '/clear_folio',
-        'DISPLAY_PORTFOLIO': '/display_folio',
-        'SNAPSHOT': '/snapshot',
-        'CLOSE_FUTURE': '/close_future',
-        'GET_DB': '/get ',
-        'LAST_WEEK': '/last_week',
-        'CHANGE_VALUE': '/change_value',
-        'BACK_TEST': '/back_test',
-
-        'SIGNAL_GROUP': ['1548802426', '1248393106', '1558766055', '1825288627'],
-        'GENERAL_GROUP': ['1576065688', '1220789766', '1794870864', '1798277168', '1109500936', '1250090891']
-        }
-    else:
+    # Stream Commands Local
+    chat_commands = {
+    'STOP': '/stop',
+    'STREAM': '/stream',
+    'STOPSTREAM': '/stopstream',
+    'RESTART': '/restart',
+    'MENU': '/menu',
+    'ADD': '/add',
+    'ADD2': '/add2',
+    'ADD3': '/add3',
+    'UPDATE': '/update',
+    'UPDATE2': '/update2',
+    'PRE_AW': '/pre_aw',
+    'ALWAYS_WIN_SIGNAL': '/aw',
+    'HIRN_SIGNAL': '/hirn',
+    'RAND_HIRN_SIGNAL': '/new_hirn',
+    'PREDICTUM': '/predictum',
+    'GGSHOT': '/ggshot',
+    'UPDATE_NOW': '/now',
+    'STATUS': '/status',
+    'PAST': '/past',
+    'EXCEPT': '/except',
+    'DUMP': '/dump',
+    'SMOOTH_DUMP': '/smooth_dump',
+    'NEW_PORTFOLIO': '/newport',
+    'CLEAR_PORTFOLIO': '/clear_folio',
+    'DISPLAY_PORTFOLIO': '/display_folio',
+    'SNAPSHOT': '/snapshot',
+    'CLOSE_FUTURE': '/close_future',
+    'GET_DB': '/get ',
+    'LAST_WEEK': '/last_week',
+    'CHANGE_VALUE': '/change_value',
+    'BACK_TEST': '/back_test',
+    }
+    if not local[0]:
         # Stream Commands Heroku Hosted
-        chat_commands = {
-        'STOP': '/stop!',
-        'STREAM': '/stream!',
-        'STOPSTREAM': '/stopstream!',
-        'RESTART': '/restart!',
-        'MENU': '/menu!',
-        'ADD': '/add!',
-        'ADD2': '/add2!',
-        'ADD3': '/add3!',
-        'UPDATE': '/update!',
-        'UPDATE2': '/update2!',
-        'PRE_AW': '/pre_aw!',
-        'ALWAYS_WIN_SIGNAL': '/aw!',
-        'HIRN_SIGNAL': '/hirn!',
-        'RAND_HIRN_SIGNAL': '/new_hirn!',
-        'PREDICTUM': '/predictum!',
-        'GGSHOT': '/ggshot!',
-        'UPDATE_NOW': '/now!',
-        'STATUS': '/status!',
-        'PAST': '/past!',
-        'EXCEPT': '/except!',
-        'DUMP': '/dump!',
-        'SMOOTH_DUMP': '/smooth_dump!',
-        'NEW_PORTFOLIO': '/newport!',
-        'CLEAR_PORTFOLIO': '/clear_folio!',
-        'DISPLAY_PORTFOLIO': '/display_folio!',
-        'SNAPSHOT': '/snapshot!',
-        'CLOSE_FUTURE': '/close_future!',
-        'GET_DB': '/get! ',
-        'LAST_WEEK': '/last_week!',
-        'CHANGE_VALUE': '/change_value!',        
-        'BACK_TEST': '/back_test!',
-        'SIGNAL_GROUP': ['1548802426', '1248393106', '1558766055', '1825288627'],
-        'GENERAL_GROUP': ['1576065688', '1220789766', '1794870864', '1798277168', '1109500936', '1250090891']
-        }
+        chat_commands = [command + '!' for command in chat_commands.values()]
+    chat_commands['SIGNAL_GROUP'] = ['1548802426', '1248393106', '1558766055', '1825288627']
+    chat_commands['GENERAL_GROUP'] = ['1576065688', '1220789766', '1794870864', '1798277168', '1109500936', '1250090891']
     return munch.munchify(chat_commands)
 
 def get_storage_paths():
