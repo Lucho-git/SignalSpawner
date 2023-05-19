@@ -10,10 +10,11 @@ BacktestResult = namedtuple('BacktestResult', [
     'exit_condition', 
     'stop_price', 
     'stop_time', 
-    'stoploss_percentage', 
+    'stop_percentage', 
     'take_profit_hits', 
     'take_profit_times', 
-    'take_profit_percentages'
+    'take_profit_percentages',
+    'backtest_type',
 ])
 
 
@@ -75,7 +76,7 @@ class BackTest:
 
         for index, row in self.data.iterrows():
             if (row['open_time'] - self.entry_time) / (1000 * 60 * 60) > self.entry_timeout_hours:
-                return BacktestResult('time_out', None, None, None, take_profit_hits, take_profit_times, take_profit_percentages)
+                return BacktestResult('time_out', None, None, None, take_profit_hits, take_profit_times, take_profit_percentages, 'standard')
             
             if self.direction == 'LONG' and row['low'] <= self.entry_price:
                 entered = True
@@ -87,7 +88,7 @@ class BackTest:
             if (self.direction == 'LONG' and row['low'] <= stop_loss) or (self.direction == 'SHORT' and row['high'] >= stop_loss):
                 stop_loss_percentage = self.calculate_profit_percentage(stop_loss)
                 stop_loss_time = round((row['open_time'] - self.entry_time) / (1000 * 60 * 60), 2)
-                return BacktestResult('stop_loss', stop_loss, stop_loss_time, stop_loss_percentage, take_profit_hits, take_profit_times, take_profit_percentages)
+                return BacktestResult('stop_loss', stop_loss, stop_loss_time, stop_loss_percentage, take_profit_hits, take_profit_times, take_profit_percentages, 'standard')
 
             for take_profit in list(take_profit_values):  # Iterate over a copy
                 if (self.direction == 'LONG' and row['high'] >= take_profit) or (self.direction == 'SHORT' and row['low'] <= take_profit):
@@ -102,7 +103,7 @@ class BackTest:
         elif not entered:
             exit_condition = 'not_entered'
         
-        return BacktestResult(exit_condition, None, None, None, take_profit_hits, take_profit_times, take_profit_percentages)
+        return BacktestResult(exit_condition, None, None, None, take_profit_hits, take_profit_times, take_profit_percentages, 'standard')
 
 
     def backtest_with_trailing_stop(self):
@@ -115,7 +116,7 @@ class BackTest:
 
         for index, row in self.data.iterrows():
             if (row['open_time'] - self.entry_time) / (1000 * 60 * 60) > self.entry_timeout_hours:
-                return BacktestResult('time_out', None, None, None, take_profit_hits, take_profit_times, take_profit_percentages)
+                return BacktestResult('time_out', None, None, None, take_profit_hits, take_profit_times, take_profit_percentages, 'trailing_stop')
 
             if self.direction == 'LONG' and row['low'] <= self.entry_price:
                 entered = True
@@ -127,7 +128,7 @@ class BackTest:
             if (self.direction == 'LONG' and row['low'] <= stop_loss) or (self.direction == 'SHORT' and row['high'] >= stop_loss):
                 stop_loss_percentage = self.calculate_profit_percentage(stop_loss)
                 stop_loss_time = round((row['open_time'] - self.entry_time) / (1000 * 60 * 60), 2)
-                return BacktestResult('stop_loss', stop_loss, stop_loss_time, stop_loss_percentage, take_profit_hits, take_profit_times, take_profit_percentages)
+                return BacktestResult('stop_loss', stop_loss, stop_loss_time, stop_loss_percentage, take_profit_hits, take_profit_times, take_profit_percentages, 'trailing_stop')
 
             for take_profit in list(take_profit_values):
                 if (self.direction == 'LONG' and row['high'] >= take_profit) or (self.direction == 'SHORT' and row['low'] <= take_profit):
@@ -143,7 +144,7 @@ class BackTest:
         elif not entered:
             exit_condition = 'not_entered'
         
-        return BacktestResult(exit_condition, None, None, None, take_profit_hits, take_profit_times, take_profit_percentages)
+        return BacktestResult(exit_condition, None, None, None, take_profit_hits, take_profit_times, take_profit_percentages, 'trailing_stop')
 
 
     def backtest_with_progressive_stop(self):
@@ -158,7 +159,7 @@ class BackTest:
 
         for index, row in self.data.iterrows():
             if (row['open_time'] - self.entry_time) / (1000 * 60 * 60) > self.entry_timeout_hours:
-                return BacktestResult('time_out', None, None, None, take_profit_hits, take_profit_times, take_profit_percentages)
+                return BacktestResult('time_out', None, None, None, take_profit_hits, take_profit_times, take_profit_percentages, 'progressive_stop')
 
             if self.direction == 'LONG' and row['low'] <= self.entry_price:
                 entered = True
@@ -170,7 +171,7 @@ class BackTest:
             if (self.direction == 'LONG' and row['low'] <= stop_loss) or (self.direction == 'SHORT' and row['high'] >= stop_loss):
                 stop_loss_percentage = self.calculate_profit_percentage(stop_loss)
                 stop_loss_time = round((row['open_time'] - self.entry_time) / (1000 * 60 * 60), 2)
-                return BacktestResult('stop_loss', stop_loss, stop_loss_time, stop_loss_percentage, take_profit_hits, take_profit_times, take_profit_percentages)
+                return BacktestResult('stop_loss', stop_loss, stop_loss_time, stop_loss_percentage, take_profit_hits, take_profit_times, take_profit_percentages, 'progressive_stop')
 
             for take_profit in list(take_profit_values):
                 if (self.direction == 'LONG' and row['high'] >= take_profit) or (self.direction == 'SHORT' and row['low'] <= take_profit):
@@ -191,14 +192,15 @@ class BackTest:
         elif not entered:
             exit_condition = 'not_entered'
         
-        return BacktestResult(exit_condition, None, None, None, take_profit_hits, take_profit_times, take_profit_percentages)
+        return BacktestResult(exit_condition, None, None, None, take_profit_hits, take_profit_times, take_profit_percentages, 'progressive_stop')
     
 
-    def print_result(self, result):
-        print(f"\nExit Condition: {result.exit_condition}")
-        print(f"StopLoss Price: {result.result_price}")
-        print(f"StopLoss Time: {result.result_time}")
-        print(f"StopLoss Percentage: {result.result_percentage}")
+    def print_result(self, result, symbol):
+        print(f"\nRunning Backtest on {symbol}, with {result.backtest_type} strategy")
+        print(f"Exit Condition: {result.exit_condition}")
+        print(f"StopLoss Price: {result.stop_price}")
+        print(f"StopLoss Time: {result.stop_time}")
+        print(f"StopLoss Percentage: {result.stop_percentage}")
         print(f"Number of Take Profits hit: {result.take_profit_hits}")
         if result.take_profit_hits > 0:
             print("Take Profits hit:")
@@ -211,7 +213,7 @@ def get_sample_long_data():
     return ['MAGICUSDT', client.KLINE_INTERVAL_5MINUTE, '1684059363825', 0.837, [0.84043,0.85021,0.85941,0.90288], 0.7661, 'LONG']
 
 def get_sample_short_data():
-    return ['COTIUSDT', client.KLINE_INTERVAL_5MINUTE, '1684385817070', 0.0717, [0.07164, 0.07092, 0.0702, 0.06883, 0.06804], 0.078, 'SHORT']
+    return ['COTIUSDT', client.KLINE_INTERVAL_5MINUTE, '1684385817070', 0.072, [0.07164, 0.07092, 0.0702, 0.06883, 0.06804], 0.078, 'SHORT']
 
 def get_backtest_from_signal():
     pass
@@ -236,13 +238,13 @@ def run_backtest():
 
 
     result = backtest.backtest()
-    backtest.print_result(result)
+    backtest.print_result(result, symbol)
 
     result = backtest.backtest_with_trailing_stop()
-    backtest.print_result(result)
+    backtest.print_result(result, symbol)
 
     result = backtest.backtest_with_progressive_stop()
-    backtest.print_result(result)
+    backtest.print_result(result, symbol)
 
 
 
