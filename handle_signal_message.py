@@ -42,10 +42,7 @@ def trade_from_signal_data(signal_data, filter):
 def signal_from_signal_data(signal_data):
     '''Clones a new signal from json signal data'''
     signal_data = deep_namespace(signal_data)
-    if hasattr(signal_data, 'message'):
-        signal = Signal(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction)
-    else:
-        signal = Signal(signal_data.source, signal_data.signal, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction)
+    signal = Signal(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction)
     signal.market_price = signal_data.market_price
     signal.time_generated = signal_data.time_generated
     return signal

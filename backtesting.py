@@ -195,8 +195,8 @@ class BackTest:
         return BacktestResult(exit_condition, None, None, None, take_profit_hits, take_profit_times, take_profit_percentages, 'progressive_stop')
     
 
-    def print_result(self, result, symbol):
-        print(f"\nRunning Backtest on {symbol}, with {result.backtest_type} strategy")
+    def print_result(self, result):
+        print(f"\nRunning Backtest on {self.symbol}, with {result.backtest_type} strategy")
         print(f"Exit Condition: {result.exit_condition}")
         print(f"StopLoss Price: {result.stop_price}")
         print(f"StopLoss Time: {result.stop_time}")
@@ -215,9 +215,17 @@ def get_sample_long_data():
 def get_sample_short_data():
     return ['COTIUSDT', client.KLINE_INTERVAL_5MINUTE, '1684385817070', 0.072, [0.07164, 0.07092, 0.0702, 0.06883, 0.06804], 0.078, 'SHORT']
 
-def get_backtest_from_signal():
-    pass
-
+def run_backtest_from_signal(signal):
+    
+    for key, value in vars(signal).items():
+        print(f"{key}: {value} (type: {type(value)})")
+    entry = signal.entry[0]
+    backtest = BackTest(signal.time_generated, entry, signal.take_profit, signal.stop_loss, signal.direction, signal.pair, client.KLINE_INTERVAL_5MINUTE)
+    
+    
+    backtest.print_result(backtest.backtest())
+    backtest.print_result(backtest.backtest_with_trailing_stop())
+    backtest.print_result(backtest.backtest_with_progressive_stop())
 
 
 def run_backtest():
@@ -238,13 +246,13 @@ def run_backtest():
 
 
     result = backtest.backtest()
-    backtest.print_result(result, symbol)
+    backtest.print_result(result)
 
     result = backtest.backtest_with_trailing_stop()
-    backtest.print_result(result, symbol)
+    backtest.print_result(result)
 
     result = backtest.backtest_with_progressive_stop()
-    backtest.print_result(result, symbol)
+    backtest.print_result(result)
 
 
 

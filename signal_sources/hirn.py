@@ -15,13 +15,13 @@ class HirnSignal(SignalProviderBase):
         take_profit = sanitised_message[2].split(':')[1].split('+')[0]
         stop_loss = float(entry)*0.95
 
-        newSignal = Signal(self.source, message, coin, base, entry, take_profit, stop_loss, 'LONG')
+        newSignal = Signal(self.source, message, coin, base, [entry], [take_profit], stop_loss, 'LONG')
         return newSignal
     
 
     def get_trade_from_signal(self, signal):
         '''Convert Signal into trade values'''
-        trade = SpotBasic(signal, signal.entry, signal.take_profit, signal.stop_loss)
+        trade = SpotBasic(signal, signal.entry[0], signal.take_profit[0], signal.stop_loss)
         return trade
 
 

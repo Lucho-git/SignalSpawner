@@ -297,20 +297,45 @@ def generate_last_week_signals():
     print(time_generated_list)
 
 
+def get_old_signals():
+    print('getting them')
+    path = paths.RAW_SIGNALS
+    data = database.child(path).get().val()
+    one_week = datetime.now() - timedelta(days=7)
+    time_generated_list = []
+    print('generating last week signals...')
+    # Iterate over the outer dictionary
+    for outer_key, outer_value in data.items():
+        # Iterate over the inner dictionary
+        for inner_key, inner_value in outer_value.items():
+            # Extract the time_generated field
+            time_generated = inner_value['time_generated']
+            time_generated_dt = datetime.fromtimestamp(time_generated/1000)
+            if time_generated_dt < one_week:
+                signal = handle_signal_message.signal_from_signal_data(inner_value)
+                if signal:
+                    print(signal, type(signal))
+                    time_generated_list.append(signal)
+                    break
+    time_sorted_data = sorted(time_generated_list, key=lambda x: x.time_generated)
+    print('Returning:', time_sorted_data)
+    return time_sorted_data
+
+
 def change_database_value():
     '''Can change the path, and values you want to replace in database to anything'''
     find_value = ''
     replacement_value = ''
     path = paths.RAW_SIGNALS
     data = database.child(path).get().val()
-    print('\n\n',data,'\n\n')
+    #print('\n\n',data,'\n\n')
     # Iterate over the outer dictionary
     for outer_key, outer_value in data.items():
         # Iterate over the inner dictionary
         for inner_key, inner_value in outer_value.items():
-            print(inner_key)
-            if(find_value in inner_value):
-                    print(inner_value)
-                    inner_value[replacement_value] = inner_value.pop(find_value)
-                    database.child(path).child(outer_key).child(inner_key).set(inner_value)
-                    print('\n\nReplaced Value\n\n')
+            if(find_value in inner_value and isinstance(inner_value[find_value], str)):
+                inner_value[find_value] = [inner_value[find_value]]
+                print('\nInner Value', inner_value[find_value], type(inner_value[find_value]))
+                #inner_value[replacement_value] = inner_value.pop(find_value)
+                #database.child(path).child(outer_key).child(inner_key).set(inner_value)
+                print('\n\nReplaced Value\n\n')

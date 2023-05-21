@@ -168,7 +168,14 @@ class TelegramEvents:
             db.change_database_value()   
 
         elif signal_message.message == self.com.BACK_TEST:
-            backtesting.run_backtest()
+            signals = db.get_old_signals()
+            for s in signals:
+                s.convert_price_data_float()
+                s.check_data_types()
+                backtesting.run_backtest_from_signal(s)
+
+        elif signal_message.message == self.com.GET_SIGNALS:
+            db.get_old_signals()
 
     async def start_telegram_handler(self, client):
         '''telegram message event handler'''
