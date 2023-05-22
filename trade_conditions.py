@@ -1,6 +1,7 @@
 import utility
 import config
 import json
+import backtesting
 '''
 Defines a set of conditions and parameters, 
 for a signal to become a trade.
@@ -19,7 +20,7 @@ class SpotBasic:
         self.timeout = timeout
         if not self.timeout:
             self.timeout = signal.time_generated + 604800000 #7 Days timeout in seconds, check this is correct with utils timer
-
+        self.backtest = 'undetermined'
         self.sanitise_price_data()
 
     def sanitise_price_data(self):
@@ -70,9 +71,13 @@ class SpotBasic:
             "profit": self.take_profit,
             "loss": self.stop_loss,
             "direction": "LONG",
+            "backtest": self.backtest,
             "timeout": self.timeout,
             "time_generated": self.signal.time_generated
         }
+    
+    def run_backtest(self):
+        self.backtest = backtesting.run_backtest_from_trade(self)
 
 class FutureBasic(SpotBasic):
     '''Futures basic is a market futures order, can only be ISO,
@@ -93,6 +98,7 @@ class FutureBasic(SpotBasic):
             "loss": self.stop_loss,
             "direction": self.direction,
             "leverage": self.leverage,
+            "backtest": self.backtest,
             "timeout": self.timeout,
             "time_generated": self.signal.time_generated
         }

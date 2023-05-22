@@ -54,7 +54,6 @@ def round_decimals_down(number: float, decimals: int = 2):
 
 def sanitise_price_data(symbol, price):
     precision = get_price_precision(symbol)
-    print('Sanitising Price:', price, precision)
     if isinstance(price, list):
         for p in price:
             p = round_decimals_down(float(p), precision)

@@ -27,6 +27,7 @@ class Signal:
         self.direction = direction
         self.market_price = self.get_market_price()
         self.time_generated = utility.get_timestamp_now()
+        self.convert_price_data_float()
 
     def __str__(self) -> str:
         return str({
@@ -65,13 +66,10 @@ class Signal:
         return s.encode('utf-8').decode('unicode_escape')
 
     def convert_price_data_float(self):
-        print('Converting all trade values to float')
         for i in range(len(self.entry)):
             self.entry[i] = float(self.entry[i])
-        self.entry = float(self.entry)
         for i in range(len(self.take_profit)):
             self.take_profit[i] = float(self.take_profit[i])
-        self.take_profit = float(self.take_profit)
         self.stop_loss = float(self.stop_loss)
 
 

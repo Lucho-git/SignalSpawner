@@ -2,6 +2,7 @@ from datetime import datetime
 import config
 import utility
 import database_logging as db
+import backtesting
 class Trade:
     '''Defines a trade'''
     def __init__(self, trade):
@@ -18,6 +19,7 @@ class Trade:
         self.highest_price = self.entry_price
         self.lowest_price = self.entry_price
         self.closed_value = self.value()
+        self.backtesting = 'undetermined'
 
     def update_trade(self, k):
         '''Recieves updated price information'''
@@ -105,3 +107,6 @@ class Trade:
     def get_price(self):
         '''gets trade entry'''
         return self.conditions.get_price()
+    
+    def run_backtest(self):
+        backtesting.run_backtest_from_trade(self)

@@ -286,15 +286,12 @@ def generate_last_week_signals():
             if time_generated_dt > one_week:
                 trade = handle_signal_message.trade_from_signal_data(inner_value, True)
                 if trade:
+                    trade.run_backtest()
                     post_data = trade.get_dict()
                     time_generated_list.append(post_data)
     time_sorted_data = sorted(time_generated_list, key=lambda x: x['time_generated'])
-    print(time_sorted_data)
     post_signal(time_sorted_data)
-
-
     # Print the list of extracted values
-    print(time_generated_list)
 
 
 def get_old_signals():
@@ -311,12 +308,11 @@ def get_old_signals():
             # Extract the time_generated field
             time_generated = inner_value['time_generated']
             time_generated_dt = datetime.fromtimestamp(time_generated/1000)
-            if time_generated_dt < one_week:
+            if time_generated_dt > one_week:
                 signal = handle_signal_message.signal_from_signal_data(inner_value)
                 if signal:
                     print(signal, type(signal))
                     time_generated_list.append(signal)
-                    break
     time_sorted_data = sorted(time_generated_list, key=lambda x: x.time_generated)
     print('Returning:', time_sorted_data)
     return time_sorted_data
@@ -324,7 +320,7 @@ def get_old_signals():
 
 def change_database_value():
     '''Can change the path, and values you want to replace in database to anything'''
-    find_value = ''
+    find_value = 'take_profit'
     replacement_value = ''
     path = paths.RAW_SIGNALS
     data = database.child(path).get().val()
@@ -337,5 +333,5 @@ def change_database_value():
                 inner_value[find_value] = [inner_value[find_value]]
                 print('\nInner Value', inner_value[find_value], type(inner_value[find_value]))
                 #inner_value[replacement_value] = inner_value.pop(find_value)
-                #database.child(path).child(outer_key).child(inner_key).set(inner_value)
+                database.child(path).child(outer_key).child(inner_key).set(inner_value)
                 print('\n\nReplaced Value\n\n')
