@@ -2,9 +2,9 @@ from parse_signal import SignalProviderBase
 from signal_conditions import Signal
 from trade_conditions import FutureBasic, SpotBasic
 
-class GGShotSignal(SignalProviderBase):
+class GGShotVipSignal(SignalProviderBase):
     def __init__(self):
-        super().__init__(source='GGshot', signal_identifier=['SIGNAL DETAILS', 'TARGET1'])
+        super().__init__(source='GGshotVip', signal_identifier=['SIGNAL DETAILS', 'TARGET1'])
 
 
     def parse(self, message, sanitised_message):

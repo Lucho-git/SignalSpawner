@@ -4,17 +4,19 @@ from types import SimpleNamespace
 
 import database_logging as db
 from trade import Trade
-from signal_sources import hirn, predictum, ggshot
+from signal_sources import hirn, predictum, ggshot, ggshot_vip
 from signal_conditions import Signal
 
 hirn_controller = hirn.HirnSignal()
 predictum_controller = predictum.PredictumSignal()
 ggshot_controller = ggshot.GGShotSignal()
+ggshot_vip_controller = ggshot_vip.GGShotVipSignal()
 
 controller_mapping = {
     '1558766055': predictum_controller,
     '1248393106': hirn_controller,
     '1825288627': ggshot_controller,
+    '1737189058': ggshot_vip_controller,
 }
 
 
