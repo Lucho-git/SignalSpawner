@@ -4,7 +4,7 @@ from trade_conditions import FutureBasic, SpotBasic
 
 class GGShotSignal(SignalProviderBase):
     def __init__(self):
-        super().__init__(source='GGshot', signal_identifier=['SIGNAL DETAILS', 'TARGET1'])
+        super().__init__(source='GGshot', signal_identifier=['SIGNAL DETAILS', 'TARGET'])
 
 
     def parse(self, message, sanitised_message):
