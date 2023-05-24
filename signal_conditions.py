@@ -8,8 +8,7 @@ These values should be static
 
 '''
 class Signal:
-    def __init__(self, source, message, coin, base, entry, take_profit, stop_loss, direction):
-
+    def __init__(self, source, message, coin, base, entry, take_profit, stop_loss, direction, market_price = None, time_generated = None):
         #Validate Signal
         if not take_profit:
             raise TypeError('No Take Profit value')
@@ -25,8 +24,10 @@ class Signal:
         self.take_profit = take_profit
         self.stop_loss = stop_loss
         self.direction = direction
-        self.market_price = self.get_market_price()
-        self.time_generated = utility.get_timestamp_now()
+        if not market_price:
+            self.market_price = self.get_market_price()
+        if not time_generated:
+            self.time_generated = utility.get_timestamp_now()
         self.convert_price_data_float()
 
     def __str__(self) -> str:

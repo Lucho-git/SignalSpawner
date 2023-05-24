@@ -187,6 +187,7 @@ class TelegramEvents:
                 signal_message = await self.generate_message(event)
 
                 if signal_message.origin.id in self.com.SIGNAL_GROUP:
+                    print('From Signal Group:', signal_message.origin.name)
                     await handle_signal_message.process_message(signal_message)
 
                 elif signal_message.origin.id == '5894740183' or signal_message.origin.id == '5935711140':
@@ -195,7 +196,7 @@ class TelegramEvents:
                     pass
 
                 else:
-                    print('new chat ID:', signal_message.origin.id, signal_message.origin.name)
+                    print('new chat ID:', signal_message.origin.id, signal_message.origin.name, 'Didnt match: ' , str(self.com.SIGNAL_GROUP))
                     db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name + 'Didnt match: ' + str(self.com.SIGNAL_GROUP))
                     #Deal with unrecognized telegram channels
 
