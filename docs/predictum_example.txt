@@ -1,18 +1,18 @@
-⚡️⚡️GTC/USDT ⚡️⚡️
+⚡️⚡️MASKUSDT
 
 Exchange: Binance Future,Kucoin,Bybit USDT
 Leverage: Cross (20X) 
 
-Entry:   1.75-1.8
+Entry:  3.89-3.79
 
-Target 1: 1.7412
-Target 2: 1.7325
-Target 3: 1.715
-Target 4: 1.6643
-Target 5: 1.618
-Target 6: 1.54
+Target 1: 3.9114
+Target 2: 3.9678
+Target 3: 4.0067
+Target 4: 4.279
+Target 5: 4.473
+Target 6: 4.668
 
-Stop loss: 1.872
+Stop loss: 3.5626
 
 💰 Deposit: 8-12%
 

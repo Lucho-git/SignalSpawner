@@ -12,7 +12,11 @@ class PredictumSignal(SignalProviderBase):
         '''Parses out the signal message into values'''
         print(sanitised_message)
         pair = sanitised_message[0].split('⚡️⚡️')[1]
-        coin, base = pair.split('/')
+        if '/' in pair:
+            coin, base = pair.split('/')
+        else:
+            coin = pair.split('USDT')[0]
+            base = 'USDT'
         entry = sanitised_message[3].split(':')[1].split('-')
         take_profit = []
         stop_loss = ''

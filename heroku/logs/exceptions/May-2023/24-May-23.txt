@@ -1,0 +1,128 @@
+22:24:20:| 'NoneType' object has no attribute 'entry'
+Message:⚡️⚡️MASKUSDT
+
+Exchange: Binance Future,Kucoin,Bybit USDT
+Leverage: Cross (20X) 
+
+Entry:  3.89-3.79
+
+Target 1: 3.9114
+Target 2: 3.9678
+Target 3: 4.0067
+Target 4: 4.279
+Target 5: 4.473
+Target 6: 4.668
+
+Stop loss: 3.5626
+
+💰 Deposit: 8-12%
+
+\predictum Autotrade Signals
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 191, in my_event_handler
+    await handle_signal_message.process_message(signal_message)
+  File "/app/handle_signal_message.py", line 29, in process_message
+    trade = controller.get_filtered_trade_from_signal(signal)
+  File "/app/parse_signal.py", line 79, in get_filtered_trade_from_signal
+    trade = self.get_trade_from_signal(signal)
+  File "/app/signal_sources/predictum.py", line 37, in get_trade_from_signal
+    trade = FutureBasic(signal, signal.entry[0], signal.take_profit[1], signal.stop_loss, signal.direction, 1)
+AttributeError: 'NoneType' object has no attribute 'entry'
+
+
+22:24:21:| 'NoneType' object has no attribute 'entry'
+Message:⚡️⚡️MASKUSDT
+
+Exchange: Binance Future,Kucoin,Bybit USDT
+Leverage: Cross (20X) 
+
+Entry:  3.89-3.79
+
+Target 1: 3.9114
+Target 2: 3.9678
+Target 3: 4.0067
+Target 4: 4.279
+Target 5: 4.473
+Target 6: 4.668
+
+Stop loss: 3.5626
+
+💰 Deposit: 8-12%
+
+predictum Autotrade Signals
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 191, in my_event_handler
+    await handle_signal_message.process_message(signal_message)
+  File "/app/handle_signal_message.py", line 29, in process_message
+    trade = controller.get_filtered_trade_from_signal(signal)
+  File "/app/parse_signal.py", line 79, in get_filtered_trade_from_signal
+    trade = self.get_trade_from_signal(signal)
+  File "/app/signal_sources/predictum.py", line 37, in get_trade_from_signal
+    trade = FutureBasic(signal, signal.entry[0], signal.take_profit[1], signal.stop_loss, signal.direction, 1)
+AttributeError: 'NoneType' object has no attribute 'entry'
+
+
+22:28:50:| 'NoneType' object has no attribute 'entry'
+Message:/predictum!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 153, in telegram_command
+    await handle_signal_message.process_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 29, in process_message
+    trade = controller.get_filtered_trade_from_signal(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\parse_signal.py", line 79, in get_filtered_trade_from_signal
+    trade = self.get_trade_from_signal(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_sources\predictum.py", line 40, in get_trade_from_signal
+    trade = FutureBasic(signal, signal.entry[0], signal.take_profit[1], signal.stop_loss, signal.direction, 1)
+AttributeError: 'NoneType' object has no attribute 'entry'
+
+
+22:33:13:| single positional indexer is out-of-bounds
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "/app/telebagger.py", line 164, in telegram_command
+    db.generate_last_week_signals()
+  File "/app/database_logging.py", line 289, in generate_last_week_signals
+    trade.run_backtest()
+  File "/app/trade_conditions.py", line 80, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self)
+  File "/app/backtesting.py", line 287, in run_backtest_from_trade
+    backtest = BackTest(trade.signal.time_generated, trade.entry, [trade.take_profit], trade.stop_loss, trade.signal.direction, trade.signal.pair, client.KLINE_INTERVAL_5MINUTE)
+  File "/app/backtesting.py", line 53, in __init__
+    first_price_value = self.data.iloc[0]['open']
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1103, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1656, in _getitem_axis
+    self._validate_integer(key, axis)
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1589, in _validate_integer
+    raise IndexError("single positional indexer is out-of-bounds")
+IndexError: single positional indexer is out-of-bounds
+
+
+22:33:22:| single positional indexer is out-of-bounds
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_last_week_signals()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 289, in generate_last_week_signals
+    trade.run_backtest()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 80, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 287, in run_backtest_from_trade
+    backtest = BackTest(trade.signal.time_generated, trade.entry, [trade.take_profit], trade.stop_loss, trade.signal.direction, trade.signal.pair, client.KLINE_INTERVAL_5MINUTE)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 53, in __init__
+    first_price_value = self.data.iloc[0]['open']
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pandas\core\indexing.py", line 1103, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pandas\core\indexing.py", line 1656, in _getitem_axis
+    self._validate_integer(key, axis)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pandas\core\indexing.py", line 1589, in _validate_integer
+    raise IndexError("single positional indexer is out-of-bounds")
+IndexError: single positional indexer is out-of-bounds
+
+
