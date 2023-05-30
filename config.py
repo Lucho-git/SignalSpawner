@@ -106,7 +106,7 @@ def get_commands():
     if not local[0]:
         # Stream Commands Heroku Hosted
         chat_commands = {key: command + '!' for key, command in chat_commands.items()}
-    chat_commands['SIGNAL_GROUP'] = ['1548802426', '1248393106', '1558766055', '1825288627', '1737189058']
+    chat_commands['SIGNAL_GROUP'] = ['1548802426', '1248393106', '1558766055', '1825288627', '1737189058', '1175262142']
     chat_commands['GENERAL_GROUP'] = ['1576065688', '1220789766', '1794870864', '1798277168', '1109500936', '1250090891']
     return munch.munchify(chat_commands)
 

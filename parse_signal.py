@@ -64,18 +64,22 @@ class SignalProviderBase():
         else:
             print('Not a signal')
 
-    def filter_trade(self, trade):
+    def filter_trade(self, trade, signal):
         return True
 
     def parse(self, message, sanitised_message):
         '''This function should be implemented in subclasses'''
         raise NotImplementedError()
     
-    def get_trade_from_signal(self, signal):
+    def get_trades_from_signal(self, signal):
         '''This function should be implemented in subclasses'''
         raise NotImplementedError()
 
-    def get_filtered_trade_from_signal(self, signal):
-        trade = self.get_trade_from_signal(signal)
-        if self.filter_trade(trade):
-            return trade
+    def get_filtered_trades_from_signal(self, signal):
+        trades = self.get_trades_from_signal(signal)
+        print('trades|', trades)
+        returning_trades = []
+        for t in trades:
+            if self.filter_trade(t, signal):
+                returning_trades.append(t)
+        return returning_trades

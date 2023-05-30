@@ -2,6 +2,8 @@ import utility
 import config
 import json
 import backtesting
+from types import SimpleNamespace
+
 '''
 Defines a set of conditions and parameters, 
 for a signal to become a trade.
@@ -12,23 +14,13 @@ These values should be static
 class SpotBasic:
     '''Spot basic is a market spot order, with a takeprofit value, optional stoploss or
     timelimit to exit trade,if no stoploss is entered then a mandatory 7 day limit is applied'''
-    def __init__(self, signal, entry, take_profit, stop_loss, timeout = None):
-        self.signal = signal
+    def __init__(self, source, time_generated, entry, take_profit, stop_loss, ):
+        self.source = source
         self.entry = entry
         self.take_profit = take_profit
         self.stop_loss = stop_loss
-        self.timeout = timeout
-        if not self.timeout:
-            self.timeout = signal.time_generated + 604800000 #7 Days timeout in seconds, check this is correct with utils timer
+        self.timeout = time_generated + 604800000 #7 Days timeout in seconds
         self.backtest = 'undetermined'
-        self.sanitise_price_data()
-
-    def sanitise_price_data(self):
-        '''Ensures binance will accept all price values for making orders'''
-        pair = self.signal.pair
-        self.entry = utility.sanitise_price_data(pair, self.entry)
-        self.take_profit = utility.sanitise_price_data(pair, self.take_profit)
-        self.stop_loss = utility.sanitise_price_data(pair, self.stop_loss)
 
     def check_timeout(self, trade):
         '''Checks to see if trade has timed out'''
@@ -61,47 +53,60 @@ class SpotBasic:
     def __str__(self) -> str:
         return str(self.get_dict())
 
+
     def get_dict(self):
         return {
-            "source": self.signal.source,
-            "coin": self.signal.coin,
-            "base": self.signal.base,
-            "pair": self.signal.pair,
             "entry": self.entry,
             "profit": self.take_profit,
             "loss": self.stop_loss,
             "direction": "LONG",
             "backtest": self.backtest,
             "timeout": self.timeout,
-            "time_generated": self.signal.time_generated
+        }
+
+    def get_trade_dict(self, signal):
+        return {
+            "source": signal.source,
+            "coin": signal.coin,
+            "base": signal.base,
+            "pair": signal.pair,
+            "entry": self.entry,
+            "profit": self.take_profit,
+            "loss": self.stop_loss,
+            "direction": "LONG",
+            "backtest": self.backtest,
+            "timeout": self.timeout,
+            "time_generated": signal.time_generated
         }
     
-    def run_backtest(self):
-        self.backtest = backtesting.run_backtest_from_trade(self)
+    def run_backtest(self, signal):
+        if (isinstance(self.backtest, SimpleNamespace)):
+            if (self.backtest.result == 'profit' or self.backtest.result == 'loss'):
+                return
+        print(type(self.backtest))
+        self.backtest = backtesting.run_backtest_from_trade(self, signal)
+        print('BACKTEST TYPE', type(self.backtest))
+
 
 class FutureBasic(SpotBasic):
     '''Futures basic is a market futures order, can only be ISO,
     must have stoploss before liquidation value'''
-    def __init__(self, signal, entry, take_profit, stop_loss, direction, leverage, timeout=None):
-        super().__init__(signal, entry, take_profit, stop_loss, timeout)
+    def __init__(self, source, time_generated, entry, take_profit, stop_loss, direction, leverage):
+        super().__init__(source, time_generated, entry, take_profit, stop_loss)
         self.direction = direction
         self.leverage = leverage
 
     def get_dict(self):
-        return {
-            "source": self.signal.source,
-            "coin": self.signal.coin,
-            "base": self.signal.base,
-            "pair": self.signal.pair,
-            "entry": self.entry,
-            "profit": self.take_profit,
-            "loss": self.stop_loss,
-            "direction": self.direction,
-            "leverage": self.leverage,
-            "backtest": self.backtest,
-            "timeout": self.timeout,
-            "time_generated": self.signal.time_generated
-        }
+        add_dict = super().get_dict()
+        add_dict['leverage'] = self.leverage
+        add_dict['direction'] = self.direction
+        return add_dict
+
+    def get_trade_dict(self, signal):
+        add_dict = super().get_trade_dict(signal)
+        add_dict['leverage'] = self.leverage
+        add_dict['direction'] = self.direction
+        return add_dict
 
 
 class SpotAdvanced(SpotBasic):

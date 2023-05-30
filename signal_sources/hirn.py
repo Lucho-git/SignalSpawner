@@ -3,8 +3,8 @@ from signal_conditions import Signal
 from trade_conditions import FutureBasic, SpotBasic
 
 class HirnSignal(SignalProviderBase):
-    def __init__(self):
-        super().__init__(source='Hirn', signal_identifier='Buy #')
+    def __init__(self, source = 'Hirn'):
+        super().__init__(source=source, signal_identifier='Buy #')
 
 
     def parse(self, message, sanitised_message):
@@ -19,13 +19,15 @@ class HirnSignal(SignalProviderBase):
         return newSignal
     
 
-    def get_trade_from_signal(self, signal):
+    def get_trades_from_signal(self, signal):
         '''Convert Signal into trade values'''
-        trade = SpotBasic(signal, signal.entry[0], signal.take_profit[0], signal.stop_loss)
-        return trade
+        trades = []
+        trade = SpotBasic(self.source+'|0|0|0|standard', signal.time_generated, signal.entry[0], signal.take_profit[0], signal.stop_loss)
+        trades.append(trade)
+        return trades
 
 
-    def filter_trade(self, trade):
-        if trade.signal.base == 'USDT':
+    def filter_trade(self, trade, signal):
+        if signal.base == 'USDT':
             return True
         return False

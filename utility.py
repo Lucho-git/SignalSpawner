@@ -5,9 +5,8 @@ import binance
 import numpy as np
 import math
 from datetime import datetime
-from config import get_binance_config, get_binance_exchange_info
+from config import get_binance_exchange_info
 
-realclient = get_binance_config()
 binance_exchange_info = get_binance_exchange_info()
 
 def format_float(num):

@@ -1,0 +1,118 @@
+01:49:54:| 'Signal' object has no attribute 'market_price'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_last_week_signals()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 287, in generate_last_week_signals
+    trade = handle_signal_message.trade_from_signal_data(inner_value, True)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 41, in trade_from_signal_data
+    return trade_from_signal(signal_from_signal_data(signal_data), filter)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 47, in signal_from_signal_data
+    signal = Signal(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction, market_price = signal_data.market_price)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 33, in __init__
+    self.qualify_price_targets()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 89, in qualify_price_targets
+    self.entry[i] = self.adjust_magnitude(self.entry[i])
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 99, in adjust_magnitude
+    power = round(math.log10(self.market_price / original))
+AttributeError: 'Signal' object has no attribute 'market_price'
+
+
+01:52:06:| Signal.qualify_price_targets() missing 1 required positional argument: 'market_price'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_last_week_signals()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 287, in generate_last_week_signals
+    trade = handle_signal_message.trade_from_signal_data(inner_value, True)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 41, in trade_from_signal_data
+    return trade_from_signal(signal_from_signal_data(signal_data), filter)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 47, in signal_from_signal_data
+    signal = Signal(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction, market_price = signal_data.market_price)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 33, in __init__
+    self.qualify_price_targets()
+TypeError: Signal.qualify_price_targets() missing 1 required positional argument: 'market_price'
+
+
+01:52:50:| 'Signal' object has no attribute 'market_price'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_last_week_signals()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 287, in generate_last_week_signals
+    trade = handle_signal_message.trade_from_signal_data(inner_value, True)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 41, in trade_from_signal_data
+    return trade_from_signal(signal_from_signal_data(signal_data), filter)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 47, in signal_from_signal_data
+    signal = Signal(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction, market_price = signal_data.market_price)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 33, in __init__
+    self.qualify_price_targets(self.market_price)
+AttributeError: 'Signal' object has no attribute 'market_price'
+
+
+01:53:37:| 'Signal' object has no attribute 'market_price'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_last_week_signals()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 287, in generate_last_week_signals
+    trade = handle_signal_message.trade_from_signal_data(inner_value, True)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 41, in trade_from_signal_data
+    return trade_from_signal(signal_from_signal_data(signal_data), filter)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 47, in signal_from_signal_data
+    signal = Signal(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction, market_price = signal_data.market_price)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 33, in __init__
+    print(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 46, in __str__
+    "market_price": self.market_price,
+AttributeError: 'Signal' object has no attribute 'market_price'
+
+
+01:54:49:| 'Signal' object has no attribute 'market_price'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_last_week_signals()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 287, in generate_last_week_signals
+    trade = handle_signal_message.trade_from_signal_data(inner_value, True)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 41, in trade_from_signal_data
+    return trade_from_signal(signal_from_signal_data(signal_data), filter)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 47, in signal_from_signal_data
+    signal = Signal(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction, market_price = signal_data.market_price)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 35, in __init__
+    print(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 48, in __str__
+    "market_price": self.market_price,
+AttributeError: 'Signal' object has no attribute 'market_price'
+
+
+01:55:30:| 'Signal' object has no attribute 'market_price'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_last_week_signals()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 287, in generate_last_week_signals
+    trade = handle_signal_message.trade_from_signal_data(inner_value, True)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 41, in trade_from_signal_data
+    return trade_from_signal(signal_from_signal_data(signal_data), filter)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 47, in signal_from_signal_data
+    signal = Signal(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction, market_price = signal_data.market_price)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 35, in __init__
+    print(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 48, in __str__
+    "market_price": self.market_price,
+AttributeError: 'Signal' object has no attribute 'market_price'
+
+

@@ -8,6 +8,7 @@ import jsonpickle
 import pytz
 import requests
 import traceback
+from signal_conditions import Signal
 
 from config import get_firebase_config, get_storage_paths
 
@@ -17,93 +18,7 @@ storage = firebase.storage()
 database = firebase.database()
 tz = pytz.timezone('Australia/Perth')
 
-def realtime_save_trade(tradevalue, trade, now):
-    '''Saves trade information to be displayed on website'''
-    date_string = now.strftime('%B-%Y')
-    day_string = now.strftime("%d-%B")
 
-    signal_group = trade.conditions.signal.origin.name
-    newvalue = [tradevalue-1, day_string, {'Tradepair': trade.pair, 'Duration(Hrs)': trade.duration_hours()}]
-
-    last7 = database.child(paths.REALTIME_SAVE + signal_group + '/Last-7').get()
-    last30 = database.child(paths.REALTIME_SAVE + signal_group + '/Last-30').get()
-    monthly = database.child(paths.REALTIME_SAVE + signal_group + '/Month/' + date_string).get()
-
-    if last7.val():
-        last7 = last7.val()['values']
-    else:
-        last7 = []
-    if last30.val():
-        last30 = last30.val()['values']
-    else:
-        last30 = []
-    if monthly.val():
-        monthly = monthly.val()['values']
-    else:
-        monthly = []
-
-    last7.insert(0,newvalue)
-    last30.insert(0,newvalue)
-    monthly.append(newvalue)
-    if len(last7) > 7:
-        try:
-            del last7[7]
-        except Exception as e:
-            print('caught exception-', str(e))
-            traceback.print_tb(e.__traceback__)
-            error_log(('Caught Exception-' + str(e)))
-            error_log(('Array of length-: ' + str(len(last7)) + '|' + str(last7)))
-
-
-    if len(last30) > 29:
-        del last30[30]
-    data7 = {"label": "Last-7", "values": last7}
-    data30 = {"label": "Last-30", "values": last30}
-    monthly = {"label": date_string, "values": monthly}
-
-    print('Saving to realtime...',paths.REALTIME_SAVE + signal_group)
-    database.child(paths.REALTIME_SAVE + signal_group + '/Last-7').set(data7)
-    database.child(paths.REALTIME_SAVE + signal_group + '/Last-30').set(data30)
-    database.child(paths.REALTIME_SAVE + signal_group + '/Month/' + date_string).set(monthly)
-
-
-def save_closed_trade(trade):
-    '''Saves trades to database'''
-    now = datetime.now(tz)
-    date_string = now.strftime('%B-%Y')
-
-    json_filepath = paths.LIVE_VIEW + 'closed/' + str(trade.id) + '.txt'
-    monthly_filepath = paths.SAVE_TRADE + trade.conditions.signal.origin.name + '/' + date_string + '.txt'
-    juice_filepath = paths.SAVE_TRADE + trade.conditions.signal.origin.name + '/juice/' + date_string + '.txt'
-
-    # Check file structure exists, if not create it
-    filepaths = [json_filepath, monthly_filepath, juice_filepath]
-    for p in filepaths:
-        p = p.rsplit('/', 1)[0]+'/'
-        if not os.path.exists(p):
-            os.makedirs(p)
-
-    # Store in monthly trade group breakdown
-    storage.child(monthly_filepath).download("./", monthly_filepath)
-    with open(monthly_filepath, 'a', encoding="utf8") as f:
-        f.write(str(trade.update_snapshot()))
-        #f.write(trade.conditions_log)
-        f.write('_________________________________\n\n')
-    storage.child(monthly_filepath).put(monthly_filepath)
-
-    # Store the profit/loss multiplier, pair and duration
-    storage.child(juice_filepath).download("./", juice_filepath)
-    with open(juice_filepath, 'a', encoding="utf8") as f:
-        tradevalue = trade.closed_value
-        tradevalue = round(tradevalue, 3)
-        f.write(str(tradevalue) + ' | ' + trade.pair + ' | ' + str(trade.duration()) + ' Hours\n')
-    storage.child(juice_filepath).put(juice_filepath)
-
-    # Store website data in realtime DB
-    tradevalue = float(trade.closed_value)
-    tradevalue = round(tradevalue, 3)
-
-    realtime_save_trade(tradevalue, trade, now)
 
 
 def error_log(error):
@@ -165,40 +80,6 @@ def failed_message(msg, origin, ex):
     storage.child(failedmsg_filepath).put(failedmsg_filepath)
 
 
-def save_stream(savestream):
-    '''Saves the active tradestream'''
-    save_filepath = paths.SAVE
-    save_dirpath = save_filepath.rsplit('/', 1)[0]+'/'
-    if not os.path.exists(save_dirpath):
-        os.makedirs(save_dirpath)
-
-    storage.child(save_filepath).download("./", save_filepath)
-    try:
-        with open(save_filepath, 'wb') as stream_save_file:
-            pickle.dump(savestream, stream_save_file)
-        storage.child(save_filepath).put(save_filepath)
-    except Exception as e:
-        print('savestream exception', str(e))
-        print("Unexpected Picklesave Error")
-
-
-def load_stream():
-    '''Loads the active tradestream'''
-    load_filepath = paths.SAVE
-    load_dirpath = load_filepath.rsplit('/', 1)[0]+'/'
-    if not os.path.exists(load_dirpath):
-        os.makedirs(load_dirpath)
-
-    load_data = None
-    storage.child(load_filepath).download("./", load_filepath)
-    try:
-        with open(load_filepath, 'rb') as config_dictionary_file:
-            load_data = pickle.load(config_dictionary_file)
-        storage.child(load_filepath).put(load_filepath)
-    except FileNotFoundError as e:
-        print('loadstream exception', str(e))
-    return load_data
-
 
 def get_from_realtime(pathway):
     for key,value in paths.items():
@@ -258,6 +139,7 @@ def post_signal(data):
         print(f"Request failed with status code {response.status_code}")
         print("Response content:", response.text)
 
+
 def save_raw_signal(signal):
     signal_group = signal.source
     path = paths.RAW_SIGNALS + signal_group
@@ -268,6 +150,46 @@ def save_raw_signal(signal):
 
     key = str(json_data_dict['time_generated'])
     database.child(path).child(key).update(json_data_dict)
+
+
+def generate_trades_from_timeframe(days = 7, start_time=None, end_time=None, override=False):
+    path = paths.RAW_SIGNALS
+    data = database.child(path).get().val()
+    time_generated_list = []
+
+    if start_time:
+        #TODO generate from specific timeframe
+        raise Exception('This section not implemented yet')
+    else:
+        timeframe = datetime.now() - timedelta(days = days)
+    # Iterate over the outer dictionary
+    for outer_key, outer_value in data.items():
+        # Iterate over the inner dictionary
+        for inner_key, inner_value in outer_value.items():
+            # Extract the time_generated field
+            time_generated = inner_value['time_generated']
+            time_generated_dt = datetime.fromtimestamp(time_generated/1000)
+            if time_generated_dt > timeframe:
+                signal = Signal.from_data(inner_value)
+                signal.generate_trades() #if doesn't exist generate trades
+                signal.backtest_trades() #if hasn't been backtested backtest trades
+
+                print('\n______________________________\n',signal.get_json(),'\n______________________________\n')
+                # trade = handle_signal_message.trade_from_signal_data(inner_value, True)
+                # if trade:
+                #     post_data = trade.get_dict() # might need to remove this?
+                #     time_generated_list.append(post_data)
+
+    # time_sorted_data = sorted(time_generated_list, key=lambda x: x['time_generated'])
+    # post_signal(time_sorted_data)
+    # return time_sorted_data
+    # Print the list of extracted values
+
+
+
+
+
+#def post_trade_data()
 
 def generate_last_week_signals():
     path = paths.RAW_SIGNALS

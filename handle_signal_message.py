@@ -10,12 +10,14 @@ from signal_conditions import Signal
 hirn_controller = hirn.HirnSignal()
 predictum_controller = predictum.PredictumSignal()
 ggshot_controller = ggshot.GGShotSignal()
+ggshot_controller_free = ggshot.GGShotSignal('GGshot_free')
 ggshot_vip_controller = ggshot_vip.GGShotVipSignal()
 
 controller_mapping = {
     '1558766055': predictum_controller,
     '1248393106': hirn_controller,
     '1825288627': ggshot_controller,
+    '1175262142': ggshot_controller_free,
     '1737189058': ggshot_vip_controller,
 }
 
@@ -26,44 +28,21 @@ async def process_message(message):
     controller = controller_mapping.get(message.origin.id)
     if controller.validate_signal(message.message):
         signal = controller.new_signal_message(message)
-        trade = controller.get_filtered_trade_from_signal(signal)
-        if trade:
-            print('posting signal', trade)
-            print(trade.__str__())
-            data = trade.get_dict()
+        trade = controller.get_filtered_trades_from_signal(signal)
+        for t in trade:
+            print('posting signal', t)
+            print(t.__str__())
+            data = t.get_dict()
             print('Posting Signal Data:', data)
             db.post_signal(data)
         else:
             print('\nFiltered Signal:', signal)
 
 
-def trade_from_signal_data(signal_data, filter):
-    return trade_from_signal(signal_from_signal_data(signal_data), filter)
-
-
-def signal_from_signal_data(signal_data):
-    '''Clones a new signal from json signal data'''
-    signal_data = deep_namespace(signal_data)
-    signal = Signal(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction, market_price = signal_data.market_price)
-    signal.market_price = signal_data.market_price
-    signal.time_generated = signal_data.time_generated
-    return signal
-
-
-def trade_from_signal(signal, filter):
+def trades_from_signal(signal, filter):
     '''Creates a trade from signal data'''
     controller = controller_mapping.get(signal.message.origin.id)
     if filter:
-        return controller.get_filtered_trade_from_signal(signal)
+        return controller.get_filtered_trades_from_signal(signal)
     else:
-        return controller.get_trade_from_signal(signal)
-
-
-
-def deep_namespace(d):
-    if isinstance(d, dict):
-        return SimpleNamespace(**{k: deep_namespace(v) for k, v in d.items()})
-    elif isinstance(d, list):
-        return [deep_namespace(item) for item in d]
-    else:
-        return d
+        return controller.get_trades_from_signal(signal)

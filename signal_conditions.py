@@ -2,13 +2,16 @@ import utility
 import config
 import datetime
 import json
+import math
+import handle_signal_message
+from types import SimpleNamespace
 '''
 Defines a set of conditions and parameters for a given signal
 These values should be static
 
 '''
 class Signal:
-    def __init__(self, source, message, coin, base, entry, take_profit, stop_loss, direction, market_price = None, time_generated = None):
+    def __init__(self, source, message, coin, base, entry, take_profit, stop_loss, direction, trades = [], market_price = None, time_generated = None):
         #Validate Signal
         if not take_profit:
             raise TypeError('No Take Profit value')
@@ -24,11 +27,40 @@ class Signal:
         self.take_profit = take_profit
         self.stop_loss = stop_loss
         self.direction = direction
+        self.trades = trades
+        self.market_price = market_price
+        self.time_generated = time_generated
+        if not trades:
+            self.trades = trades
         if not market_price:
             self.market_price = self.get_market_price()
         if not time_generated:
             self.time_generated = utility.get_timestamp_now()
-        self.convert_price_data_float()
+        self.convert_price_data_float() #Converts to float
+        self.magnify_price_targets(self.market_price) #Adjusts the magnitude of data if it's wrong
+        self.specify_price_data() #Ensures price data gets through exchange precision filters
+
+
+    @staticmethod
+    def deep_namespace(d):
+        if isinstance(d, dict):
+            return SimpleNamespace(**{k: Signal.deep_namespace(v) for k, v in d.items()})
+        elif isinstance(d, list):
+            return [Signal.deep_namespace(item) for item in d]
+        else:
+            return d
+
+
+    @classmethod
+    def from_data(cls, data):
+        '''Clones a new signal from json signal data'''
+        signal_data = cls.deep_namespace(data)
+        try: 
+            signal_data.trades
+        except AttributeError:
+            signal_data.trades = []
+        return cls(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction, market_price=signal_data.market_price, time_generated=signal_data.time_generated, trades=signal_data.trades)
+        
 
     def __str__(self) -> str:
         return str({
@@ -66,13 +98,6 @@ class Signal:
     def decode_unicode_escapes(self, s):
         return s.encode('utf-8').decode('unicode_escape')
 
-    def convert_price_data_float(self):
-        for i in range(len(self.entry)):
-            self.entry[i] = float(self.entry[i])
-        for i in range(len(self.take_profit)):
-            self.take_profit[i] = float(self.take_profit[i])
-        self.stop_loss = float(self.stop_loss)
-
 
     def check_data_types(self):
         for key, value in vars(self).items():
@@ -81,6 +106,62 @@ class Signal:
                 for v in value:
                     print(v, type(v))
 
+
+    def specify_price_data(self):
+        '''Ensures binance will accept all price values for making orders'''
+        self.entry = utility.sanitise_price_data(self.pair, self.entry)
+        self.take_profit = utility.sanitise_price_data(self.pair, self.take_profit)
+        self.stop_loss = utility.sanitise_price_data(self.pair, self.stop_loss)
+
+    
+    def convert_price_data_float(self):
+        for i in range(len(self.entry)):
+            self.entry[i] = float(self.entry[i])
+        for i in range(len(self.take_profit)):
+            self.take_profit[i] = float(self.take_profit[i])
+        self.stop_loss = float(self.stop_loss)
+
+
+    def magnify_price_targets(self, market_price):
+        for i in range(len(self.entry)):
+            self.entry[i] = self.adjust_magnitude(self.entry[i], market_price)
+
+        for i in range(len(self.take_profit)):
+            self.take_profit[i] = self.adjust_magnitude(self.take_profit[i], market_price)
+
+        self.stop_loss = self.adjust_magnitude(self.stop_loss, market_price)
+
+
+    def adjust_magnitude(self, original, market_price):
+        # Identify the closest power of 10 that brings the original number's magnitude close to example's magnitude
+        changed = original
+        power = round(math.log10(market_price / original))
+        # Scale the original number
+        scaled = original * 10 ** power
+        # Get the number of decimal places in the example
+        num_decimal_places_example = len(str(market_price).split(".")[-1])
+        # Adjust the decimal places of the original to match the example
+        original = round(scaled, num_decimal_places_example)
+        # If the rounded number is not equal to the scaled number, then keep the additional decimal places in the original number
+        if original != scaled:
+            original = scaled
+        if(not(changed==original)):
+           print('Changed', changed, 'To', original)
+        return original
+
+
     def get_market_price(self):
         '''Gets current price from binanace'''
         return float(config.get_binance_config().get_symbol_ticker(symbol=self.pair)['price'])
+    
+    def generate_trades(self):
+        self.trades = handle_signal_message.trades_from_signal(self, False)
+
+    def generate_filtered_trades(self):
+        self.trades = handle_signal_message.trades_from_signal(self, True)
+
+    def backtest_trades(self):
+        if not self.trades:
+            raise Exception('No trades to backtest')
+        for t in self.trades:
+            t.run_backtest(self)

@@ -3,8 +3,8 @@ from signal_conditions import Signal
 from trade_conditions import FutureBasic, SpotBasic
 
 class GGShotVipSignal(SignalProviderBase):
-    def __init__(self):
-        super().__init__(source='GGshotVip', signal_identifier=['SIGNAL DETAILS', 'TARGET'])
+    def __init__(self, source = 'GGshotVip'):
+        super().__init__(source=source, signal_identifier=['SIGNAL DETAILS', 'TARGET'])
 
 
     def parse(self, message, sanitised_message):
@@ -32,14 +32,16 @@ class GGShotVipSignal(SignalProviderBase):
         return signal
 
 
-    def get_trade_from_signal(self, signal):
+    def get_trades_from_signal(self, signal):
         '''Convert Signal into trade values'''
-        trade = FutureBasic(signal, signal.entry[0], signal.take_profit[1], signal.stop_loss, signal.direction, 1)
-        return trade
+        trades = []
+        trade = FutureBasic(self.source+'|0|1|0|standard_entry', signal.time_generated, signal.entry[0], signal.take_profit[1], signal.stop_loss, signal.direction, 1)
+        trades.append(trade)
+        return trades
     
 
-    def filter_trade(self, trade):
+    def filter_trade(self, trade, signal):
         return True
-        if trade.signal.direction == 'LONG':
+        if signal.direction == 'LONG':
             return True
         return False

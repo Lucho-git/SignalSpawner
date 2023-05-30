@@ -2,6 +2,7 @@ import pandas as pd
 import config
 import datetime
 from collections import namedtuple
+from types import SimpleNamespace
 
 # Initialize Binance client
 client = config.get_binance_config()
@@ -282,44 +283,44 @@ def run_backtest_from_signal(signal):
     backtest.print_result(backtest.backtest_with_progressive_stop())
 
 
-def run_backtest_from_trade(trade):
+def run_backtest_from_trade(trade, signal):
     """Run specific backtest result for a quantifiable trade"""
-    backtest = BackTest(trade.signal.time_generated, trade.entry, [trade.take_profit], trade.stop_loss, trade.signal.direction, trade.signal.pair, client.KLINE_INTERVAL_5MINUTE)
-    print('Market_Price', trade.signal.market_price)
-    print(trade.signal.source, type(trade))
+    backtest = BackTest(signal.time_generated, trade.entry, [trade.take_profit], trade.stop_loss, signal.direction, signal.pair, client.KLINE_INTERVAL_5MINUTE)
+    print('Market_Price', signal.market_price)
+    print(signal.source, type(trade))
     
-    if trade.signal.source == 'Hirn':
+    if signal.source == 'Hirn':
         results = backtest.backtest()
     else:
         results = backtest.backtest_with_entry()
     print('\n\n', trade)
     print(results)
-    result = {}
+    result = SimpleNamespace()
     if results.take_profit_hits > 0:
-        result['result'] = 'profit'
-        result['amount'] = list(results.take_profit_percentages.keys())[0]
-        result['percentage'] = list(results.take_profit_percentages.values())[0]
-        result['time_complete'] = list(results.take_profit_times.values())[0]
+        result.result = 'profit'
+        result.amount = list(results.take_profit_percentages.keys())[0]
+        result.percentage = list(results.take_profit_percentages.values())[0]
+        result.time_complete = list(results.take_profit_times.values())[0]
     elif results.stop_price:
-        result['result'] = 'loss'
-        result['amount'] = results.stop_price
-        result['percentage'] = results.stop_percentage
-        result['time_complete'] = results.stop_time
+        result.result = 'loss'
+        result.amount = results.stop_price
+        result.percentage = results.stop_percentage
+        result.time_complete = results.stop_time
     elif results.exit_condition == 'timeout':
-        result['result'] = 'not_entered'
-        result['amount'] = results.stop_price
-        result['percentage'] = results.stop_percentage
-        result['time_complete'] = results.stop_time
+        result.result = 'not_entered'
+        result.amount = results.stop_price
+        result.percentage = results.stop_percentage
+        result.time_complete = results.stop_time
     elif results.exit_condition == 'not_entered':
-        result['result'] = 'not_entered'
-        result['amount'] = ''
-        result['percentage'] = ''
-        result['time_complete'] = ''
+        result.result = 'not_entered'
+        result.amount = ''
+        result.percentage = ''
+        result.time_complete = ''
     elif results.exit_condition == 'ongoing':
-        result['result'] = 'ongoing'
-        result['amount'] = ''
-        result['percentage'] = ''
-        result['time_complete'] = ''
+        result.result = 'ongoing'
+        result.amount = ''
+        result.percentage = ''
+        result.time_complete = ''
     return result
 
 def run_backtest():

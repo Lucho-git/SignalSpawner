@@ -1,0 +1,26 @@
+00:50:12:| 'NoneType' object has no attribute 'entry'
+Message:📩 PERP 15m | Short-Term
+📉 Long Entry Zone: 2.280
+🎯Accuracy of this strategy - 86.77%
+
+- ⏳ -  Signal details:
+Target 1: 2.289
+Target 2: 2.298
+Target 3: 2.307
+Target 4: 2.325
+_
+🧲Trend-Line: 1.6275
+❌Stop-Loss: 2.143
+💡After reaching the first target you can put the rest of the position to breakeven
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 191, in my_event_handler
+    await handle_signal_message.process_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 29, in process_message
+    trade = controller.get_filtered_trade_from_signal(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\parse_signal.py", line 79, in get_filtered_trade_from_signal
+    trade = self.get_trade_from_signal(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_sources\ggshot_vip.py", line 37, in get_trade_from_signal
+    trade = FutureBasic(signal, signal.entry[0], signal.take_profit[1], signal.stop_loss, signal.direction, 1)
+AttributeError: 'NoneType' object has no attribute 'entry'
+
+
