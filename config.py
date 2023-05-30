@@ -18,7 +18,7 @@ if os.name == 'nt':
     print('Windows Detected...')
 else:
     # code is reachable, vscode lying
-    local[0] = False
+    local[0] = True
     print('Linux Detected...')
 
 load_dotenv()
