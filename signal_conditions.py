@@ -32,6 +32,8 @@ class Signal:
         self.time_generated = time_generated
         if not trades:
             self.trades = trades
+        else:
+            self.trades = 
         if not market_price:
             self.market_price = self.get_market_price()
         if not time_generated:
@@ -154,8 +156,14 @@ class Signal:
         '''Gets current price from binanace'''
         return float(config.get_binance_config().get_symbol_ticker(symbol=self.pair)['price'])
     
-    def generate_trades(self):
-        self.trades = handle_signal_message.trades_from_signal(self, False)
+    def generate_trades(self, override = False):
+        if override:
+            self.trades = handle_signal_message.trades_from_signal(self, False)
+        else:
+            if self.trades:
+                return
+            else:
+                self.trades = handle_signal_message.trades_from_signal(self, False)
 
     def generate_filtered_trades(self):
         self.trades = handle_signal_message.trades_from_signal(self, True)
@@ -164,4 +172,5 @@ class Signal:
         if not self.trades:
             raise Exception('No trades to backtest')
         for t in self.trades:
+            print(t)
             t.run_backtest(self)

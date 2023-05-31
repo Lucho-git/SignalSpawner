@@ -1,0 +1,14 @@
+23:26:24:| 'types.SimpleNamespace' object has no attribute 'run_backtest'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_trades_from_timeframe(days = 21)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 176, in generate_trades_from_timeframe
+    signal.backtest_trades() #if hasn't been backtested backtest trades
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 173, in backtest_trades
+    t.run_backtest(self)
+AttributeError: 'types.SimpleNamespace' object has no attribute 'run_backtest'
+
+

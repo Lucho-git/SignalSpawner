@@ -83,9 +83,9 @@ class SpotBasic:
         if (isinstance(self.backtest, SimpleNamespace)):
             if (self.backtest.result == 'profit' or self.backtest.result == 'loss'):
                 return
-        print(type(self.backtest))
+        print('Starting New Backtest', type(self.backtest), self.backtest)
         self.backtest = backtesting.run_backtest_from_trade(self, signal)
-        print('BACKTEST TYPE', type(self.backtest))
+        print('BACKTEST TYPE', type(self.backtest), self.backtest)
 
 
 class FutureBasic(SpotBasic):

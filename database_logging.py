@@ -144,10 +144,10 @@ def save_raw_signal(signal):
     signal_group = signal.source
     path = paths.RAW_SIGNALS + signal_group
 
-    print('Saving to realtime...',path)
+    print('\nSaving to realtime...',path)
     jsonData = signal.get_json()
     json_data_dict = json.loads(jsonData)
-
+    print('Saving Signal', json_data_dict,'\n')
     key = str(json_data_dict['time_generated'])
     database.child(path).child(key).update(json_data_dict)
 
@@ -175,8 +175,7 @@ def generate_trades_from_timeframe(days = 7, start_time=None, end_time=None, ove
                 signal.generate_trades() #if doesn't exist generate trades
                 signal.backtest_trades() #if hasn't been backtested backtest trades
                 save_raw_signal(signal)
-                print('\n______________________________\n',signal.get_json(),'\n______________________________\n')
-                break
+
                 # trade = handle_signal_message.trade_from_signal_data(inner_value, True)
                 # if trade:
                 #     post_data = trade.get_dict() # might need to remove this?
