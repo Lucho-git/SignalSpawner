@@ -161,7 +161,7 @@ class TelegramEvents:
 
         elif signal_message.message == self.com.LAST_WEEK:
             print('getting last week of signals')
-            db.generate_trades_from_timeframe(days = 21)
+            db.generate_trades_from_timeframe(days = 7)
 
         elif signal_message.message == self.com.CHANGE_VALUE:
             print('changing value')

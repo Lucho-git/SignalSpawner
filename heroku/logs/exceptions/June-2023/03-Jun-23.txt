@@ -1,0 +1,104 @@
+03:23:00:| 'NoneType' object has no attribute 'entry'
+Message:📩 #BLURUSDTPERP 15m | Short-Term
+📉 Long Entry Zone: 5150
+🎯Accuracy of this strategy - 86.77%
+
+- ⏳ -  Signal details:
+Target 1: 5170
+Target 2: 5191
+Target 3: 5211
+Target 4: 5253
+_
+🧲Trend-Line: 1.6275
+❌Stop-Loss: 4840
+💡After reaching the first target you can put the rest of the position to breakeven
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 191, in my_event_handler
+    await handle_signal_message.process_message(signal_message)
+  File "/app/handle_signal_message.py", line 29, in process_message
+    trade = controller.get_filtered_trade_from_signal(signal)
+  File "/app/parse_signal.py", line 79, in get_filtered_trade_from_signal
+    trade = self.get_trade_from_signal(signal)
+  File "/app/signal_sources/ggshot_vip.py", line 37, in get_trade_from_signal
+    trade = FutureBasic(signal, signal.entry[0], signal.take_profit[1], signal.stop_loss, signal.direction, 1)
+AttributeError: 'NoneType' object has no attribute 'entry'
+
+
+17:33:11:| single positional indexer is out-of-bounds
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "/app/telebagger.py", line 164, in telegram_command
+    db.generate_last_week_signals()
+  File "/app/database_logging.py", line 289, in generate_last_week_signals
+    trade.run_backtest()
+  File "/app/trade_conditions.py", line 80, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self)
+  File "/app/backtesting.py", line 287, in run_backtest_from_trade
+    backtest = BackTest(trade.signal.time_generated, trade.entry, [trade.take_profit], trade.stop_loss, trade.signal.direction, trade.signal.pair, client.KLINE_INTERVAL_5MINUTE)
+  File "/app/backtesting.py", line 53, in __init__
+    first_price_value = self.data.iloc[0]['open']
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1103, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1656, in _getitem_axis
+    self._validate_integer(key, axis)
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1589, in _validate_integer
+    raise IndexError("single positional indexer is out-of-bounds")
+IndexError: single positional indexer is out-of-bounds
+
+
+17:42:39:| module 'handle_signal_message' has no attribute 'trade_from_signal_data'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_trades_from_timeframe(days = 7)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 179, in generate_trades_from_timeframe
+    trade = handle_signal_message.trade_from_signal_data(inner_value, True)
+AttributeError: module 'handle_signal_message' has no attribute 'trade_from_signal_data'
+
+
+17:50:39:| 'time_generated'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_trades_from_timeframe(days = 7)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 185, in generate_trades_from_timeframe
+    time_sorted_data = sorted(time_generated_list, key=lambda x: x['time_generated'])
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 185, in <lambda>
+    time_sorted_data = sorted(time_generated_list, key=lambda x: x['time_generated'])
+KeyError: 'time_generated'
+
+
+17:55:06:| 'time_generated'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_trades_from_timeframe(days = 7)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 190, in generate_trades_from_timeframe
+    time_sorted_data = sorted(time_generated_list, key=lambda x: x['time_generated'])
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 190, in <lambda>
+    time_sorted_data = sorted(time_generated_list, key=lambda x: x['time_generated'])
+KeyError: 'time_generated'
+
+
+17:55:48:| 'time_generated'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_trades_from_timeframe(days = 7)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 190, in generate_trades_from_timeframe
+    time_sorted_data = sorted(time_generated_list, key=lambda x: x['time_generated'])
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 190, in <lambda>
+    time_sorted_data = sorted(time_generated_list, key=lambda x: x['time_generated'])
+KeyError: 'time_generated'
+
+

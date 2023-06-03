@@ -14,7 +14,7 @@ These values should be static
 class SpotBasic:
     '''Spot basic is a market spot order, with a takeprofit value, optional stoploss or
     timelimit to exit trade,if no stoploss is entered then a mandatory 7 day limit is applied'''
-    def __init__(self, source, time_generated, entry, take_profit, stop_loss, ):
+    def __init__(self, source, time_generated, entry, take_profit, stop_loss):
         self.source = source
         self.entry = entry
         self.take_profit = take_profit

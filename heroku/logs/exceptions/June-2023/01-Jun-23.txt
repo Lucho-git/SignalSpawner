@@ -1,0 +1,64 @@
+23:08:47:| single positional indexer is out-of-bounds
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "/app/telebagger.py", line 164, in telegram_command
+    db.generate_last_week_signals()
+  File "/app/database_logging.py", line 289, in generate_last_week_signals
+    trade.run_backtest()
+  File "/app/trade_conditions.py", line 80, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self)
+  File "/app/backtesting.py", line 287, in run_backtest_from_trade
+    backtest = BackTest(trade.signal.time_generated, trade.entry, [trade.take_profit], trade.stop_loss, trade.signal.direction, trade.signal.pair, client.KLINE_INTERVAL_5MINUTE)
+  File "/app/backtesting.py", line 53, in __init__
+    first_price_value = self.data.iloc[0]['open']
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1103, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1656, in _getitem_axis
+    self._validate_integer(key, axis)
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexing.py", line 1589, in _validate_integer
+    raise IndexError("single positional indexer is out-of-bounds")
+IndexError: single positional indexer is out-of-bounds
+
+
+23:34:34:| 'list' object has no attribute 'direction'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_trades_from_timeframe(days = 21)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 174, in generate_trades_from_timeframe
+    signal = Signal.from_data(inner_value)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 72, in from_data
+    return cls(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction, market_price=signal_data.market_price, time_generated=signal_data.time_generated, trades=signal_data.trades)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 41, in __init__
+    if trades.direction:
+AttributeError: 'list' object has no attribute 'direction'
+
+
+23:40:03:| module 'handle_signal_message' has no attribute 'trade_from_signal_data'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_trades_from_timeframe(days = 7)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 179, in generate_trades_from_timeframe
+    trade = handle_signal_message.trade_from_signal_data(inner_value, True)
+AttributeError: module 'handle_signal_message' has no attribute 'trade_from_signal_data'
+
+
+23:40:28:| module 'handle_signal_message' has no attribute 'trade_from_signal_data'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 194, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 164, in telegram_command
+    db.generate_trades_from_timeframe(days = 7)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 179, in generate_trades_from_timeframe
+    trade = handle_signal_message.trade_from_signal_data(inner_value, True)
+AttributeError: module 'handle_signal_message' has no attribute 'trade_from_signal_data'
+
+

@@ -5,6 +5,7 @@ import json
 import math
 import handle_signal_message
 from types import SimpleNamespace
+from trade_conditions import SpotBasic, FutureBasic
 '''
 Defines a set of conditions and parameters for a given signal
 These values should be static
@@ -33,7 +34,14 @@ class Signal:
         if not trades:
             self.trades = trades
         else:
-            self.trades = 
+            try: 
+                if trades.direction:
+                    self.trades = FutureBasic(trades.source, trades.time_generated, trades.entry, trades.take_profit, trades.stop_loss)
+                else:
+                    self.trades = SpotBasic(trades.source, trades.time_generated, trades.entry, trades.take_profit, trades.stop_loss, trades.direction, trades.leverage)
+            except AttributeError:
+                self.trades = []
+
         if not market_price:
             self.market_price = self.get_market_price()
         if not time_generated:

@@ -32,7 +32,7 @@ async def process_message(message):
         for t in trade:
             print('posting signal', t)
             print(t.__str__())
-            data = t.get_dict()
+            data = t.get_trade_dict(signal)
             print('Posting Signal Data:', data)
             db.post_signal(data)
         else:

@@ -173,17 +173,23 @@ def generate_trades_from_timeframe(days = 7, start_time=None, end_time=None, ove
             if time_generated_dt > timeframe:
                 signal = Signal.from_data(inner_value)
                 signal.generate_trades() #if doesn't exist generate trades
-                signal.backtest_trades() #if hasn't been backtested backtest trades
-                save_raw_signal(signal)
+                # signal.backtest_trades() #if hasn't been backtested backtest trades
+                # save_raw_signal(signal)
 
-                # trade = handle_signal_message.trade_from_signal_data(inner_value, True)
-                # if trade:
-                #     post_data = trade.get_dict() # might need to remove this?
-                #     time_generated_list.append(post_data)
+                trades = handle_signal_message.trades_from_signal(signal, True)
+                if trades:
+                    for t in trades:
+                        post_data = t.get_trade_dict(signal) # might need to remove this?
+                        try:
+                            print('test', post_data['timeout'])
+                        except:
+                            print('postdata: no time genreated:', post_data)
 
-    # time_sorted_data = sorted(time_generated_list, key=lambda x: x['time_generated'])
-    # post_signal(time_sorted_data)
-    # return time_sorted_data
+                        time_generated_list.append(post_data)   
+
+    time_sorted_data = sorted(time_generated_list, key=lambda x: x['timeout'])
+    post_signal(time_sorted_data)
+    return time_sorted_data
     # Print the list of extracted values
 
 
