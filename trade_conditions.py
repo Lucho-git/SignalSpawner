@@ -2,6 +2,7 @@ import utility
 import config
 import json
 import backtesting
+import traceback
 from types import SimpleNamespace
 
 '''
@@ -65,6 +66,7 @@ class SpotBasic:
         }
 
     def get_trade_dict(self, signal):
+        
         return {
             "source": signal.source,
             "coin": signal.coin,
@@ -74,19 +76,23 @@ class SpotBasic:
             "profit": self.take_profit,
             "loss": self.stop_loss,
             "direction": "LONG",
-            "backtest": self.backtest,
+            "backtest": vars(self.backtest),
             "timeout": self.timeout,
             "time_generated": signal.time_generated
         }
     
     def run_backtest(self, signal):
         if (isinstance(self.backtest, SimpleNamespace)):
+            print('Instance....')
             if (self.backtest.result == 'profit' or self.backtest.result == 'loss'):
+                print('Nothing to backtest returning....')
                 return
         print('Starting New Backtest', type(self.backtest), self.backtest)
         self.backtest = backtesting.run_backtest_from_trade(self, signal)
         print('BACKTEST TYPE', type(self.backtest), self.backtest)
 
+    def __str__(self) -> str:
+        return str(self.get_dict())
 
 class FutureBasic(SpotBasic):
     '''Futures basic is a market futures order, can only be ISO,
@@ -108,6 +114,11 @@ class FutureBasic(SpotBasic):
         add_dict['direction'] = self.direction
         return add_dict
 
+    def __str__(self) -> str:
+        return str(self.get_dict())
+    
+    def __repr__(self):
+        return self.__str__()
 
 class SpotAdvanced(SpotBasic):
     """Spot advanced allows for multiple exit prices and percentages"""

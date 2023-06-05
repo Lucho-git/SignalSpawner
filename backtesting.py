@@ -145,6 +145,7 @@ class BackTest:
                     take_profit_percentages[take_profit] = self.calculate_profit_percentage(take_profit)
                     take_profit_values.remove(take_profit)
 
+
         exit_condition = 'ongoing'
         if take_profit_hits == len(self.take_profit_values):
             exit_condition = 'take_profit'
@@ -285,7 +286,10 @@ def run_backtest_from_signal(signal):
 
 def run_backtest_from_trade(trade, signal):
     """Run specific backtest result for a quantifiable trade"""
-    backtest = BackTest(signal.time_generated, trade.entry, [trade.take_profit], trade.stop_loss, signal.direction, signal.pair, client.KLINE_INTERVAL_5MINUTE)
+    try:
+        backtest = BackTest(signal.time_generated, trade.entry, [trade.take_profit], trade.stop_loss, signal.direction, signal.pair, client.KLINE_INTERVAL_5MINUTE)
+    except Exception as e:
+        return
     print('Market_Price', signal.market_price)
     print(signal.source, type(trade))
     

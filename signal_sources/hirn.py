@@ -19,7 +19,7 @@ class HirnSignal(SignalProviderBase):
         return newSignal
     
 
-    def get_trades_from_signal(self, signal):
+    def get_all_trades_from_signal(self, signal):
         '''Convert Signal into trade values'''
         trades = []
         trade = SpotBasic(self.source+'|0|0|0|standard', signal.time_generated, signal.entry[0], signal.take_profit[0], signal.stop_loss)

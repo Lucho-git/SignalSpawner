@@ -152,10 +152,11 @@ def save_raw_signal(signal):
     database.child(path).child(key).update(json_data_dict)
 
 
-def generate_trades_from_timeframe(days = 7, start_time=None, end_time=None, override=False):
+def generate_signals_from_timeframe(days = 7, start_time=None, end_time=None, override=False):
     path = paths.RAW_SIGNALS
     data = database.child(path).get().val()
     time_generated_list = []
+    signals_list = []
 
     if start_time:
         #TODO generate from specific timeframe
@@ -167,35 +168,53 @@ def generate_trades_from_timeframe(days = 7, start_time=None, end_time=None, ove
         # Iterate over the inner dictionary
         for inner_key, inner_value in outer_value.items():
             # Extract the time_generated field
-            print('\n\nInnerValue:', inner_value)
+            # print('\n\nInnerValue:', inner_value)
             time_generated = inner_value['time_generated']
             time_generated_dt = datetime.fromtimestamp(time_generated/1000)
             if time_generated_dt > timeframe:
                 signal = Signal.from_data(inner_value)
-                signal.generate_trades() #if doesn't exist generate trades
-                # signal.backtest_trades() #if hasn't been backtested backtest trades
-                # save_raw_signal(signal)
+                print('\n\nREFINED SIGNAL',signal)
+                signals_list.append(signal)
+    return signals_list
 
-                trades = handle_signal_message.trades_from_signal(signal, True)
-                if trades:
-                    for t in trades:
-                        post_data = t.get_trade_dict(signal) # might need to remove this?
-                        try:
-                            print('test', post_data['timeout'])
-                        except:
-                            print('postdata: no time genreated:', post_data)
 
-                        time_generated_list.append(post_data)   
+def save_signals(signals_list):
+    for signal in signals_list:
+        save_raw_signal(signal)
+
+
+def generate_trades(signals_list):
+    for signal in signals_list:
+        if not signal.trades:
+            print('\nAbout to generate new trades')
+            print(signal.trades)
+            print(signal)
+            signal.generate_trades(True) #if doesn't exist generate trades
+        else:
+            print('Existing trades')
+
+
+def backtest_trades(signals_list):
+    for signal in signals_list:
+        signal.backtest_trades() #if doesn't exist generate trades 
+
+def post_trades(signals_list):
+    time_generated_list = []
+
+    for signal in signals_list:
+        trades = signal.trades
+        if trades:
+            for t in trades:
+                post_data = t.get_trade_dict(signal) # might need to remove this?
+                try:
+                    print('test', post_data['timeout'])
+                except:
+                    print('postdata: no time genreated:', post_data)
+                time_generated_list.append(post_data)   
 
     time_sorted_data = sorted(time_generated_list, key=lambda x: x['timeout'])
     post_signal(time_sorted_data)
-    return time_sorted_data
-    # Print the list of extracted values
 
-
-
-
-#def post_trade_data()
 
 def generate_last_week_signals():
     path = paths.RAW_SIGNALS

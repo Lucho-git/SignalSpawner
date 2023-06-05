@@ -3,7 +3,7 @@ import asyncio
 import nest_asyncio
 import argparse
 from colorama import init
-from config import run_local
+import config
 from telebagger import TelegramEvents
 from discbagger import DiscordEvents
 
@@ -11,7 +11,7 @@ async def main(local):
     '''Bagger'''
     init()  # Initialising colorama
     if local:
-        run_local()
+        config.run_local()
         print('Running Locally')
 
     #communication clientChannel, so discord and telegram can exit simeltaneously

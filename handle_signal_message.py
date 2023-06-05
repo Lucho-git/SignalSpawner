@@ -1,5 +1,6 @@
 '''This module contains references to all of the different trade groups, sends signal info to them and recieves trade info'''
 import json
+import traceback
 from types import SimpleNamespace
 
 import database_logging as db
@@ -27,22 +28,29 @@ async def process_message(message):
     # Get trade details from signal
     controller = controller_mapping.get(message.origin.id)
     if controller.validate_signal(message.message):
-        signal = controller.new_signal_message(message)
-        trade = controller.get_filtered_trades_from_signal(signal)
-        for t in trade:
-            print('posting signal', t)
-            print(t.__str__())
-            data = t.get_trade_dict(signal)
-            print('Posting Signal Data:', data)
-            db.post_signal(data)
-        else:
-            print('\nFiltered Signal:', signal)
-
+        try:
+            signal = controller.new_signal_message(message)
+            trade = controller.get_filtered_trades_from_signal(signal)
+            for t in trade:
+                print('posting signal', t)
+                print(t.__str__())
+                data = t.get_trade_dict(signal)
+                print('Posting Signal Data:', data)
+                db.post_signal(data)
+            else:
+                print('\nFiltered Signal:', signal)
+        except Exception as e:
+            print('Unexpected exception parsing signal message:')
+            print(e)
+            traceback.print_exc()
 
 def trades_from_signal(signal, filter):
     '''Creates a trade from signal data'''
     controller = controller_mapping.get(signal.message.origin.id)
-    if filter:
-        return controller.get_filtered_trades_from_signal(signal)
-    else:
-        return controller.get_trades_from_signal(signal)
+    try:
+        return controller.get_trades_from_signal(signal, filter)
+    except Exception as e:
+        print('Unexpected getting trade from signal message:')
+        print(e)
+        traceback.print_exc()
+        return

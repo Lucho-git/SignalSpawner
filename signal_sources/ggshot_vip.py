@@ -32,7 +32,7 @@ class GGShotVipSignal(SignalProviderBase):
         return signal
 
 
-    def get_trades_from_signal(self, signal):
+    def get_all_trades_from_signal(self, signal):
         '''Convert Signal into trade values'''
         trades = []
         trade = FutureBasic(self.source+'|0|1|0|standard_entry', signal.time_generated, signal.entry[0], signal.take_profit[1], signal.stop_loss, signal.direction, 1)

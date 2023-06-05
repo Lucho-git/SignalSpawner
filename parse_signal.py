@@ -71,13 +71,18 @@ class SignalProviderBase():
         '''This function should be implemented in subclasses'''
         raise NotImplementedError()
     
-    def get_trades_from_signal(self, signal):
+    def get_trades_from_signal(self, signal, filter):
+        if filter:
+            return self.get_filtered_trades_from_signal(signal)
+        else: 
+            return self.get_all_trades_from_signal(signal)
+
+    def get_all_trades_from_signal(self, signal, filter):
         '''This function should be implemented in subclasses'''
         raise NotImplementedError()
 
     def get_filtered_trades_from_signal(self, signal):
-        trades = self.get_trades_from_signal(signal)
-        print('trades|', trades)
+        trades = self.get_all_trades_from_signal(signal)
         returning_trades = []
         for t in trades:
             if self.filter_trade(t, signal):

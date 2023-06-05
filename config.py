@@ -14,7 +14,7 @@ from discord.ext import commands
 # Load locally, or from server
 local = [True]
 if os.name == 'nt':
-    local[0] = False
+    local[0] = True
     print('Windows Detected...')
 else:
     # code is reachable, vscode lying

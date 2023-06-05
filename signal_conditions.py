@@ -4,6 +4,7 @@ import datetime
 import json
 import math
 import handle_signal_message
+import traceback
 from types import SimpleNamespace
 from trade_conditions import SpotBasic, FutureBasic
 '''
@@ -32,14 +33,23 @@ class Signal:
         self.market_price = market_price
         self.time_generated = time_generated
         if not trades:
+            print('No Trades!')
             self.trades = trades
         else:
-            try: 
-                if trades.direction:
-                    self.trades = FutureBasic(trades.source, trades.time_generated, trades.entry, trades.take_profit, trades.stop_loss)
-                else:
-                    self.trades = SpotBasic(trades.source, trades.time_generated, trades.entry, trades.take_profit, trades.stop_loss, trades.direction, trades.leverage)
-            except AttributeError:
+            try:
+                new_trades = []
+                for t in trades: 
+                    try:
+                        t.direction
+                        print('FuturesBasic Trade')
+                        new_trades.append(FutureBasic(t.source, t.timeout, t.entry, t.take_profit, t.stop_loss, t.direction, t.leverage))
+                    except AttributeError:
+                        print('SpotBasic Trade')
+                        new_trades.append(SpotBasic(t.source, t.timeout, t.entry, t.take_profit, t.stop_loss))
+                self.trades = new_trades
+            except AttributeError as e:
+                print(e)
+                traceback.print_exc()
                 self.trades = []
 
         if not market_price:
@@ -83,6 +93,7 @@ class Signal:
                 "stop_loss": self.stop_loss,
                 "direction": self.direction,
                 "market_price": self.market_price,
+                "trades": str(self.trades), 
                 "time_generated": self.time_generated
                 })
 
