@@ -23,6 +23,9 @@ else:
 
 load_dotenv()
 
+def run_local():
+    local[0] = True
+
 def get_firebase_config():
     """Init Database Connection"""
     config = {
@@ -86,6 +89,7 @@ def get_commands():
     'RAND_HIRN_SIGNAL': '/new_hirn',
     'PREDICTUM': '/predictum',
     'GGSHOT': '/ggshot',
+    'GGSHOTVIP': '/ggshotvip',
     'UPDATE_NOW': '/now',
     'STATUS': '/status',
     'PAST': '/past',

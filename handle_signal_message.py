@@ -10,14 +10,14 @@ from signal_conditions import Signal
 hirn_controller = hirn.HirnSignal()
 predictum_controller = predictum.PredictumSignal()
 ggshot_controller = ggshot.GGShotSignal()
-ggshot_controller_free = ggshot.GGShotSignal('GGshot_free')
+ggshot_free_controller = ggshot.GGShotSignal('GGshot_free')
 ggshot_vip_controller = ggshot_vip.GGShotVipSignal()
 
 controller_mapping = {
     '1558766055': predictum_controller,
     '1248393106': hirn_controller,
     '1825288627': ggshot_controller,
-    '1175262142': ggshot_controller_free,
+    '1175262142': ggshot_free_controller,
     '1737189058': ggshot_vip_controller,
 }
 

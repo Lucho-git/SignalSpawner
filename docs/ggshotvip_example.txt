@@ -1,0 +1,13 @@
+📩 #LUNA2USDTPERP 15m | Short-Term
+📉 Long Entry Zone: 8810
+🎯Accuracy of this strategy - 86.77%
+
+- ⏳ -  Signal details:
+Target 1: 8845
+Target 2: 8880
+Target 3: 8915
+Target 4: 8986
+_
+🧲Trend-Line: 1.6275
+❌Stop-Loss: 8280
+💡After reaching the first target you can put the rest of the position to breakeven

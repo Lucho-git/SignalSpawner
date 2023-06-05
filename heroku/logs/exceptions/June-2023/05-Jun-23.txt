@@ -1,0 +1,42 @@
+01:50:00:| 'NoneType' object has no attribute 'time_generated'
+Message:📩 #1000LUNCUSDTPERP 15m | Short-Term
+📉 Long Entry Zone: 1130
+🎯Accuracy of this strategy - 86.77%
+
+- ⏳ -  Signal details:
+Target 1: 1134
+Target 2: 1139
+Target 3: 1143
+Target 4: 1152
+_
+🧲Trend-Line: 1.6275
+❌Stop-Loss: 1062
+💡After reaching the first target you can put the rest of the position to breakeven
+Except:Traceback (most recent call last):
+  File "/app/telebagger.py", line 191, in my_event_handler
+    await handle_signal_message.process_message(signal_message)
+  File "/app/handle_signal_message.py", line 31, in process_message
+    trade = controller.get_filtered_trades_from_signal(signal)
+  File "/app/parse_signal.py", line 79, in get_filtered_trades_from_signal
+    trades = self.get_trades_from_signal(signal)
+  File "/app/signal_sources/ggshot_vip.py", line 38, in get_trades_from_signal
+    trade = FutureBasic(self.source+'|0|1|0|standard_entry', signal.time_generated, signal.entry[0], signal.take_profit[1], signal.stop_loss, signal.direction, 1)
+AttributeError: 'NoneType' object has no attribute 'time_generated'
+
+
+17:06:26:| 'NoneType' object has no attribute 'time_generated'
+Message:/ggshotvip
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 201, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 167, in telegram_command
+    await handle_signal_message.process_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\handle_signal_message.py", line 31, in process_message
+    trade = controller.get_filtered_trades_from_signal(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\parse_signal.py", line 79, in get_filtered_trades_from_signal
+    trades = self.get_trades_from_signal(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_sources\ggshot_vip.py", line 38, in get_trades_from_signal
+    trade = FutureBasic(self.source+'|0|1|0|standard_entry', signal.time_generated, signal.entry[0], signal.take_profit[1], signal.stop_loss, signal.direction, 1)
+AttributeError: 'NoneType' object has no attribute 'time_generated'
+
+

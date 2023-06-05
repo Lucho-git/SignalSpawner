@@ -159,6 +159,13 @@ class TelegramEvents:
             signal_message.origin.name = 'testGGshot'
             await handle_signal_message.process_message(signal_message)
 
+        elif signal_message.message == self.com.GGSHOTVIP:
+            with open('docs/ggshotvip_example.txt', 'r', encoding='utf-8') as f:
+                signal_message.message = f.read()
+            signal_message.origin.id = '1737189058'
+            signal_message.origin.name = 'testGGshotVip'
+            await handle_signal_message.process_message(signal_message)
+
         elif signal_message.message == self.com.LAST_WEEK:
             print('getting last week of signals')
             db.generate_trades_from_timeframe(days = 7)
