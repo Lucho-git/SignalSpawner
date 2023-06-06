@@ -36,16 +36,20 @@ class Signal:
             print('No Trades!')
             self.trades = trades
         else:
+            new_trades = []
             try:
-                new_trades = []
                 for t in trades: 
                     try:
                         t.direction
                         print('FuturesBasic Trade')
-                        new_trades.append(FutureBasic(t.source, t.timeout, t.entry, t.take_profit, t.stop_loss, t.direction, t.leverage))
+                        new_futures = FutureBasic(t.source, t.timeout, t.entry, t.take_profit, t.stop_loss, t.direction, t.leverage, backtest = t.backtest)
+                        new_trades.append(new_futures)
+                        print('FuturesBasicTrade Complete', new_futures)
                     except AttributeError:
                         print('SpotBasic Trade')
-                        new_trades.append(SpotBasic(t.source, t.timeout, t.entry, t.take_profit, t.stop_loss))
+                        new_spot = SpotBasic(t.source, t.timeout, t.entry, t.take_profit, t.stop_loss, backtest = t.backtest)
+                        new_trades.append(new_spot)
+                print('\n\nTrades recreated from database', new_trades)
                 self.trades = new_trades
             except AttributeError as e:
                 print(e)
@@ -182,6 +186,7 @@ class Signal:
             if self.trades:
                 return
             else:
+                print('\nGenerating New Trade')
                 self.trades = handle_signal_message.trades_from_signal(self, False)
 
     def generate_filtered_trades(self):
@@ -191,5 +196,4 @@ class Signal:
         if not self.trades:
             raise Exception('No trades to backtest')
         for t in self.trades:
-            print(t)
             t.run_backtest(self)

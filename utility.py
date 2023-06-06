@@ -49,13 +49,14 @@ def round_decimals_down(number: float, decimals: int = 2):
     if decimals == 0:
         return math.floor(number)
     factor = 10 ** decimals
-    return math.floor(number * factor) / factor 
+    rounded_num = math.floor(number*factor)/factor
+    return rounded_num
 
 def sanitise_price_data(symbol, price):
     precision = get_price_precision(symbol)
     if isinstance(price, list):
-        for p in price:
-            p = round_decimals_down(float(p), precision)
+        for i in range(len(price)):
+            price[i] = round_decimals_down(float(price[i]), precision)
     elif isinstance(price, str) or isinstance(price, float):
         price = round_decimals_down(float(price), precision)
     else:

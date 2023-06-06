@@ -15,13 +15,15 @@ These values should be static
 class SpotBasic:
     '''Spot basic is a market spot order, with a takeprofit value, optional stoploss or
     timelimit to exit trade,if no stoploss is entered then a mandatory 7 day limit is applied'''
-    def __init__(self, source, time_generated, entry, take_profit, stop_loss):
+    def __init__(self, source, time_generated, entry, take_profit, stop_loss, backtest=None):
         self.source = source
         self.entry = entry
         self.take_profit = take_profit
         self.stop_loss = stop_loss
         self.timeout = time_generated + 604800000 #7 Days timeout in seconds
-        self.backtest = 'undetermined'
+        self.backtest=backtest
+        if not self.backtest:
+            self.backtest = SimpleNamespace(result='undetermined', amount='', percentage='', time_complete='')
 
     def check_timeout(self, trade):
         '''Checks to see if trade has timed out'''
@@ -82,11 +84,9 @@ class SpotBasic:
         }
     
     def run_backtest(self, signal):
-        if (isinstance(self.backtest, SimpleNamespace)):
-            print('Instance....')
-            if (self.backtest.result == 'profit' or self.backtest.result == 'loss'):
-                print('Nothing to backtest returning....')
-                return
+        if (self.backtest.result == 'profit' or self.backtest.result == 'loss'):
+            print('Nothing to backtest returning....')
+            return
         print('Starting New Backtest', type(self.backtest), self.backtest)
         self.backtest = backtesting.run_backtest_from_trade(self, signal)
         print('BACKTEST TYPE', type(self.backtest), self.backtest)
@@ -94,11 +94,14 @@ class SpotBasic:
     def __str__(self) -> str:
         return str(self.get_dict())
 
+    def __repr__(self):
+        return self.__str__()
+
 class FutureBasic(SpotBasic):
     '''Futures basic is a market futures order, can only be ISO,
     must have stoploss before liquidation value'''
-    def __init__(self, source, time_generated, entry, take_profit, stop_loss, direction, leverage):
-        super().__init__(source, time_generated, entry, take_profit, stop_loss)
+    def __init__(self, source, time_generated, entry, take_profit, stop_loss, direction, leverage, backtest = None):
+        super().__init__(source, time_generated, entry, take_profit, stop_loss, backtest = backtest)
         self.direction = direction
         self.leverage = leverage
 

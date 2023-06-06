@@ -1,0 +1,28 @@
+21:39:30:| 'timestamp'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 205, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 174, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 218, in post_trades
+    timestamp_ms = t['timestamp']
+KeyError: 'timestamp'
+
+
+23:40:24:| FutureBasic.__init__() got an unexpected keyword argument 'backtest'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 205, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 171, in telegram_command
+    signals = db.generate_signals_from_timeframe(days = 7)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 176, in generate_signals_from_timeframe
+    signal = Signal.from_data(inner_value)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 87, in from_data
+    return cls(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction, market_price=signal_data.market_price, time_generated=signal_data.time_generated, trades=signal_data.trades)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 45, in __init__
+    new_futures = FutureBasic(t.source, t.timeout, t.entry, t.take_profit, t.stop_loss, t.direction, t.leverage, backtest = t.backtest)
+TypeError: FutureBasic.__init__() got an unexpected keyword argument 'backtest'
+
+

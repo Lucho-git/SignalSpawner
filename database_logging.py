@@ -1,5 +1,6 @@
 """Module interacts with the database, for saving and loading various data/logs"""
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
+
 import handle_signal_message
 import os
 import pickle
@@ -173,7 +174,6 @@ def generate_signals_from_timeframe(days = 7, start_time=None, end_time=None, ov
             time_generated_dt = datetime.fromtimestamp(time_generated/1000)
             if time_generated_dt > timeframe:
                 signal = Signal.from_data(inner_value)
-                print('\n\nREFINED SIGNAL',signal)
                 signals_list.append(signal)
     return signals_list
 
@@ -185,13 +185,7 @@ def save_signals(signals_list):
 
 def generate_trades(signals_list):
     for signal in signals_list:
-        if not signal.trades:
-            print('\nAbout to generate new trades')
-            print(signal.trades)
-            print(signal)
-            signal.generate_trades(True) #if doesn't exist generate trades
-        else:
-            print('Existing trades')
+        signal.generate_trades(override = False) #If true generate trades, if false only generate non-existant trades
 
 
 def backtest_trades(signals_list):
@@ -213,6 +207,24 @@ def post_trades(signals_list):
                 time_generated_list.append(post_data)   
 
     time_sorted_data = sorted(time_generated_list, key=lambda x: x['timeout'])
+    for t in time_sorted_data:
+        timestamp_ms = t['time_generated']
+        timeout_ms = t['timeout']
+
+        timestamp_s = timestamp_ms / 1000.0
+        timeout_s = timeout_ms / 1000.0
+        timestamp_dt = datetime.fromtimestamp(timestamp_s, tz=timezone.utc)
+        timeout_dt = datetime.fromtimestamp(timeout_s, tz=timezone.utc)
+
+    # Get the current datetime (in UTC)
+        now = datetime.now(timezone.utc)
+
+        # Calculate the difference
+        difference = now - timestamp_dt
+        timeout_diff = timeout_dt - timestamp_dt
+        hours_difference = difference.total_seconds() / 3600.0
+        to_hours_difference = timeout_diff.total_seconds() / 3600.0
+        print(t,hours_difference,to_hours_difference,'\n')
     post_signal(time_sorted_data)
 
 
