@@ -10,9 +10,9 @@ from discbagger import DiscordEvents
 async def main(local):
     '''Bagger'''
     init()  # Initialising colorama
-    if local:
-        config.run_local()
-        print('Running Locally')
+    # if local:
+    #     config.run_local()
+    #     print('Running Locally')
 
     #communication clientChannel, so discord and telegram can exit simeltaneously
     c1 = asyncio.Queue()
