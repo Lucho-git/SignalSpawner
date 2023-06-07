@@ -106,6 +106,7 @@ def get_commands():
     'CHANGE_VALUE': '/change_value',
     'BACK_TEST': '/back_test',
     'GET_SIGNALS': '/get_signals',
+    'DELETE_DUPLICATES': '/delete_duplicates',
     }
     if not local[0]:
         # Stream Commands Heroku Hosted

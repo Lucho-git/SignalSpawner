@@ -130,6 +130,9 @@ class TelegramEvents:
             except Exception as e:
                 print(e)
 
+        elif signal_message.message == self.com.DELETE_DUPLICATES:
+            db.delete_database_duplicates()
+
         elif '/new_disc_channel ' in signal_message.message:
             #Format like  /newchannel guildid-channelid nameofchannel category(ignore/signal)
             channelinfo = signal_message.message.split(' ')

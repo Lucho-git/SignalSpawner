@@ -294,3 +294,30 @@ def change_database_value():
                 #inner_value[replacement_value] = inner_value.pop(find_value)
                 database.child(path).child(outer_key).child(inner_key).set(inner_value)
                 print('\n\nReplaced Value\n\n')
+
+
+def delete_database_duplicates():
+    path = paths.RAW_SIGNALS
+    data = database.child(path).get().val()
+
+    seen_entries = {}  # Will contain the latest entries with a unique message
+
+    for outer_key, outer_value in data.items():
+    # Iterate over the inner dictionary
+        for inner_key, inner_value in outer_value.items():
+            comp_key = inner_value['message']['message']
+
+            if comp_key in seen_entries:
+                # If current entry is newer than the one in seen_entries, delete it
+                if inner_value['time_generated'] > seen_entries[comp_key]['time_generated']:
+                    print('Deleting Duplicate...', inner_value)
+                    database.child(path).child(outer_key).child(inner_key).remove()
+                # If current entry is older, delete the newer one in seen_entries and update seen_entries
+                else:
+                    print('Deleting...')
+                    database.child(path).child(seen_entries[comp_key]['outer_key']).child(seen_entries[comp_key]['inner_key']).remove()
+                    seen_entries[comp_key] = {'time_generated': inner_value['time_generated'],
+                                                'outer_key': outer_key, 'inner_key': inner_key}
+            else:
+                seen_entries[comp_key] = {'time_generated': inner_value['time_generated'],
+                                            'outer_key': outer_key, 'inner_key': inner_key}
