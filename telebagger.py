@@ -11,7 +11,8 @@ import traceback
 import config
 import backtesting
 from types import SimpleNamespace
-
+from threading import Lock
+from collections import defaultdict
 
 # Local imports
 
@@ -20,6 +21,7 @@ import handle_signal_message
 from config import get_telegram_config, get_commands
 import database_logging as db
 
+
 class TelegramEvents:
     '''Handles telegram events'''
     def __init__(self, clientChannel):
@@ -27,10 +29,15 @@ class TelegramEvents:
         self.clientChannel = clientChannel
         self.client = config.get_telegram_config()
         self.lock = asyncio.Lock()
-        self.last_message = {
-            'text': None,
-            'time': 0
-        }
+        self.last_messages = defaultdict(str)
+
+    async def get(self, source_id):
+        async with self.lock:
+            return self.last_messages[source_id]
+
+    async def set(self, source_id, message_content):
+        async with self.lock:
+            self.last_messages[source_id] = message_content
 
     async def exit_self(self):
         '''Polls to see if should disconnect'''
@@ -69,20 +76,17 @@ class TelegramEvents:
                 else:
                     print('has photo')
 
-    async def is_duplicate(self, event):
-        message = event.message
-        current_time = time.time()
-        is_same_text = self.last_message['text'] == message.text
-        is_within_timeframe = (current_time - self.last_message['time']) < 1  # 1 second
 
-        if is_same_text and is_within_timeframe:
-            chat = await event.get_chat()
-            print('Duplicate message from:', chat.id)
+    async def is_duplicate(self, source_id, message_content):
+        # Check if message is duplicate
+        if await self.get(source_id) == message_content:
+            print(f"Ignoring duplicate message from {source_id}")
             return True
 
-        self.last_message['text'] = message.text
-        self.last_message['time'] = current_time
+        # Update the latest message from this source
+        await self.set(source_id, message_content)
         return False
+
 
     async def telegram_command(self, signal_message):
         '''Commands which can be manually triggered through the telegram client'''
@@ -191,14 +195,13 @@ class TelegramEvents:
         '''Receive message logic!!!'''
         @client.on(events.NewMessage())
         async def my_event_handler(event):
-            async with self.lock:
-                if await self.is_duplicate(event):
-                    return
             try:
                 signal_message = await self.generate_message(event)
 
                 if signal_message.origin.id in self.com.SIGNAL_GROUP:
                     print('From Signal Group:', signal_message.origin.name)
+                    if await self.is_duplicate(signal_message.origin.id, signal_message.message):
+                        return
                     await handle_signal_message.process_message(signal_message)
 
                 elif signal_message.origin.id == '5894740183' or signal_message.origin.id == '5935711140':
