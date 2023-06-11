@@ -42,12 +42,12 @@ class Signal:
                     try:
                         t.direction
                         print('FuturesBasic Trade')
-                        new_futures = FutureBasic(t.source, t.timeout, t.entry, t.take_profit, t.stop_loss, t.direction, t.leverage, backtest = t.backtest)
+                        new_futures = FutureBasic(t.source, t.time_generated, t.entry, t.take_profit, t.stop_loss, t.direction, t.leverage, backtest = t.backtest)
                         new_trades.append(new_futures)
                         print('FuturesBasicTrade Complete', new_futures)
                     except AttributeError:
                         print('SpotBasic Trade')
-                        new_spot = SpotBasic(t.source, t.timeout, t.entry, t.take_profit, t.stop_loss, backtest = t.backtest)
+                        new_spot = SpotBasic(t.source, t.time_generated, t.entry, t.take_profit, t.stop_loss, backtest = t.backtest)
                         new_trades.append(new_spot)
                 print('\n\nTrades recreated from database', new_trades)
                 self.trades = new_trades

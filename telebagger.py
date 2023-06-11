@@ -179,7 +179,7 @@ class TelegramEvents:
             db.generate_trades(signals)
             db.backtest_trades(signals)
             db.post_trades(signals)
-            # db.save_signals(signals)
+            db.save_signals(signals)
 
         elif signal_message.message == self.com.CHANGE_VALUE:
             print('changing value')
