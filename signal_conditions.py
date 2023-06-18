@@ -171,7 +171,8 @@ class Signal:
         if original != scaled:
             original = scaled
         if(not(changed==original)):
-           print('Changed', changed, 'To', original)
+           #print('Changed', changed, 'To', original)
+           pass
         return original
 
 

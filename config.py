@@ -14,7 +14,7 @@ from discord.ext import commands
 # Load locally, or from server
 local = [True]
 if os.name == 'nt':
-    local[0] = False
+    local[0] = True
     print('Windows Detected...')
 else:
     # code is reachable, vscode lying
@@ -107,6 +107,8 @@ def get_commands():
     'BACK_TEST': '/back_test',
     'GET_SIGNALS': '/get_signals',
     'DELETE_DUPLICATES': '/delete_duplicates',
+    'DELETE_NEAR_DUPLICATES': '/delete_near_duplicates',
+
     }
     if not local[0]:
         # Stream Commands Heroku Hosted
@@ -126,7 +128,7 @@ def get_storage_paths():
         "SAVE": "save_data/savefile",
         "SAVE_TRADE": "trade_result/",
         "LIVE_VIEW": "live_view/",
-        "LOG": 'log/',
+        "LOG": 'logs/',
         "REALTIME_SAVE": 'signal/',
         "DISCORD_CHANNEL": 'discord_channel/',
         "TELEGRAM_CHANNEL": 'telegram_channel/',

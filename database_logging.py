@@ -17,7 +17,7 @@ paths = get_storage_paths()
 firebase = get_firebase_config()
 storage = firebase.storage()
 database = firebase.database()
-tz = pytz.timezone('Australia/Perth')
+tz = timezone.utc
 
 
 
@@ -80,6 +80,16 @@ def failed_message(msg, origin, ex):
         f.write('\n\n')
     storage.child(failedmsg_filepath).put(failedmsg_filepath)
 
+
+def realtime_signal_logs(msg):
+    '''Logs general program runtime for debugging purposes'''
+    now = datetime.now(tz)
+    timestamp = str(int(now.timestamp()*1000))
+    month_year = now.strftime('%B-%Y')
+    date_formatted = now.strftime('%d-%b-%y')
+    time_formatted = now.strftime('%H:%M:%S:')
+    genlog_filepath = paths.LOG + date_formatted + '/signal_logging/' + timestamp
+    push_to_realtime(genlog_filepath, msg)
 
 
 def get_from_realtime(pathway):
@@ -321,3 +331,51 @@ def delete_database_duplicates():
             else:
                 seen_entries[comp_key] = {'time_generated': inner_value['time_generated'],
                                             'outer_key': outer_key, 'inner_key': inner_key}
+                
+
+def delete_database_almost_duplicates():
+    path = paths.RAW_SIGNALS
+    data = database.child(path).get().val()
+
+    seen_entries = {}  # Will contain the latest entries with a unique message
+
+    for outer_key, outer_value in data.items():
+    # Iterate over the inner dictionary
+        for inner_key, inner_value in outer_value.items():
+            # Concatenating the required keys to make a unique entry
+            keys_to_check = [
+                inner_value['coin'],
+                inner_value['base'],
+                inner_value['direction'],
+                str(inner_value['entry']),
+                inner_value['source'],
+                str(inner_value['stop_loss']),
+                str(inner_value['take_profit']),
+            ]
+
+            comp_key = "|".join(keys_to_check)
+
+            # If the comp_key is already in the seen_entries, print it because it's a duplicate
+            if comp_key in seen_entries:
+                # Convert the time_generated of both the current and duplicate entry to a datetime object
+                timestamp1 = datetime.fromtimestamp(inner_value['time_generated'] / 1000)  # divide by 1000 to convert ms to s
+                timestamp2 = datetime.fromtimestamp(seen_entries[comp_key]['value']['time_generated'] / 1000)  # divide by 1000 to convert ms to s
+
+                # Calculate the time difference
+                time_difference = timestamp1 - timestamp2
+
+                print("\nDuplicate Entry:")
+                print(inner_value,'|||\n------\n',seen_entries[comp_key],'\n')
+                print(f"Time difference: {time_difference}\n\n")
+                # Check which entry is newer and delete it
+                if timestamp1 > timestamp2:
+                    print('Deleting newer entry...')
+                    database.child(path).child(outer_key).child(inner_key).remove()
+                else:
+                    print('Deleting older entry...')
+                    database.child(path).child(seen_entries[comp_key]['outer_key']).child(seen_entries[comp_key]['inner_key']).remove()
+                    seen_entries[comp_key] = {'value': inner_value, 'outer_key': outer_key, 'inner_key': inner_key}
+            else:
+                # Else, add it to seen_entries
+                seen_entries[comp_key] = {'value': inner_value, 'outer_key': outer_key, 'inner_key': inner_key}
+                   

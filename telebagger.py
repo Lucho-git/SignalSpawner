@@ -79,11 +79,14 @@ class TelegramEvents:
 
     async def is_duplicate(self, source_id, message_content):
         # Check if message is duplicate
-        if await self.get(source_id) == message_content:
+        last_message = await self.get(source_id)
+        if last_message == message_content:
+            db.realtime_signal_logs('Duplicate Message:' + str(source_id) + '|\n' + message_content + '|\n' + last_message+'\n')
             print(f"Ignoring duplicate message from {source_id}")
             return True
 
         # Update the latest message from this source
+        db.realtime_signal_logs('Not a Duplicate Message:' + str(source_id) + '|\n' + message_content + '|\n' + last_message+'\n')
         await self.set(source_id, message_content)
         return False
 
@@ -104,7 +107,7 @@ class TelegramEvents:
                 signal_message.message = f.read()
             signal_message.origin.id = '1248393106'
             signal_message.origin.name = 'Hirn'
-            await handle_signal_message.process_message(signal_message)
+            await self.handle_new_message(signal_message)
 
         elif signal_message.message == self.com.RAND_HIRN_SIGNAL:
             signal_message.origin.id = '1248393106'
@@ -112,7 +115,7 @@ class TelegramEvents:
             for m in await self.client.get_messages('https://t.me/HIRN_CRYPTO', limit=20):
                 if 'Buy Price:' in m.message:
                     signal_message.message = m.message
-                    await handle_signal_message.process_message(signal_message)
+                    await self.handle_new_message(signal_message)
                     break
 
         elif signal_message.message == self.com.PAST:
@@ -132,7 +135,9 @@ class TelegramEvents:
 
         elif signal_message.message == self.com.DELETE_DUPLICATES:
             db.delete_database_duplicates()
-
+        elif signal_message.message == self.com.DELETE_NEAR_DUPLICATES:
+            print('deleting near dups...')
+            db.delete_database_almost_duplicates()
         elif '/new_disc_channel ' in signal_message.message:
             #Format like  /newchannel guildid-channelid nameofchannel category(ignore/signal)
             channelinfo = signal_message.message.split(' ')
@@ -196,29 +201,20 @@ class TelegramEvents:
     async def start_telegram_handler(self, client):
         '''telegram message event handler'''
         '''Receive message logic!!!'''
-        @client.on(events.NewMessage())
-        async def my_event_handler(event):
+        async def handle_new_telegram_event(event):
+            #Coverts the actual telegram event object into a message object and sends it for processing
             try:
                 signal_message = await self.generate_message(event)
-
-                if signal_message.origin.id in self.com.SIGNAL_GROUP:
-                    print('From Signal Group:', signal_message.origin.name)
-                    if await self.is_duplicate(signal_message.origin.id, signal_message.message):
-                        return
-                    await handle_signal_message.process_message(signal_message)
-
-                elif signal_message.origin.id == '5894740183' or signal_message.origin.id == '5935711140':
-                    await self.telegram_command(signal_message)
-                elif signal_message.origin.id in self.com.GENERAL_GROUP:
-                    pass
-
-                else:
-                    print('new chat ID:', signal_message.origin.id, signal_message.origin.name)
-                    db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name + 'Didnt match: ' + str(self.com.SIGNAL_GROUP))
-                    #Deal with unrecognized telegram channels
-
+                await self.handle_new_message(signal_message)
             except Exception as e:
                 db.error_log(str(e) + '\nMessage:' + event.raw_text + '\nExcept:' + str(traceback.format_exc()))
+
+
+        @client.on(events.NewMessage())
+        #Sends telegram events to be processed
+        async def my_event_handler(event):
+            await handle_new_telegram_event(event)
+
 
     async def run(self):
         '''Start recieving telegram events'''
@@ -227,3 +223,26 @@ class TelegramEvents:
         await self.client.start()
         print('Ready...')
         await self.client.run_until_disconnected()
+
+
+    async def handle_new_message(self, signal_message):
+        #Handles the logic for new messages
+        if signal_message.origin.id in self.com.SIGNAL_GROUP:
+            properties = [f'{name}: {getattr(signal_message, name)}' for name in dir(signal_message) if not name.startswith('__')]
+            properties_string = '\n'.join(properties)
+            logs = 'New Signal Message:' + properties_string
+            db.realtime_signal_logs(logs)
+            print('From Signal Group:', signal_message.origin.name)
+            if await self.is_duplicate(signal_message.origin.id, signal_message.message):
+                return
+            await handle_signal_message.process_message(signal_message)
+
+        elif signal_message.origin.id == '5894740183' or signal_message.origin.id == '5935711140':
+            await self.telegram_command(signal_message)
+        elif signal_message.origin.id in self.com.GENERAL_GROUP:
+            pass
+
+        else:
+            print('new chat ID:', signal_message.origin.id, signal_message.origin.name)
+            db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name + 'Didnt match: ' + str(self.com.SIGNAL_GROUP))
+            #Deal with unrecognized telegram channels

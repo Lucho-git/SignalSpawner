@@ -1,0 +1,90 @@
+08:56:31:| can only concatenate str (not "float") to str
+Message:/new_hirn
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 205, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 238, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 115, in telegram_command
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in handle_new_message
+    db.realtime_signal_logs(logs)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 91, in realtime_signal_logs
+    genlog_filepath = paths.LOG + date_formatted + '/signal_logging/' + timestamp
+TypeError: can only concatenate str (not "float") to str
+
+
+08:56:52:| [Errno 400 Client Error: Bad Request for url: https://telebagger-default-rtdb.firebaseio.com/logs/18-Jun-23/signal_logging/1687078612.497159.json] {
+  "error" : "Invalid path: Invalid token in path"
+}
+
+Message:/new_hirn
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pyrebase\pyrebase.py", line 512, in raise_detailed_error
+    request_object.raise_for_status()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\requests\models.py", line 943, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://telebagger-default-rtdb.firebaseio.com/logs/18-Jun-23/signal_logging/1687078612.497159.json
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 205, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 238, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 115, in telegram_command
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in handle_new_message
+    db.realtime_signal_logs(logs)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 93, in realtime_signal_logs
+    add_to_realtime(genlog_filepath, msg)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 113, in add_to_realtime
+    database.child(pathway).update(existing_data)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pyrebase\pyrebase.py", line 326, in update
+    raise_detailed_error(request_object)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pyrebase\pyrebase.py", line 516, in raise_detailed_error
+    raise HTTPError(e, request_object.text)
+requests.exceptions.HTTPError: [Errno 400 Client Error: Bad Request for url: https://telebagger-default-rtdb.firebaseio.com/logs/18-Jun-23/signal_logging/1687078612.497159.json] {
+  "error" : "Invalid path: Invalid token in path"
+}
+
+
+
+08:58:26:| [Errno 400 Client Error: Bad Request for url: https://telebagger-default-rtdb.firebaseio.com/logs/18-Jun-23/signal_logging/1687078705.json] {
+  "error" : "Invalid data; couldn't parse JSON object. Are you sending a JSON object with valid key names?"
+}
+
+Message:/new_hirn
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pyrebase\pyrebase.py", line 512, in raise_detailed_error
+    request_object.raise_for_status()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\requests\models.py", line 943, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://telebagger-default-rtdb.firebaseio.com/logs/18-Jun-23/signal_logging/1687078705.json
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 205, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 238, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 115, in telegram_command
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in handle_new_message
+    db.realtime_signal_logs(logs)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 93, in realtime_signal_logs
+    add_to_realtime(genlog_filepath, msg)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 113, in add_to_realtime
+    database.child(pathway).update(existing_data)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pyrebase\pyrebase.py", line 326, in update
+    raise_detailed_error(request_object)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pyrebase\pyrebase.py", line 516, in raise_detailed_error
+    raise HTTPError(e, request_object.text)
+requests.exceptions.HTTPError: [Errno 400 Client Error: Bad Request for url: https://telebagger-default-rtdb.firebaseio.com/logs/18-Jun-23/signal_logging/1687078705.json] {
+  "error" : "Invalid data; couldn't parse JSON object. Are you sending a JSON object with valid key names?"
+}
+
+
+

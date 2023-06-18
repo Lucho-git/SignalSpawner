@@ -1,0 +1,103 @@
+14:56:23:| type object 'datetime.datetime' has no attribute 'datetime'
+Message:/delete_near_duplicates!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 213, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 137, in telegram_command
+    db.delete_database_almost_duplicates()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 352, in delete_database_almost_duplicates
+    timestamp1 = datetime.datetime.fromtimestamp(inner_value['time_generated'] / 1000)  # divide by 1000 to convert ms to s
+AttributeError: type object 'datetime.datetime' has no attribute 'datetime'
+
+
+14:56:51:| 'value'
+Message:/delete_near_duplicates!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 213, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 137, in telegram_command
+    db.delete_database_almost_duplicates()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 353, in delete_database_almost_duplicates
+    timestamp2 = datetime.fromtimestamp(seen_entries[comp_key]['value']['time_generated'] / 1000)  # divide by 1000 to convert ms to s
+KeyError: 'value'
+
+
+14:58:51:| type object 'datetime.datetime' has no attribute 'datetime'
+Message:/delete_near_duplicates!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 213, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 137, in telegram_command
+    db.delete_database_almost_duplicates()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 352, in delete_database_almost_duplicates
+    timestamp1 = datetime.datetime.fromtimestamp(inner_value['time_generated'] / 1000)  # divide by 1000 to convert ms to s
+AttributeError: type object 'datetime.datetime' has no attribute 'datetime'
+
+
+15:13:57:| 'time_generated'
+Message:/delete_near_duplicates!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 213, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 137, in telegram_command
+    db.delete_database_almost_duplicates()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 353, in delete_database_almost_duplicates
+    timestamp2 = datetime.fromtimestamp(seen_entries[comp_key]['time_generated'] / 1000)  # divide by 1000 to convert ms to s
+KeyError: 'time_generated'
+
+
+15:16:24:| local variable 'timestamp2' referenced before assignment
+Message:/delete_near_duplicates!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 213, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 137, in telegram_command
+    db.delete_database_almost_duplicates()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 361, in delete_database_almost_duplicates
+    time_difference = timestamp1 - timestamp2
+UnboundLocalError: local variable 'timestamp2' referenced before assignment
+
+
+15:39:23:| local variable 'timestamp2' referenced before assignment
+Message:/delete_near_duplicates!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 213, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 137, in telegram_command
+    db.delete_database_almost_duplicates()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 361, in delete_database_almost_duplicates
+    time_difference = timestamp1 - timestamp2
+UnboundLocalError: local variable 'timestamp2' referenced before assignment
+
+
+15:41:33:| local variable 'timestamp2' referenced before assignment
+Message:/delete_near_duplicates!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 213, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 137, in telegram_command
+    db.delete_database_almost_duplicates()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 363, in delete_database_almost_duplicates
+    time_difference = timestamp1 - timestamp2
+UnboundLocalError: local variable 'timestamp2' referenced before assignment
+
+
+15:47:18:| 'time_generated'
+Message:/delete_near_duplicates!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 354, in delete_database_almost_duplicates
+    timestamp2 = datetime.fromtimestamp(seen_entries[comp_key]['time_generated'] / 1000)  # divide by 1000 to convert ms to s
+KeyError: 'time_generated'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 213, in my_event_handler
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 137, in telegram_command
+    db.delete_database_almost_duplicates()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 360, in delete_database_almost_duplicates
+    print(inner_value,'|||\n------\n',seen_entries[comp_key]['time_generated'],'\n')
+KeyError: 'time_generated'
+
+
