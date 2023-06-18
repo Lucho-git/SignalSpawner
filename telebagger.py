@@ -10,6 +10,7 @@ import os
 import traceback
 import config
 import backtesting
+import collections
 from types import SimpleNamespace
 from threading import Lock
 from collections import defaultdict
@@ -76,11 +77,28 @@ class TelegramEvents:
                 else:
                     print('has photo')
 
+    def shared_chars(self, str1, str2):
+        counter1 = collections.Counter(str1)
+        counter2 = collections.Counter(str2)
+        # Subtract the counters
+        remaining1 = counter1 - counter2
+        remaining2 = counter2 - counter1
+        # Join the remaining characters to form strings
+        str1_remaining = ''.join([char * count for char, count in remaining1.items()])
+        str2_remaining = ''.join([char * count for char, count in remaining2.items()])
+        combined_remaining = str1_remaining + str2_remaining
+        max_len = max(len(str1), len(str2))
+        shared = ((max_len - len(combined_remaining))/max_len) *100
+        return shared
+
 
     async def is_duplicate(self, source_id, message_content):
         # Check if message is duplicate
         last_message = await self.get(source_id)
-        if last_message == message_content:
+        similarity = self.shared_chars(last_message, message_content)
+        if similarity > 99:
+            print('Very Similar')
+            print(similarity)
             db.realtime_signal_logs('Duplicate Message:' + str(source_id) + '|\n' + message_content + '|\n' + last_message+'\n')
             print(f"Ignoring duplicate message from {source_id}")
             return True
@@ -161,8 +179,16 @@ class TelegramEvents:
             with open('docs/predictum_example.txt', 'r', encoding='utf-8') as f:
                 signal_message.message = f.read()
             signal_message.origin.id = '1558766055'
-            signal_message.origin.name = 'lastPredictum'
-            await handle_signal_message.process_message(signal_message)
+            signal_message.origin.name = 'examplePredictum'
+            await self.handle_new_message(signal_message)
+
+        elif signal_message.message == self.com.PREDICTUM2:
+            with open('docs/predictum2_example.txt', 'r', encoding='utf-8') as f:
+                signal_message.message = f.read()
+            signal_message.origin.id = '1558766055'
+            signal_message.origin.name = 'examplePredictum2'
+            await self.handle_new_message(signal_message)
+
 
         elif signal_message.message == self.com.GGSHOT:
             with open('docs/ggshot_example.txt', 'r', encoding='utf-8') as f:

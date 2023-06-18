@@ -88,3 +88,93 @@ requests.exceptions.HTTPError: [Errno 400 Client Error: Bad Request for url: htt
 
 
 
+15:57:27:| division by zero
+Message:/predictum
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 232, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 265, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 181, in telegram_command
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 260, in handle_new_message
+    if await self.is_duplicate(signal_message.origin.id, signal_message.message):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 95, in is_duplicate
+    similarity = self.shared_chars(last_message, message_content)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 86, in shared_chars
+    percentage_shared = (len(str1)-diff_count)/(len(str1))*100
+ZeroDivisionError: division by zero
+
+
+15:59:14:| division by zero
+Message:/predictum
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 235, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 268, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 184, in telegram_command
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 263, in handle_new_message
+    if await self.is_duplicate(signal_message.origin.id, signal_message.message):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 98, in is_duplicate
+    similarity = self.shared_chars(last_message, message_content)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 90, in shared_chars
+    percentage_shared = (len(str1)-diff_count)/(len(str1))*100
+ZeroDivisionError: division by zero
+
+
+16:00:23:| local variable 'percentage_shared' referenced before assignment
+Message:/predictum
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 236, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 269, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 185, in telegram_command
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 264, in handle_new_message
+    if await self.is_duplicate(signal_message.origin.id, signal_message.message):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 99, in is_duplicate
+    similarity = self.shared_chars(last_message, message_content)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 92, in shared_chars
+    print(percentage_shared)
+UnboundLocalError: local variable 'percentage_shared' referenced before assignment
+
+
+16:17:56:| local variable 'max' referenced before assignment
+Message:/predictum
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 228, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 177, in telegram_command
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 256, in handle_new_message
+    if await self.is_duplicate(signal_message.origin.id, signal_message.message):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 91, in is_duplicate
+    similarity = self.shared_chars(last_message, message_content)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 82, in shared_chars
+    max = max(str1, str2)
+UnboundLocalError: local variable 'max' referenced before assignment
+
+
+16:18:42:| unsupported operand type(s) for /: 'int' and 'str'
+Message:/predictum
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 228, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 177, in telegram_command
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 256, in handle_new_message
+    if await self.is_duplicate(signal_message.origin.id, signal_message.message):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 91, in is_duplicate
+    similarity = self.shared_chars(last_message, message_content)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 84, in shared_chars
+    print(shared/length*100)
+TypeError: unsupported operand type(s) for /: 'int' and 'str'
+
+

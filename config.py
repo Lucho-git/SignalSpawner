@@ -88,6 +88,7 @@ def get_commands():
     'HIRN_SIGNAL': '/hirn',
     'RAND_HIRN_SIGNAL': '/new_hirn',
     'PREDICTUM': '/predictum',
+    'PREDICTUM2': '/predictum2',
     'GGSHOT': '/ggshot',
     'GGSHOTVIP': '/ggshotvip',
     'UPDATE_NOW': '/now',

@@ -28,3 +28,85 @@
 
 09:11:36:| Telegram Robot: /new_hirn
 
+15:57:20:| Launching Telegram Scraper...
+
+15:57:25:| Telegram Robot: /predictum
+
+15:59:06:| Launching Telegram Scraper...
+
+15:59:12:| Telegram Robot: /predictum
+
+16:00:17:| Launching Telegram Scraper...
+
+16:00:21:| Telegram Robot: /predictum
+
+16:00:27:| new chat ID:1244131552Rose Premium Signals 🌹Didnt match: ['1548802426', '1248393106', '1558766055', '1825288627', '1737189058', '1175262142', '1872890428']
+
+16:00:34:| Launching Telegram Scraper...
+
+16:00:39:| Telegram Robot: /predictum
+
+16:00:54:| Telegram Robot: /predictum2
+
+16:10:00:| Launching Telegram Scraper...
+
+16:10:06:| Telegram Robot: /predictum
+
+16:10:15:| Telegram Robot: /predictum2
+
+16:11:24:| new chat ID:1770899100BIG EYES-News ChannelDidnt match: ['1548802426', '1248393106', '1558766055', '1825288627', '1737189058', '1175262142', '1872890428']
+
+16:14:16:| Launching Telegram Scraper...
+
+16:14:21:| Telegram Robot: /predictum
+
+16:14:27:| Telegram Robot: /predictum
+
+16:14:35:| Telegram Robot: /predictum2
+
+16:16:38:| Launching Telegram Scraper...
+
+16:16:43:| Telegram Robot: /predictum
+
+16:16:57:| Telegram Robot: /predictum
+
+16:17:51:| Launching Telegram Scraper...
+
+16:17:54:| Telegram Robot: /predictum
+
+16:18:37:| Launching Telegram Scraper...
+
+16:18:41:| Telegram Robot: /predictum
+
+16:19:56:| Launching Telegram Scraper...
+
+16:19:59:| Telegram Robot: /predictum
+
+16:20:05:| Telegram Robot: /predictum
+
+16:21:32:| Launching Telegram Scraper...
+
+16:21:37:| Telegram Robot: /predictum
+
+16:30:35:| new chat ID:1244131552Rose Premium Signals 🌹Didnt match: ['1548802426', '1248393106', '1558766055', '1825288627', '1737189058', '1175262142', '1872890428']
+
+16:36:29:| Launching Telegram Scraper...
+
+16:36:33:| Telegram Robot: /predictum
+
+16:36:57:| Launching Telegram Scraper...
+
+16:37:03:| Telegram Robot: /predictum
+
+16:37:31:| Telegram Robot: /predictum
+
+16:37:37:| Telegram Robot: /predictum2
+
+16:39:32:| Launching Telegram Scraper...
+
+16:39:36:| Telegram Robot: /predictum
+
+16:39:46:| Telegram Robot: /predictum2
+
+16:39:53:| Telegram Robot: /predictum2
+
