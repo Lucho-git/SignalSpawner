@@ -33,7 +33,7 @@ class Signal:
         self.market_price = market_price
         self.time_generated = time_generated
         if not trades:
-            print('No Trades!')
+            print('No Trades!', self.source, self.pair, self.time_generated)
             self.trades = trades
         else:
             new_trades = []

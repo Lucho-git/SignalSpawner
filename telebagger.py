@@ -30,7 +30,7 @@ class TelegramEvents:
         self.clientChannel = clientChannel
         self.client = config.get_telegram_config()
         self.lock = asyncio.Lock()
-        self.last_messages = defaultdict(str)
+        self.last_messages = defaultdict(list)
 
     async def get(self, source_id):
         async with self.lock:
@@ -38,7 +38,9 @@ class TelegramEvents:
 
     async def set(self, source_id, message_content):
         async with self.lock:
-            self.last_messages[source_id] = message_content
+            if len(self.last_messages[source_id]) >= 2:  # if there are 2 or more messages
+                self.last_messages[source_id].pop(0)  # remove the oldest message
+            self.last_messages[source_id].append(message_content) # add new message
 
     async def exit_self(self):
         '''Polls to see if should disconnect'''
@@ -94,18 +96,20 @@ class TelegramEvents:
 
     async def is_duplicate(self, source_id, message_content):
         # Check if message is duplicate
-        last_message = await self.get(source_id)
-        similarity = self.shared_chars(last_message, message_content)
-        if similarity > 99:
-            print('Very Similar')
-            print(similarity)
-            db.realtime_signal_logs('Duplicate Message:' + str(source_id) + '|\n' + message_content + '|\n' + last_message+'\n')
-            print(f"Ignoring duplicate message from {source_id}")
-            return True
+        last_messages = await self.get(source_id)
+        for last_message in last_messages:
+            similarity = self.shared_chars(last_message, message_content)
+            if similarity > 95:
+                print('Very Similar')
+                print(similarity)
+                db.realtime_signal_logs('Duplicate Message:' + str(source_id) + '|\n' + message_content + '|\n' + last_message+'\n')
+                print(f"Ignoring duplicate message from {source_id}")
+                return True
 
         # Update the latest message from this source
         db.realtime_signal_logs('Not a Duplicate Message:' + str(source_id) + '|\n' + message_content + '|\n' + last_message+'\n')
-        await self.set(source_id, message_content)
+        await self.set(source_id, message_content)    
+        # If it reaches here, the new message is not similar to any of the last two messages.
         return False
 
 
@@ -217,9 +221,11 @@ class TelegramEvents:
             db.change_database_value()   
 
         elif signal_message.message == self.com.BACK_TEST:
-            signals = db.get_old_signals()
-            for s in signals:
-                backtesting.run_backtest_from_signal(s)
+            signals = db.generate_signals_from_timeframe(days = 7)
+            db.generate_trades(signals)
+            db.backtest_trades(signals)
+            db.post_trades(signals)
+            db.save_signals(signals)
 
         elif signal_message.message == self.com.GET_SIGNALS:
             db.get_old_signals()

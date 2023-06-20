@@ -1,18 +1,18 @@
-⚡️⚡️YFI/USDT ⚡️⚡️
+⚡️⚡️ENS/USDT ⚡️⚡️
 
 Exchange: Binance Future,Kucoin,Bybit USDT
 Leverage: Cross (20X) 
 
-Entry:   6800-7000
+Entry:   7.9-7.7
 
-Target 1: 6766.0
-Target 2: 6732.0
-Target 3: 6664.0
-Target 4: 6466.8
-Target 5: 6290.0
-Target 6: 5984.0
+Target 1: 7.9435
+Target 2: 8.058
+Target 3: 8.137
+Target 4: 8.69
+Target 5: 9.085
+Target 6: 9.48
 
-Stop loss: 7280.0
+Stop loss: 7.1225
 
 💰 Deposit: 8-12%
 
