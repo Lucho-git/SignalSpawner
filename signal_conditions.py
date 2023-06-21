@@ -42,12 +42,12 @@ class Signal:
                     try:
                         t.direction
                         print('FuturesBasic Trade')
-                        new_futures = FutureBasic(t.source, t.time_generated, t.entry, t.take_profit, t.stop_loss, t.direction, t.leverage, backtest = t.backtest)
+                        new_futures = FutureBasic(t.source, self.time_generated, t.entry, t.take_profit, t.stop_loss, t.direction, t.leverage, backtest = t.backtest)
                         new_trades.append(new_futures)
                         print('FuturesBasicTrade Complete', new_futures)
                     except AttributeError:
                         print('SpotBasic Trade')
-                        new_spot = SpotBasic(t.source, t.time_generated, t.entry, t.take_profit, t.stop_loss, backtest = t.backtest)
+                        new_spot = SpotBasic(t.source, self.time_generated, t.entry, t.take_profit, t.stop_loss, backtest = t.backtest)
                         new_trades.append(new_spot)
                 print('\n\nTrades recreated from database', new_trades)
                 self.trades = new_trades
@@ -81,6 +81,7 @@ class Signal:
         signal_data = cls.deep_namespace(data)
         try: 
             signal_data.trades
+            print('\nTrades:',signal_data.trades)
         except AttributeError:
             signal_data.trades = []
         return cls(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction, market_price=signal_data.market_price, time_generated=signal_data.time_generated, trades=signal_data.trades)

@@ -1,0 +1,24 @@
+15:29:55:| Launching Telegram Scraper...
+
+15:30:18:| Launching Telegram Scraper...
+
+15:30:28:| Telegram Robot: .
+
+15:30:36:| Telegram Robot: /back_test
+
+15:38:25:| Launching Telegram Scraper...
+
+15:38:31:| Telegram Robot: /back_test
+
+15:40:15:| Launching Telegram Scraper...
+
+15:40:20:| Telegram Robot: /back_test
+
+15:43:10:| Launching Telegram Scraper...
+
+15:43:15:| Telegram Robot: /back_test
+
+15:44:19:| Launching Telegram Scraper...
+
+15:44:23:| Telegram Robot: /back_test
+
