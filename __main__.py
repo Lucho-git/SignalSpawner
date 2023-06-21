@@ -19,14 +19,14 @@ async def main(local):
     c2 = asyncio.Queue()
     clientChannel = [c1,c2]
 
-    discbagger = DiscordEvents(clientChannel)
+    #discbagger = DiscordEvents(clientChannel)
     telebagger = TelegramEvents(clientChannel)
     #This ensures program exits smoothly on command
     asyncio.create_task(telebagger.exit_self())
-    asyncio.create_task(discbagger.exit_self())
+    # asyncio.create_task(discbagger.exit_self())
 
     print('Connecting to telebagger...')
-    await asyncio.gather(telebagger.run(), discbagger.run())
+    await asyncio.gather(telebagger.run()) # ,discbagger.run()
     print('Exiting....')
 
 if __name__ == '__main__':
