@@ -107,7 +107,7 @@ class TelegramEvents:
                 return True
 
         # Update the latest message from this source
-        db.realtime_signal_logs('Not a Duplicate Message:' + str(source_id) + '|\n' + message_content + '|\n' + last_message+'\n')
+        db.realtime_signal_logs('Not a Duplicate Message:' + str(source_id) + '|\n' + message_content + '|\n' + str(last_messages)+'\n')
         await self.set(source_id, message_content)    
         # If it reaches here, the new message is not similar to any of the last two messages.
         return False

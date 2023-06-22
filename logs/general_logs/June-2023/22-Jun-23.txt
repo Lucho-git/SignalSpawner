@@ -1,0 +1,28 @@
+04:58:47:| Launching Telegram Scraper...
+
+04:59:00:| Telegram Robot: /hirn
+
+04:59:50:| Launching Telegram Scraper...
+
+04:59:58:| Telegram Robot: /hirn
+
+05:01:31:| Launching Telegram Scraper...
+
+05:01:48:| Telegram Robot: /hirn
+
+05:03:14:| Telegram Robot: /hirn
+
+05:03:20:| Telegram Robot: /hirn
+
+05:03:38:| Telegram Robot: /hirn2
+
+05:03:47:| Telegram Robot: /new_hirn
+
+05:04:37:| Telegram Robot: /hirn
+
+05:05:03:| Telegram Robot: /new_hirn
+
+05:05:32:| Telegram Robot: /hirn
+
+05:05:50:| Telegram Robot: /hirn
+

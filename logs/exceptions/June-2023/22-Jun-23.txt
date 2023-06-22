@@ -1,0 +1,32 @@
+04:59:03:| local variable 'last_message' referenced before assignment
+Message:/hirn
+Except:Traceback (most recent call last):
+  File "/home/lach/HomeRepo/SignalSpawner/telebagger.py", line 240, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "/home/lach/HomeRepo/SignalSpawner/telebagger.py", line 273, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "/home/lach/HomeRepo/SignalSpawner/telebagger.py", line 132, in telegram_command
+    await self.handle_new_message(signal_message)
+  File "/home/lach/HomeRepo/SignalSpawner/telebagger.py", line 268, in handle_new_message
+    if await self.is_duplicate(signal_message.origin.id, signal_message.message):
+  File "/home/lach/HomeRepo/SignalSpawner/telebagger.py", line 110, in is_duplicate
+    db.realtime_signal_logs('Not a Duplicate Message:' + str(source_id) + '|\n' + message_content + '|\n' + last_message+'\n')
+UnboundLocalError: local variable 'last_message' referenced before assignment
+
+
+05:00:01:| can only concatenate str (not "list") to str
+Message:/hirn
+Except:Traceback (most recent call last):
+  File "/home/lach/HomeRepo/SignalSpawner/telebagger.py", line 240, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "/home/lach/HomeRepo/SignalSpawner/telebagger.py", line 273, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "/home/lach/HomeRepo/SignalSpawner/telebagger.py", line 132, in telegram_command
+    await self.handle_new_message(signal_message)
+  File "/home/lach/HomeRepo/SignalSpawner/telebagger.py", line 268, in handle_new_message
+    if await self.is_duplicate(signal_message.origin.id, signal_message.message):
+  File "/home/lach/HomeRepo/SignalSpawner/telebagger.py", line 110, in is_duplicate
+    db.realtime_signal_logs('Not a Duplicate Message:' + str(source_id) + '|\n' + message_content + '|\n' + last_messages+'\n')
+TypeError: can only concatenate str (not "list") to str
+
+
