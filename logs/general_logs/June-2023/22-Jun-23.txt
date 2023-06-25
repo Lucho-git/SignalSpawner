@@ -26,3 +26,11 @@
 
 05:05:50:| Telegram Robot: /hirn
 
+09:38:25:| Launching Telegram Scraper...
+
+09:38:30:| Telegram Robot: /back_test
+
+09:52:00:| Launching Telegram Scraper...
+
+09:52:07:| Telegram Robot: /back_test
+

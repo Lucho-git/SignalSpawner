@@ -1,0 +1,386 @@
+04:08:47:| unsupported operand type(s) for -: 'int' and 'str'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 240, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 273, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 226, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 203, in backtest_trades
+    signal.backtest_trades() #if doesn't exist generate trades
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 201, in backtest_trades
+    t.run_backtest(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 91, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self, signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 300, in run_backtest_from_trade
+    results = backtest.backtest_with_entry()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 127, in backtest_with_entry
+    stop_loss_percentage = stop_loss_percentage = self.calculate_profit_percentage(stop_loss)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 71, in calculate_profit_percentage
+    return round(((self.entry_price - target_price) / self.entry_price) * 100, 2)
+TypeError: unsupported operand type(s) for -: 'int' and 'str'
+
+
+05:25:34:| unsupported operand type(s) for -: 'int' and 'str'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 240, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 273, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 226, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 203, in backtest_trades
+    signal.backtest_trades() #if doesn't exist generate trades
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 201, in backtest_trades
+    t.run_backtest(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 91, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self, signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 307, in run_backtest_from_trade
+    results = backtest.backtest_with_entry()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 128, in backtest_with_entry
+    stop_loss_percentage = stop_loss_percentage = self.calculate_profit_percentage(stop_loss)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 71, in calculate_profit_percentage
+    return round(((self.entry_price - target_price) / self.entry_price) * 100, 2)
+TypeError: unsupported operand type(s) for -: 'int' and 'str'
+
+
+05:26:31:| unsupported operand type(s) for -: 'int' and 'str'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 240, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 273, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 226, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 203, in backtest_trades
+    signal.backtest_trades() #if doesn't exist generate trades
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 201, in backtest_trades
+    t.run_backtest(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 91, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self, signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 309, in run_backtest_from_trade
+    results = backtest.backtest_with_entry()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 130, in backtest_with_entry
+    stop_loss_percentage = stop_loss_percentage = self.calculate_profit_percentage(stop_loss)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 73, in calculate_profit_percentage
+    return round(((self.entry_price - target_price) / self.entry_price) * 100, 2)
+TypeError: unsupported operand type(s) for -: 'int' and 'str'
+
+
+05:28:26:| unsupported operand type(s) for -: 'int' and 'str'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 240, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 273, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 226, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 203, in backtest_trades
+    signal.backtest_trades() #if doesn't exist generate trades
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 201, in backtest_trades
+    t.run_backtest(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 91, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self, signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 310, in run_backtest_from_trade
+    results = backtest.backtest_with_entry()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 131, in backtest_with_entry
+    stop_loss_percentage = stop_loss_percentage = self.calculate_profit_percentage(stop_loss)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 74, in calculate_profit_percentage
+    return round(((self.entry_price - target_price) / self.entry_price) * 100, 2)
+TypeError: unsupported operand type(s) for -: 'int' and 'str'
+
+
+05:31:35:| unsupported operand type(s) for -: 'int' and 'str'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 240, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 273, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 226, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 203, in backtest_trades
+    signal.backtest_trades() #if doesn't exist generate trades
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 201, in backtest_trades
+    t.run_backtest(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 91, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self, signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 312, in run_backtest_from_trade
+    results = backtest.backtest_with_entry()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 131, in backtest_with_entry
+    stop_loss_percentage = stop_loss_percentage = self.calculate_profit_percentage(stop_loss)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 74, in calculate_profit_percentage
+    return round(((self.entry_price - target_price) / self.entry_price) * 100, 2)
+TypeError: unsupported operand type(s) for -: 'int' and 'str'
+
+
+05:33:53:| unsupported operand type(s) for -: 'int' and 'str'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 240, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 273, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 226, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 203, in backtest_trades
+    signal.backtest_trades() #if doesn't exist generate trades
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 201, in backtest_trades
+    t.run_backtest(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 91, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self, signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 313, in run_backtest_from_trade
+    results = backtest.backtest_with_entry()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 133, in backtest_with_entry
+    stop_loss_percentage = stop_loss_percentage = self.calculate_profit_percentage(stop_loss)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 74, in calculate_profit_percentage
+    return round(((self.entry_price - target_price) / self.entry_price) * 100, 2)
+TypeError: unsupported operand type(s) for -: 'int' and 'str'
+
+
+05:36:17:| unsupported operand type(s) for -: 'int' and 'str'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 240, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 273, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 226, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 203, in backtest_trades
+    signal.backtest_trades() #if doesn't exist generate trades
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 201, in backtest_trades
+    t.run_backtest(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 91, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self, signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 313, in run_backtest_from_trade
+    results = backtest.backtest_with_entry()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 133, in backtest_with_entry
+    stop_loss_percentage = stop_loss_percentage = self.calculate_profit_percentage(stop_loss)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 74, in calculate_profit_percentage
+    return round(((self.entry_price - target_price) / self.entry_price) * 100, 2)
+TypeError: unsupported operand type(s) for -: 'int' and 'str'
+
+
+05:39:51:| unsupported operand type(s) for -: 'int' and 'str'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 240, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 273, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 226, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 203, in backtest_trades
+    signal.backtest_trades() #if doesn't exist generate trades
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 201, in backtest_trades
+    t.run_backtest(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 91, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self, signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 317, in run_backtest_from_trade
+    results = backtest.backtest_with_entry()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 135, in backtest_with_entry
+    stop_loss_percentage = stop_loss_percentage = self.calculate_profit_percentage(stop_loss)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 74, in calculate_profit_percentage
+    return round(((self.entry_price - target_price) / self.entry_price) * 100, 2)
+TypeError: unsupported operand type(s) for -: 'int' and 'str'
+
+
+11:51:43:| No trades to backtest
+Message:/update_history
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 255, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 288, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 230, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 222, in backtest_trades
+    signal.backtest_trades() #if doesn't exist generate trades
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 199, in backtest_trades
+    raise Exception('No trades to backtest')
+Exception: No trades to backtest
+
+
+11:57:15:| No trades to backtest
+Message:/update_history
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 255, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 288, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 230, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 222, in backtest_trades
+    signal.backtest_trades() #if doesn't exist generate trades
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 201, in backtest_trades
+    raise Exception('No trades to backtest')
+Exception: No trades to backtest
+
+
+11:59:31:| No trades to backtest
+Message:/update_history
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 256, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 289, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 222, in backtest_trades
+    signal.backtest_trades() #if doesn't exist generate trades
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 201, in backtest_trades
+    raise Exception('No trades to backtest')
+Exception: No trades to backtest
+
+
+12:00:14:| __repr__ returned non-string (type method)
+Message:/update_history
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 256, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 289, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 230, in telegram_command
+    print('\n\n\nGenerated new trade history:', signals,'\n\n\n')
+TypeError: __repr__ returned non-string (type method)
+
+
+12:01:03:| No trades to backtest
+Message:/update_history
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 256, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 289, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 222, in backtest_trades
+    signal.backtest_trades() #if doesn't exist generate trades
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 204, in backtest_trades
+    raise Exception('No trades to backtest')
+Exception: No trades to backtest
+
+
+12:03:50:| No trades to backtest
+Message:/update_history
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 256, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 289, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 222, in backtest_trades
+    signal.backtest_trades() #if doesn't exist generate trades
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 205, in backtest_trades
+    raise Exception('No trades to backtest')
+Exception: No trades to backtest
+
+
+13:15:36:| 'BackTest' object has no attribute 'signal_start_time_stamp'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 253, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 286, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 241, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 212, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 307, in run_backtest_from_signal
+    backtest.print_result(backtest.backtest())
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 103, in backtest
+    if self.signal_start_time_stamp is None:  # Update entry timestamp
+AttributeError: 'BackTest' object has no attribute 'signal_start_time_stamp'
+
+
+13:16:51:| local variable 'entry_time_stamp' referenced before assignment
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 253, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 286, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 241, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 212, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 310, in run_backtest_from_signal
+    backtest.print_result(backtest.backtest_with_progressive_stop())
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 258, in backtest_with_progressive_stop
+    return BacktestResult('stop_loss', stop_loss, stop_loss_time, stop_loss_percentage, take_profit_hits, take_profit_times, take_profit_percentages, 'progressive_stop', entry_time_stamp)
+UnboundLocalError: local variable 'entry_time_stamp' referenced before assignment
+
+
+13:19:45:| local variable 'entry_time_stamp' referenced before assignment
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 253, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 286, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 241, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 212, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 313, in run_backtest_from_signal
+    backtest.print_result(backtest.backtest_with_progressive_stop())
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 261, in backtest_with_progressive_stop
+    return BacktestResult('stop_loss', stop_loss, stop_loss_time, stop_loss_percentage, take_profit_hits, take_profit_times, take_profit_percentages, 'progressive_stop', entry_time_stamp)
+UnboundLocalError: local variable 'entry_time_stamp' referenced before assignment
+
+
+14:14:50:| float() argument must be a string or a real number, not 'NoneType'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 253, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 286, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 241, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 327, in run_backtest_from_signal
+    backtest.print_result(backtest.backtest())
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 112, in backtest
+    take_profit_percentages[take_profit] = self.calculate_profit_percentage_with_entry(entry_price, take_profit)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 79, in calculate_profit_percentage_with_entry
+    entry_price = float(entry_price)
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+
+
+14:16:17:| local variable 'row' referenced before assignment
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 253, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 286, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 241, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 324, in run_backtest_from_signal
+    backtest.print_result(backtest.backtest())
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 93, in backtest
+    entry_time_stamp = round((row['open_time'] - self.signal_start_time) / (1000 * 60 * 60), 2)
+UnboundLocalError: local variable 'row' referenced before assignment
+
+

@@ -208,10 +208,26 @@ class TelegramEvents:
             signal_message.origin.name = 'testGGshotVip'
             await handle_signal_message.process_message(signal_message)
 
+        elif signal_message.message == self.com.UPDATE:
+            print('getting last week of signals')
+            signals = db.generate_signals_from_timeframe(days = 200)
+            db.generate_trades(signals)
+            db.backtest_trades(signals)
+            db.post_trades(signals)
+            db.save_signals(signals)
+
         elif signal_message.message == self.com.LAST_WEEK:
             print('getting last week of signals')
             signals = db.generate_signals_from_timeframe(days = 7)
-            db.generate_trades(signals)
+            db.generate_trades(signals, True)
+            db.backtest_trades(signals)
+            db.post_trades(signals)
+            db.save_signals(signals)
+
+        elif signal_message.message == self.com.UPDATE_HISTORY:
+            signals = db.generate_signals_from_timeframe(days = 200)
+            db.generate_trades(signals, True)
+            print('\n\n\nGenerated new trade history:', signals,'\n\n\n')
             db.backtest_trades(signals)
             db.post_trades(signals)
             db.save_signals(signals)
@@ -222,10 +238,7 @@ class TelegramEvents:
 
         elif signal_message.message == self.com.BACK_TEST:
             signals = db.generate_signals_from_timeframe(days = 7)
-            db.generate_trades(signals)
-            db.backtest_trades(signals)
-            db.post_trades(signals)
-            db.save_signals(signals)
+            db.backtest_signals(signals)
 
         elif signal_message.message == self.com.GET_SIGNALS:
             db.get_old_signals()

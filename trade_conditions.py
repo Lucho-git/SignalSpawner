@@ -84,12 +84,12 @@ class SpotBasic:
         }
     
     def run_backtest(self, signal):
-        if (self.backtest.result == 'profit' or self.backtest.result == 'loss'):
+        if (self.backtest.result == 'profit' or self.backtest.result == 'loss' or self.backtest.result == 'not_entered_ever' or self.backtest.result == 'timeout'):
             print('Nothing to backtest returning....')
             return
-        print('Starting New Backtest', type(self.backtest), self.backtest)
+        print('Starting New Backtest on trade from signal:', signal)
         self.backtest = backtesting.run_backtest_from_trade(self, signal)
-        print('BACKTEST TYPE', type(self.backtest), self.backtest)
+        print('Backtest Result:', self.backtest)
 
     def __str__(self) -> str:
         return str(self.get_dict())

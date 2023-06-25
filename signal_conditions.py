@@ -7,6 +7,7 @@ import handle_signal_message
 import traceback
 from types import SimpleNamespace
 from trade_conditions import SpotBasic, FutureBasic
+import backtesting
 '''
 Defines a set of conditions and parameters for a given signal
 These values should be static
@@ -101,6 +102,9 @@ class Signal:
                 "trades": str(self.trades), 
                 "time_generated": self.time_generated
                 })
+    
+    def __repr__(self) -> str:
+        return self.__str__()
 
     def get_json(self):
         input_dict = self.convert_dict(self.__dict__)
@@ -183,9 +187,11 @@ class Signal:
     
     def generate_trades(self, override = False):
         if override:
-            self.trades = handle_signal_message.trades_from_signal(self, False)
+            print('Overriding old trade')
+            self.trades = handle_signal_message.trades_from_signal(self, True)
         else:
             if self.trades:
+                print('Trade already Exists')
                 return
             else:
                 print('\nGenerating New Trade')
@@ -196,6 +202,12 @@ class Signal:
 
     def backtest_trades(self):
         if not self.trades:
+            print('No trade to backtest for:', self)
+            return
             raise Exception('No trades to backtest')
         for t in self.trades:
             t.run_backtest(self)
+
+    def backtest_self(self):
+        print('\n\nBacktesting: ', self.source, '|',self.time_generated)
+        backtesting.run_backtest_from_signal(self)

@@ -189,18 +189,42 @@ def generate_signals_from_timeframe(days = 7, start_time=None, end_time=None, ov
 
 
 def save_signals(signals_list):
+    signal_group_paths = set([paths.RAW_SIGNALS + signal.source for signal in signals_list])
+    existing_data_dict = {}
+
+    # Download existing data for all signal groups
+    for path in signal_group_paths:
+        existing_data_dict[path] = database.child(path).get().val()
+
     for signal in signals_list:
+        jsonData = signal.get_json()
+        json_data_dict = json.loads(jsonData)
+
+        path = paths.RAW_SIGNALS + signal.source
+        key = str(json_data_dict['time_generated'])
+
+        # If data exists and is the same as new data, don't update
+        if path in existing_data_dict and key in existing_data_dict[path] and existing_data_dict[path][key] == json_data_dict:
+            print("Data has not changed, skipping update.")
+            continue
+
+        # Call save_raw_signal if data has changed
         save_raw_signal(signal)
 
 
-def generate_trades(signals_list):
+def generate_trades(signals_list, override = False):
     for signal in signals_list:
-        signal.generate_trades(override = False) #If true generate trades, if false only generate non-existant trades
+        signal.generate_trades(override) #If true generate trades, if false only generate non-existant trades
 
 
 def backtest_trades(signals_list):
     for signal in signals_list:
-        signal.backtest_trades() #if doesn't exist generate trades 
+        signal.backtest_trades() #if doesn't exist generate trades
+
+
+def backtest_signals(signals_list):
+    for signal in signals_list:
+        signal.backtest_self()
 
 def post_trades(signals_list):
     time_generated_list = []

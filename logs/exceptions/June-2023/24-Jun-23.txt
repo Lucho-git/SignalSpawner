@@ -1,0 +1,14 @@
+00:26:27:| division by zero
+Message:
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 240, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 268, in handle_new_message
+    if await self.is_duplicate(signal_message.origin.id, signal_message.message):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 101, in is_duplicate
+    similarity = self.shared_chars(last_message, message_content)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 93, in shared_chars
+    shared = ((max_len - len(combined_remaining))/max_len) *100
+ZeroDivisionError: division by zero
+
+
