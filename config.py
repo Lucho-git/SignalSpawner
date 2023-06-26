@@ -104,6 +104,7 @@ def get_commands():
     'CLOSE_FUTURE': '/close_future',
     'GET_DB': '/get ',
     'LAST_WEEK': '/last_week',
+    'NEW_WEEK': '/new_week',
     'UPDATE_HISTORY': '/update_history',
     'CHANGE_VALUE': '/change_value',
     'BACK_TEST': '/back_test',

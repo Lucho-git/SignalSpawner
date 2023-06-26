@@ -224,6 +224,14 @@ class TelegramEvents:
             db.post_trades(signals)
             db.save_signals(signals)
 
+        elif signal_message.message == self.com.NEW_WEEK:
+            print('getting last week of signals')
+            signals = db.generate_signals_from_timeframe(days = 7)
+            db.generate_trades(signals)
+            db.backtest_trades(signals)
+            db.post_trades(signals)
+            db.save_signals(signals)
+
         elif signal_message.message == self.com.UPDATE_HISTORY:
             signals = db.generate_signals_from_timeframe(days = 200)
             db.generate_trades(signals, True)
