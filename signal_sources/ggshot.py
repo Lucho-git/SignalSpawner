@@ -27,7 +27,7 @@ class GGShotSignal(SignalProviderBase):
         direction = 'LONG'
         if entry[0] > take_profit[0]:
             direction = 'SHORT'
-            
+
         signal =  Signal(self.source, message, coin, base, entry, take_profit, stop_loss, direction)
         return signal
 

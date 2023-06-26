@@ -19,7 +19,9 @@ class SignalProviderBase():
         '''Entry point, returns nothing, or a trade signal'''
         raw_message = message.message
         try:
+            print('Sanitizing message:', raw_message)
             sanitised_message = self.sanitise_message(raw_message)
+            print('Sanitized:', sanitised_message)
             signal = self.parse(message, sanitised_message)
             if signal:
                 db.save_raw_signal(signal)
@@ -45,7 +47,7 @@ class SignalProviderBase():
 
     def sanitise_message(self, raw_message):
         '''Sanitises the input, returns array of lines'''
-        text = raw_message.replace(" ","")
+        text = raw_message.replace(" ","").replace("\xa0","")
         while('\n\n' in text): 
             text = text.replace('\n\n','\n')
         lines = text.split('\n')
