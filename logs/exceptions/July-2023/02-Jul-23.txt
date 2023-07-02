@@ -1,0 +1,470 @@
+05:39:59:| vars() argument must have __dict__ attribute
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 365, in run_backtest_from_signal
+    print(vars(standard_backtest))
+TypeError: vars() argument must have __dict__ attribute
+
+
+05:53:47:| 'int' object has no attribute 'items'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 364, in run_backtest_from_signal
+    backtest.print_result(standard_backtest)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 348, in print_result
+    for price, time in result.take_profit_times.items():
+AttributeError: 'int' object has no attribute 'items'
+
+
+05:56:14:| BacktestResult.__new__() missing 1 required positional argument: 'entered_trade'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 364, in run_backtest_from_signal
+    standard_backtest = backtest.backtest()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 142, in backtest
+    return BacktestResult('stop_loss', entry_time_stamp, stop_loss, stop_loss_time, stop_loss_percentage, take_profit_hits, take_profit_times, take_profit_percentages, 'standard')
+TypeError: BacktestResult.__new__() missing 1 required positional argument: 'entered_trade'
+
+
+05:57:13:| BackTestResult.__init__() missing 7 required positional arguments: 'trade_entered', 'entries', 'exit_condition', 'exit_price', 'exit_time', 'exit_percentage', and 'profit_targets'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 368, in run_backtest_from_signal
+    new_standard = BackTestResult('standard', )
+TypeError: BackTestResult.__init__() missing 7 required positional arguments: 'trade_entered', 'entries', 'exit_condition', 'exit_price', 'exit_time', 'exit_percentage', and 'profit_targets'
+
+
+06:25:23:| BackTestResult.__init__() missing 6 required positional arguments: 'entries', 'exit_condition', 'exit_price', 'exit_time', 'exit_percentage', and 'profit_targets'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 368, in run_backtest_from_signal
+    new_standard = BackTestResult('standard', bool(standard_backtest.entered_trade), )
+TypeError: BackTestResult.__init__() missing 6 required positional arguments: 'entries', 'exit_condition', 'exit_price', 'exit_time', 'exit_percentage', and 'profit_targets'
+
+
+06:36:15:| type object 'entries' has no attribute 'entry_time_stamp'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 367, in run_backtest_from_signal
+    standard_backtest = backtest.backtest()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 130, in backtest
+    if entries.entry_time_stamp is None:  # Update entry timestamp
+AttributeError: type object 'entries' has no attribute 'entry_time_stamp'
+
+
+06:37:27:| BackTestResult.__init__() missing 6 required positional arguments: 'entries', 'exit_condition', 'exit_price', 'exit_time', 'exit_percentage', and 'profit_targets'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 372, in run_backtest_from_signal
+    new_standard = BackTestResult('standard', bool(standard_backtest.entered_trade), )
+TypeError: BackTestResult.__init__() missing 6 required positional arguments: 'entries', 'exit_condition', 'exit_price', 'exit_time', 'exit_percentage', and 'profit_targets'
+
+
+06:38:57:| BackTestResult.__init__() missing 6 required positional arguments: 'entries', 'exit_condition', 'exit_price', 'exit_time', 'exit_percentage', and 'profit_targets'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 374, in run_backtest_from_signal
+    new_standard = BackTestResult('standard', bool(standard_backtest.entered_trade), )
+TypeError: BackTestResult.__init__() missing 6 required positional arguments: 'entries', 'exit_condition', 'exit_price', 'exit_time', 'exit_percentage', and 'profit_targets'
+
+
+07:32:03:| 'list' object has no attribute 'entry_time_stamp'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 382, in run_backtest_from_signal
+    standard_backtest = backtest.backtest()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 131, in backtest
+    result.entries.entry_time_stamp = None
+AttributeError: 'list' object has no attribute 'entry_time_stamp'
+
+
+07:32:45:| 'list' object has no attribute 'entry_time_stamp'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 382, in run_backtest_from_signal
+    standard_backtest = backtest.backtest()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 140, in backtest
+    if result.entries.entry_time_stamp is None:  # Update entry timestamp
+AttributeError: 'list' object has no attribute 'entry_time_stamp'
+
+
+07:33:44:| 'list' object has no attribute 'entry_price'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 382, in run_backtest_from_signal
+    standard_backtest = backtest.backtest()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 157, in backtest
+    result.exit_percentage = self.calculate_profit_percentage_with_entry(result.entries.entry_price, result.exit_price)
+AttributeError: 'list' object has no attribute 'entry_price'
+
+
+07:34:07:| 'BackTestResult' object has no attribute 'backtest_type'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 383, in run_backtest_from_signal
+    backtest.print_result(standard_backtest)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 358, in print_result
+    print(f"\nRunning Backtest on {self.symbol}, with {result.backtest_type} strategy")
+AttributeError: 'BackTestResult' object has no attribute 'backtest_type'
+
+
+07:36:40:| 'BackTestResult' object has no attribute 'backtest_type'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 384, in run_backtest_from_signal
+    backtest.print_result(standard_backtest)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 359, in print_result
+    print(f"\nRunning Backtest on {self.symbol}, with {result.backtest_type} strategy")
+AttributeError: 'BackTestResult' object has no attribute 'backtest_type'
+
+
+07:37:53:| 'BackTestResult' object has no attribute 'backtest_type'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 387, in run_backtest_from_signal
+    backtest.print_result(standard_backtest)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 362, in print_result
+    print(f"\nRunning Backtest on {self.symbol}, with {result.backtest_type} strategy")
+AttributeError: 'BackTestResult' object has no attribute 'backtest_type'
+
+
+07:40:01:| 'BackTestResult' object has no attribute 'backtest_type'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 387, in run_backtest_from_signal
+    backtest.print_result(standard_backtest)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 362, in print_result
+    print(f"\nRunning Backtest on {self.symbol}, with {result.backtest_type} strategy")
+AttributeError: 'BackTestResult' object has no attribute 'backtest_type'
+
+
+07:41:25:| 'BackTestResult' object has no attribute 'backtest_type'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 390, in run_backtest_from_signal
+    backtest.print_result(standard_backtest)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 365, in print_result
+    print(f"\nRunning Backtest on {self.symbol}, with {result.backtest_type} strategy")
+AttributeError: 'BackTestResult' object has no attribute 'backtest_type'
+
+
+07:42:05:| 'BackTestResult' object has no attribute 'backtest_type'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 390, in run_backtest_from_signal
+    backtest.print_result(standard_backtest)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 365, in print_result
+    print(f"\nRunning Backtest on {self.symbol}, with {result.backtest_type} strategy")
+AttributeError: 'BackTestResult' object has no attribute 'backtest_type'
+
+
+07:50:16:| 'BackTest' object has no attribute 'profit_targets'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 393, in run_backtest_from_signal
+    standard_backtest = backtest.backtest()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 135, in backtest
+    profit_targets=[ProfitTarget(price=t) for t in self.profit_targets],
+AttributeError: 'BackTest' object has no attribute 'profit_targets'
+
+
+07:56:11:| 'BackTestResult' object has no attribute 'backtest_type'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 390, in run_backtest_from_signal
+    backtest.print_result(standard_backtest)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 365, in print_result
+    print(f"\nRunning Backtest on {self.symbol}, with {result.backtest_type} strategy")
+AttributeError: 'BackTestResult' object has no attribute 'backtest_type'
+
+
+08:02:34:| 'BackTestResult' object has no attribute 'backtest_type'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 383, in run_backtest_from_signal
+    backtest.print_result(standard_backtest)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 357, in print_result
+    print(f"\nRunning Backtest on {self.symbol}, with {result.backtest_type} strategy")
+AttributeError: 'BackTestResult' object has no attribute 'backtest_type'
+
+
+08:05:00:| 'BackTestResult' object has no attribute 'entered_trade'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 383, in run_backtest_from_signal
+    backtest.print_result(standard_backtest)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 358, in print_result
+    print(f"Entry Time: {result.entered_trade}")
+AttributeError: 'BackTestResult' object has no attribute 'entered_trade'
+
+
+08:12:21:| 'BackTestResult' object has no attribute 'entered_trade'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 392, in run_backtest_from_signal
+    new_standard = BackTestResult('standard', bool(standard_backtest.entered_trade), )
+AttributeError: 'BackTestResult' object has no attribute 'entered_trade'
+
+
+13:19:14:| 'BackTest' object has no attribute 'entry_price'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 392, in run_backtest_from_signal
+    standard_entry_backtest = backtest.backtest_with_entry()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 218, in backtest_with_entry
+    take_profit_percentages[take_profit] = self.calculate_profit_percentage(take_profit)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 118, in calculate_profit_percentage
+    return round(((target_price - self.entry_price) / self.entry_price) * 100, 2)
+AttributeError: 'BackTest' object has no attribute 'entry_price'
+
+
+13:55:35:| 'Entry' object has no attribute 'entry_time_stamp'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 402, in run_backtest_from_signal
+    backtest.print_result(standard_backtest)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 373, in print_result
+    print(f"Entry Time: {e.entry_time_stamp}")
+AttributeError: 'Entry' object has no attribute 'entry_time_stamp'
+
+
