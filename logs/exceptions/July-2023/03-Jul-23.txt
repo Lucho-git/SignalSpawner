@@ -1,0 +1,80 @@
+12:36:23:| 'BackTest' object has no attribute 'entry_price'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 420, in run_backtest_from_signal
+    progressive_stop_backtest = backtest.backtest_with_progressive_stop()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 362, in backtest_with_progressive_stop
+    stop_loss = self.entry_price
+AttributeError: 'BackTest' object has no attribute 'entry_price'
+
+
+12:54:15:| local variable 'last_take_profit_hits' referenced before assignment
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 425, in run_backtest_from_signal
+    progressive_stop_backtest = backtest.backtest_with_progressive_stop(1)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 364, in backtest_with_progressive_stop
+    last_take_profit_hits = last_take_profit_hits[1:] + [take_profit]
+UnboundLocalError: local variable 'last_take_profit_hits' referenced before assignment
+
+
+12:56:56:| local variable 'last_take_profit_hits' referenced before assignment
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 422, in run_backtest_from_signal
+    progressive_stop_backtest = backtest.backtest_with_progressive_stop(1)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 363, in backtest_with_progressive_stop
+    last_take_profit_hits = last_take_profit_hits[1:] + [take_profit]
+UnboundLocalError: local variable 'last_take_profit_hits' referenced before assignment
+
+
+13:00:05:| The trailing targets value cannot be more than the number of profit targets
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 249, in telegram_command
+    db.backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in backtest_signals
+    signal.backtest_self()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 213, in backtest_self
+    backtesting.run_backtest_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 422, in run_backtest_from_signal
+    progressive_stop_backtest = backtest.backtest_with_progressive_stop(2)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 309, in backtest_with_progressive_stop
+    raise ValueError("The trailing targets value cannot be more than the number of profit targets")
+ValueError: The trailing targets value cannot be more than the number of profit targets
+
+

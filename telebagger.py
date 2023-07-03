@@ -247,7 +247,7 @@ class TelegramEvents:
         elif signal_message.message == self.com.BACK_TEST:
             signals = db.generate_signals_from_timeframe(days = 7)
             db.backtest_signals(signals)
-
+            db.save_signals(signals)
         elif signal_message.message == self.com.GET_SIGNALS:
             db.get_old_signals()
 
