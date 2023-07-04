@@ -14,7 +14,7 @@ These values should be static
 
 '''
 class Signal:
-    def __init__(self, source, message, coin, base, entry, take_profit, stop_loss, direction, trades = [], market_price = None, time_generated = None):
+    def __init__(self, source, message, coin, base, entry, take_profit, stop_loss, direction, backtests = [], trades = [], market_price = None, time_generated = None):
         #Validate Signal
         if not take_profit:
             raise TypeError('No Take Profit value')
@@ -33,6 +33,7 @@ class Signal:
         self.trades = trades
         self.market_price = market_price
         self.time_generated = time_generated
+        self.backtests = backtests
         if not trades:
             print('No Trades!', self.source, self.pair, self.time_generated)
             self.trades = trades
@@ -85,7 +86,12 @@ class Signal:
             print('\nTrades:',signal_data.trades)
         except AttributeError:
             signal_data.trades = []
-        return cls(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction, market_price=signal_data.market_price, time_generated=signal_data.time_generated, trades=signal_data.trades)
+        try: 
+            signal_data.backtests
+            print('\nTrades:',signal_data.trades)
+        except AttributeError:
+            signal_data.backtests = []
+        return cls(signal_data.source, signal_data.message, signal_data.coin, signal_data.base, signal_data.entry, signal_data.take_profit, signal_data.stop_loss, signal_data.direction, market_price=signal_data.market_price, time_generated=signal_data.time_generated, trades=signal_data.trades, backtests = signal_data.backtests)
         
 
     def __str__(self) -> str:
@@ -209,5 +215,16 @@ class Signal:
             t.run_backtest(self)
 
     def backtest_self(self):
-        print('\n\nBacktesting: ', self.source, '|',self.time_generated)
-        backtesting.run_backtest_from_signal(self)
+        backtest_required = True
+        if self.backtests:
+            backtest_required = False
+            for b in self.backtests:
+                if b.exit_condition == 'ongoing' or b.exit_condition == 'not_entered_yet':
+                    backtest_required = True
+                    break
+        if backtest_required:
+            print('Backtests required for:', self.backtests)
+            print('\n\nBacktesting: ', self.source, '|',self.time_generated)
+            backtesting.run_backtest_from_signal(self)
+        else:
+            print('Skipping Backtests')

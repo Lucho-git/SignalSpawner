@@ -410,7 +410,7 @@ def run_backtest_from_signal(signal):
     backtest.print_result(trailing_stop_backtest)
     progressive_stop_backtest = backtest.backtest_with_progressive_stop(2)
     backtest.print_result(progressive_stop_backtest)
-    signal.backtest = [standard_backtest, standard_entry_backtest, trailing_stop_backtest, progressive_stop_backtest]
+    signal.backtests = [standard_backtest, standard_entry_backtest, trailing_stop_backtest, progressive_stop_backtest]
 
 
 
