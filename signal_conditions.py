@@ -214,7 +214,7 @@ class Signal:
         for t in self.trades:
             t.run_backtest(self)
 
-    def backtest_self(self):
+    def backtest_self(self, override = False):
         backtest_required = True
         if self.backtests:
             backtest_required = False
@@ -222,7 +222,7 @@ class Signal:
                 if b.exit_condition == 'ongoing' or b.exit_condition == 'not_entered_yet':
                     backtest_required = True
                     break
-        if backtest_required:
+        if backtest_required or override:
             print('Backtests required for:', self.backtests)
             print('\n\nBacktesting: ', self.source, '|',self.time_generated)
             backtesting.run_backtest_from_signal(self)
