@@ -108,6 +108,7 @@ def get_commands():
     'UPDATE_HISTORY': '/update_history',
     'CHANGE_VALUE': '/change_value',
     'BACK_TEST': '/back_test',
+    'DEEP_BACK_TEST': '/deep_back_test',
     'GET_SIGNALS': '/get_signals',
     'DELETE_DUPLICATES': '/delete_duplicates',
     'DELETE_NEAR_DUPLICATES': '/delete_near_duplicates',
@@ -137,7 +138,8 @@ def get_storage_paths():
         "DISCORD_CHANNEL": 'discord_channel/',
         "TELEGRAM_CHANNEL": 'telegram_channel/',
         "RAW_SIGNALS": 'raw_signals/',
-        "SIGNAL_ENDPOINT_URL": 'https://luchodore.pythonanywhere.com/test_data'
+        "SIGNAL_ENDPOINT_URL": 'https://luchodore.pythonanywhere.com/test_data',
+        "RESULTS_ENDPOINT_URL": 'https://luchodore.pythonanywhere.com/results_data'
         }
     else:
         # Heroku Version
@@ -151,7 +153,8 @@ def get_storage_paths():
         "DISCORD_CHANNEL": UNIQUE_ID + 'discord_channels/',
         "TELEGRAM_CHANNEL": UNIQUE_ID + 'telegram_channels/',
         "RAW_SIGNALS": UNIQUE_ID + 'raw_signals/',
-        "SIGNAL_ENDPOINT_URL": 'https://luchodore.pythonanywhere.com/save_data'
+        "SIGNAL_ENDPOINT_URL": 'https://luchodore.pythonanywhere.com/save_data',
+        "RESULTS_ENDPOINT_URL": 'https://luchodore.pythonanywhere.com/test_results_data'
         }
     return munch.munchify(file_paths)
 

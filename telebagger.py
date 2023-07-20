@@ -90,6 +90,8 @@ class TelegramEvents:
         str2_remaining = ''.join([char * count for char, count in remaining2.items()])
         combined_remaining = str1_remaining + str2_remaining
         max_len = max(len(str1), len(str2))
+        if not max_len > 0:
+            return 0
         shared = ((max_len - len(combined_remaining))/max_len) *100
         return shared
 
@@ -245,9 +247,17 @@ class TelegramEvents:
             db.change_database_value()   
 
         elif signal_message.message == self.com.BACK_TEST:
-            signals = db.generate_signals_from_timeframe(days = 7)
+            signals = db.generate_signals_from_timeframe(days = 90)
             db.backtest_signals(signals)
+            db.post_backtest_results(signals)
+            #db.save_signals(signals)
+
+        elif signal_message.message == self.com.DEEP_BACK_TEST:
+            signals = db.generate_signals_from_timeframe(days = 90)
+            db.deep_backtest_signals(signals)
             db.save_signals(signals)
+
+
         elif signal_message.message == self.com.GET_SIGNALS:
             db.get_old_signals()
 

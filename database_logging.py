@@ -140,9 +140,17 @@ def get_discord_channels():
     return get_from_realtime(paths.DISCORD_CHANNEL).val()
 
 
+def post_results(data):
+    response = requests.post(paths.RESULTS_ENDPOINT_URL, json=data)
+    if response.status_code == 200:
+        print("Request to (", paths.RESULTS_ENDPOINT_URL, "succeeded!")
+        print("Response content:", response.json())
+    else:
+        print(f"Request failed with status code {response.status_code}")
+        print("Response content:", response.text)
+
 def post_signal(data):
     response = requests.post(paths.SIGNAL_ENDPOINT_URL, json=data)
-
     if response.status_code == 200:
         print("Request to (", paths.SIGNAL_ENDPOINT_URL, "succeeded!")
         print("Response content:", response.json())
@@ -219,7 +227,12 @@ def generate_trades(signals_list, override = False):
 
 def backtest_trades(signals_list):
     for signal in signals_list:
-        signal.backtest_trades() #if doesn't exist generate trades
+        signal.backtest_trades(override = True) # Force Backtest
+
+
+def deep_backtest_signals(signals_list):
+    for signal in signals_list:
+        signal.backtest_self(override = False) # If doesn't exist generate trades
 
 
 def backtest_signals(signals_list):
@@ -261,6 +274,18 @@ def post_trades(signals_list):
         print(t,hours_difference,to_hours_difference,'\n')
     post_signal(time_sorted_data)
 
+def post_backtest_results(signals_list):
+    backtest_results_list = []
+
+    for signal in signals_list:
+        backtest_results = signal.get_backtest_results_dict()
+        if backtest_results is not None:
+            print('\n\nTESTRESULTS:',backtest_results)
+            backtest_results_list.extend(backtest_results)
+            
+    print('\n\nFINAL',backtest_results_list)
+    backtest_results_sorted = backtest_results_list.sort(key=lambda x: x['results'][0]['start'])
+    post_results(backtest_results_sorted)
 
 def generate_last_week_signals():
     path = paths.RAW_SIGNALS

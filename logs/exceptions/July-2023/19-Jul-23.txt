@@ -1,0 +1,246 @@
+11:24:08:| division by zero
+Message:
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 289, in handle_new_message
+    if await self.is_duplicate(signal_message.origin.id, signal_message.message):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 101, in is_duplicate
+    similarity = self.shared_chars(last_message, message_content)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 93, in shared_chars
+    shared = ((max_len - len(combined_remaining))/max_len) *100
+ZeroDivisionError: division by zero
+
+
+11:24:11:| division by zero
+Message:
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 289, in handle_new_message
+    if await self.is_duplicate(signal_message.origin.id, signal_message.message):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 101, in is_duplicate
+    similarity = self.shared_chars(last_message, message_content)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 93, in shared_chars
+    shared = ((max_len - len(combined_remaining))/max_len) *100
+ZeroDivisionError: division by zero
+
+
+13:01:07:| Signal.backtest_self() got an unexpected keyword argument 'backtest'
+Message:/deep_back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 270, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 303, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 256, in telegram_command
+    db.deep_backtest_signals(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 227, in deep_backtest_signals
+    signal.backtest_self(backtest = False) # If doesn't exist generate trades
+TypeError: Signal.backtest_self() got an unexpected keyword argument 'backtest'
+
+
+14:09:00:| 'Signal' object has no attribute 'backtest'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 252, in telegram_command
+    db.post_backtest_results(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 281, in post_backtest_results
+    backtest_results = signal.get_backtest_results_dict()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 233, in get_backtest_results_dict
+    return backtesting.build_backtest_results_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 422, in build_backtest_results_from_signal
+    if not signal.backtest.entered or not signal.backtest.result:
+AttributeError: 'Signal' object has no attribute 'backtest'
+
+
+14:11:01:| 'Signal' object has no attribute 'backtest'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 252, in telegram_command
+    db.post_backtest_results(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 281, in post_backtest_results
+    backtest_results = signal.get_backtest_results_dict()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 233, in get_backtest_results_dict
+    return backtesting.build_backtest_results_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 422, in build_backtest_results_from_signal
+    if not signal.backtest.entered or any(not backtest for backtest in signal.backtests) or not signal.backtest.result:
+AttributeError: 'Signal' object has no attribute 'backtest'
+
+
+14:22:36:| 'list' object has no attribute 'exit_time'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 252, in telegram_command
+    db.post_backtest_results(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 281, in post_backtest_results
+    backtest_results = signal.get_backtest_results_dict()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 233, in get_backtest_results_dict
+    return backtesting.build_backtest_results_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 425, in build_backtest_results_from_signal
+    return [
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 435, in <listcomp>
+    'end': backtest.result.exit_time,
+AttributeError: 'list' object has no attribute 'exit_time'
+
+
+14:32:14:| 'list' object has no attribute 'exit_time'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 252, in telegram_command
+    db.post_backtest_results(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 281, in post_backtest_results
+    backtest_results = signal.get_backtest_results_dict()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 233, in get_backtest_results_dict
+    return backtesting.build_backtest_results_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 425, in build_backtest_results_from_signal
+    return [
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 435, in <listcomp>
+    'end': backtest.result.exit_time,
+AttributeError: 'list' object has no attribute 'exit_time'
+
+
+14:34:30:| 'list' object has no attribute 'exit_time'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 252, in telegram_command
+    db.post_backtest_results(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 281, in post_backtest_results
+    backtest_results = signal.get_backtest_results_dict()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 233, in get_backtest_results_dict
+    return backtesting.build_backtest_results_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 425, in build_backtest_results_from_signal
+    return [
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 435, in <listcomp>
+    'end': backtest.result.exit_time,
+AttributeError: 'list' object has no attribute 'exit_time'
+
+
+14:37:06:| 'types.SimpleNamespace' object has no attribute 'result'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 252, in telegram_command
+    db.post_backtest_results(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 281, in post_backtest_results
+    backtest_results = signal.get_backtest_results_dict()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 233, in get_backtest_results_dict
+    return backtesting.build_backtest_results_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 422, in build_backtest_results_from_signal
+    if any(not backtest.entered or not backtest.result for backtest in signal.backtests):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 422, in <genexpr>
+    if any(not backtest.entered or not backtest.result for backtest in signal.backtests):
+AttributeError: 'types.SimpleNamespace' object has no attribute 'result'
+
+
+14:40:31:| 'types.SimpleNamespace' object has no attribute 'result'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 252, in telegram_command
+    db.post_backtest_results(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 281, in post_backtest_results
+    backtest_results = signal.get_backtest_results_dict()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 233, in get_backtest_results_dict
+    return backtesting.build_backtest_results_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 421, in build_backtest_results_from_signal
+    if any(not backtest.entered or not backtest.result for backtest in signal.backtests):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 421, in <genexpr>
+    if any(not backtest.entered or not backtest.result for backtest in signal.backtests):
+AttributeError: 'types.SimpleNamespace' object has no attribute 'result'
+
+
+14:42:05:| 'types.SimpleNamespace' object has no attribute 'result'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 252, in telegram_command
+    db.post_backtest_results(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 281, in post_backtest_results
+    backtest_results = signal.get_backtest_results_dict()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 233, in get_backtest_results_dict
+    return backtesting.build_backtest_results_from_signal(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 422, in build_backtest_results_from_signal
+    if any(not backtest.entered or not backtest.result for backtest in signal.backtests):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 422, in <genexpr>
+    if any(not backtest.entered or not backtest.result for backtest in signal.backtests):
+AttributeError: 'types.SimpleNamespace' object has no attribute 'result'
+
+
+15:10:21:| 'list' object has no attribute 'toDict'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 252, in telegram_command
+    db.post_backtest_results(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 281, in post_backtest_results
+    backtest_results = signal.get_backtest_results_dict()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 229, in get_backtest_results_dict
+    return backtesting.build_backtest_results_from_signal(self).toDict()
+AttributeError: 'list' object has no attribute 'toDict'
+
+
+15:13:17:| 'list' object has no attribute 'toDict'
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 252, in telegram_command
+    db.post_backtest_results(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 281, in post_backtest_results
+    backtest_results = signal.get_backtest_results_dict()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 229, in get_backtest_results_dict
+    results = backtesting.build_backtest_results_from_signal(self).toDict()
+AttributeError: 'list' object has no attribute 'toDict'
+
+
+15:14:13:| 'NoneType' object is not iterable
+Message:/back_test
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 252, in telegram_command
+    db.post_backtest_results(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 281, in post_backtest_results
+    backtest_results = signal.get_backtest_results_dict()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 230, in get_backtest_results_dict
+    return [dotmap.toDict() for dotmap in results]
+TypeError: 'NoneType' object is not iterable
+
+

@@ -6,6 +6,7 @@ import math
 import handle_signal_message
 import traceback
 from types import SimpleNamespace
+from dotmap import DotMap
 from trade_conditions import SpotBasic, FutureBasic
 import backtesting
 '''
@@ -69,12 +70,7 @@ class Signal:
 
     @staticmethod
     def deep_namespace(d):
-        if isinstance(d, dict):
-            return SimpleNamespace(**{k: Signal.deep_namespace(v) for k, v in d.items()})
-        elif isinstance(d, list):
-            return [Signal.deep_namespace(item) for item in d]
-        else:
-            return d
+        return DotMap(d)
 
 
     @classmethod
@@ -228,3 +224,7 @@ class Signal:
             backtesting.run_backtest_from_signal(self)
         else:
             print('Skipping Backtests')
+    
+    def get_backtest_results_dict(self):
+        results = backtesting.build_backtest_results_from_signal(self)
+        return [dotmap.toDict() for dotmap in results]

@@ -2,8 +2,9 @@ import pandas as pd
 import config
 import datetime
 from collections import namedtuple
-from types import SimpleNamespace
 from dataclasses import dataclass
+from dotmap import DotMap
+
 
 # Initialize Binance client
 client = config.get_binance_config()
@@ -14,11 +15,12 @@ BacktestResult = namedtuple('BacktestResult', [
     'entered_trade',
     'stop_price', 
     'stop_time', 
-    'stop_percentage', 
+    'stop_percentage',  
     'take_profit_hits', 
     'take_profit_times', 
     'take_profit_percentages',
     'backtest_type',
+    'results',
 ])
 
 class Entry:
@@ -46,25 +48,9 @@ class BackTestResult:
         self.exit_price = None
         self.exit_time = None
         self.exit_percentage = None
+        self.results = None
     def __repr__(self):
         return f"{self.__class__.__name__}({', '.join([f'{k}={v}' for k, v in self.__dict__.items()])})"
-
-		# entries:{
-		# 	e1:{
-		# 		price:
-		# 		time:
-		# 	}
-		# }
-		# profit_targets: {
-		# 	p1:{
-		# 		hit:
-		# 		price:
-		# 		time:
-		# 		percentage:
-		# 	}
-		# }
-
-
 
 
 class BackTest:
@@ -172,6 +158,9 @@ class BackTest:
         result.exit_condition = 'ongoing'
         if take_profit_hits == len(self.take_profit_values):
             result.exit_condition = 'take_profit'
+            result.exit_price = self.take_profit_values[-1]
+            result.exit_percentage = self.calculate_profit_percentage_with_entry(result.entries[0].price, result.exit_price)
+            result.exit_time = round((row['open_time'] - self.signal_start_time) / (1000 * 60 * 60), 2)
         return result
 
     def backtest_with_entry(self):
@@ -233,6 +222,9 @@ class BackTest:
         result.exit_condition = 'ongoing'
         if take_profit_hits == len(self.take_profit_values):
             result.exit_condition = 'take_profit'
+            result.exit_price = self.take_profit_values[-1]
+            result.exit_percentage = self.calculate_profit_percentage_with_entry(result.entries[0].price, result.exit_price)
+            result.exit_time = round((row['open_time'] - self.signal_start_time) / (1000 * 60 * 60), 2)
         elif not result.entered:
             result.exit_condition = 'not_entered_yet'
 
@@ -298,6 +290,9 @@ class BackTest:
         result.exit_condition = 'ongoing'
         if take_profit_hits == len(self.take_profit_values):
             result.exit_condition = 'take_profit'
+            result.exit_price = self.take_profit_values[-1]
+            result.exit_percentage = self.calculate_profit_percentage_with_entry(result.entries[0].price, result.exit_price)
+            result.exit_time = round((row['open_time'] - self.signal_start_time) / (1000 * 60 * 60), 2)
         elif not result.entered:
             result.exit_condition = 'not_entered_yet'
 
@@ -364,7 +359,14 @@ class BackTest:
                     elif take_profit_hits > trailing_target:
                         stop_loss = last_take_profit_hits[0]
 
-        result.exit_condition = 'ongoing' if take_profit_hits < len(self.take_profit_values) else 'take_profit'
+        result.exit_condition = 'ongoing'
+        if take_profit_hits == len(self.take_profit_values):
+            result.exit_condition = 'take_profit'
+            result.exit_price = self.take_profit_values[-1]
+            result.exit_percentage = self.calculate_profit_percentage_with_entry(result.entries[0].price, result.exit_price)
+            result.exit_time = round((row['open_time'] - self.signal_start_time) / (1000 * 60 * 60), 2)
+        elif not result.entered:
+            result.exit_condition = 'not_entered_yet'
 
         return result
 
@@ -411,8 +413,51 @@ def run_backtest_from_signal(signal):
     progressive_stop_backtest = backtest.backtest_with_progressive_stop(2)
     backtest.print_result(progressive_stop_backtest)
     signal.backtests = [standard_backtest, standard_entry_backtest, trailing_stop_backtest, progressive_stop_backtest]
+    for backtest in signal.backtests:
+        backtest.result = get_backtest_results(backtest)
 
+def build_backtest_results_from_signal(signal):
+    # Check if signal.backtest.result is empty or if signal.backtest.entered is False
+    print(signal.backtests)
+    if any(not backtest.entered or not backtest.result for backtest in signal.backtests):
+        return None
+    # print('Returning:', signal.backtests)
+    return [
+        DotMap({
+            'pair': signal.pair,
+            'source': signal.source,
+            'direction': signal.direction,
+            'results': [
+                {
+                    'type': backtest.backtest_type,
+                    'result': backtest.result,
+                    'start': backtest.entries[0].time_stamp,
+                    'end': backtest.exit_time,
+                }
+            ]
+        })
+        for backtest in signal.backtests
+    ]
 
+def get_backtest_results(backtest):
+    #exit if trade not concluded, or never began
+    if (backtest.exit_condition == 'not_entered_yet' or backtest.exit_condition == 'ongoing' or not backtest.exit_condition):
+        return None
+    if backtest.exit_condition == 'not_entered_ever':
+        return [0]* len(backtest.profit_targets)
+
+    #Append all profit values
+    result = []
+    for p in backtest.profit_targets:
+        if p.hit:
+            result.append(DotMap(percentage=p.percentage, time=p.time))
+
+    #Append exit values for remainder of array
+    remaining_targets = len(backtest.profit_targets) - len(result)
+    for i in range(remaining_targets):
+        result.append(DotMap(percentage=backtest.exit_percentage, time=backtest.exit_time))
+
+    return result
 
 def run_backtest_from_trade(trade, signal):
     """Run specific backtest result for a quantifiable trade"""
@@ -429,7 +474,7 @@ def run_backtest_from_trade(trade, signal):
         results = backtest.backtest_with_entry()
     print('\n\n', trade)
     print(results)
-    result = SimpleNamespace()
+    result = DotMap()
     if results.take_profit_hits > 0:
         result.result = 'profit'
         result.amount = list(results.take_profit_percentages.keys())[0]
