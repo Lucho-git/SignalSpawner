@@ -170,6 +170,11 @@ class TelegramEvents:
                 raise Exception('Wrong channel category, should be "signal" or "ignore"')
             db.add_discord_channel(channel_id_combo, channel_name, channel_category)
 
+        elif '/get_dialogs' in signal_message.message:
+                    for dialog in await self.client.get_dialogs():
+                        print(f"Found channel with ID: {dialog.id, dialog.name}")
+
+
         elif '/new_tele_channel ' in signal_message.message:
             channelinfo = signal_message.message.split(' ')
             channel_id, channel_name, channel_category = channelinfo[1], channelinfo[2], channelinfo[3]
@@ -300,7 +305,7 @@ class TelegramEvents:
                 return
             await handle_signal_message.process_message(signal_message)
 
-        elif signal_message.origin.id == '5894740183' or signal_message.origin.id == '5935711140':
+        elif signal_message.origin.id == '5894740183' or signal_message.origin.id == '5935711140' or signal_message.origin.id == '2011337092':
             await self.telegram_command(signal_message)
         elif signal_message.origin.id in self.com.GENERAL_GROUP:
             pass

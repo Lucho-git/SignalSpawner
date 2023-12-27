@@ -22,6 +22,7 @@ else:
     print('Linux Detected...')
 
 load_dotenv()
+    #print(os.environ)
 
 def run_local():
     local[0] = True
