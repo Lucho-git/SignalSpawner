@@ -20,6 +20,7 @@ else:
     # code is reachable, vscode lying
     local[0] = False
     print('Linux Detected...')
+local[0] = False
 
 load_dotenv()
     #print(os.environ)

@@ -4,10 +4,23 @@ import nest_asyncio
 import argparse
 import subprocess
 import schedule
+import os
 from colorama import init
-import config
 from telebagger import TelegramEvents
 from discbagger import DiscordEvents
+import config
+import sys
+
+async def run_scheduled_jobs():
+    """ Coroutine to run scheduled jobs """
+    while True:
+        schedule.run_pending()
+        await asyncio.sleep(60)  # Check every minute
+
+def scheduled_job():
+    print("Running scheduled job.")
+    venv_python = sys.executable
+    subprocess.run([venv_python, "telegram_bot.py"])
 
 async def run_scheduled_jobs():
     """ Coroutine to run scheduled jobs """
@@ -54,6 +67,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     nest_asyncio.apply()
+<<<<<<< HEAD
 
     # Schedule the scheduler.py script to run every minute
     schedule.every(1).minutes.do(scheduled_job)
@@ -61,6 +75,12 @@ if __name__ == '__main__':
 
     loop = asyncio.get_event_loop()
     loop.run_until_complete(gather_tasks(args.local))
+=======
+>>>>>>> new-main
+
+    # Schedule the scheduler.py script to run every minute
+    schedule.every(1).days.do(scheduled_job)
 
 
-    
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(gather_tasks(args.local))

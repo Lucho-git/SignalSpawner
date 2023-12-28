@@ -1,0 +1,432 @@
+04:21:01:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 279, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 312, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+04:21:04:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 279, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 312, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+06:14:32:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 279, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 312, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+06:16:22:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 279, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 312, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+07:09:54:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 279, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 312, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+07:16:52:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 279, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 312, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+07:17:53:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 279, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 312, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+07:18:53:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 279, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 312, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+07:19:54:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 279, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 312, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+07:20:14:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 279, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 312, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+07:21:45:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 279, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 312, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 231, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+07:53:26:| Signal.backtest_trades() got an unexpected keyword argument 'override'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 225, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 230, in backtest_trades
+    signal.backtest_trades(override = True) # Force Backtest
+TypeError: Signal.backtest_trades() got an unexpected keyword argument 'override'
+
+
+08:01:27:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 224, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 236, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+08:04:00:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 224, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 236, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+08:13:36:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 224, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 236, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+08:14:46:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 261, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 224, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 236, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+08:31:16:| Signal.backtest_trades() got an unexpected keyword argument 'override'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 225, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 230, in backtest_trades
+    signal.backtest_trades(override = True) # Force Backtest
+TypeError: Signal.backtest_trades() got an unexpected keyword argument 'override'
+
+
+08:32:45:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 226, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+08:37:16:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 271, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 304, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 226, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+08:40:02:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 278, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 311, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 230, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+09:03:14:| vars() argument must have __dict__ attribute
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 278, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 311, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 230, in telegram_command
+    db.post_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 249, in post_trades
+    post_data = t.get_trade_dict(signal) # might need to remove this?
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 115, in get_trade_dict
+    add_dict = super().get_trade_dict(signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 81, in get_trade_dict
+    "backtest": vars(self.backtest),
+TypeError: vars() argument must have __dict__ attribute
+
+
+09:05:50:| 'float' object has no attribute 'copy'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 278, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 311, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 227, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 230, in backtest_trades
+    signal.backtest_trades() # Force Backtest
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 211, in backtest_trades
+    t.run_backtest(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 91, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self, signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 464, in run_backtest_from_trade
+    backtest = BackTest(signal.time_generated, trade.entry, [trade.take_profit], trade.stop_loss, signal.direction, signal.pair, client.KLINE_INTERVAL_1MINUTE)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 67, in __init__
+    self.entries = entries.copy()
+AttributeError: 'float' object has no attribute 'copy'
+
+
+09:07:39:| 'BackTestResult' object has no attribute 'take_profit_hits'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 278, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 311, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 227, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 230, in backtest_trades
+    signal.backtest_trades() # Force Backtest
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 211, in backtest_trades
+    t.run_backtest(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 91, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self, signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 481, in run_backtest_from_trade
+    if results.take_profit_hits > 0:
+AttributeError: 'BackTestResult' object has no attribute 'take_profit_hits'
+
+
+09:18:25:| 'BackTestResult' object has no attribute 'take_profit_percentages'
+Message:/last_week!
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 278, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 311, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 227, in telegram_command
+    db.backtest_trades(signals)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 230, in backtest_trades
+    signal.backtest_trades() # Force Backtest
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\signal_conditions.py", line 211, in backtest_trades
+    t.run_backtest(self)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\trade_conditions.py", line 91, in run_backtest
+    self.backtest = backtesting.run_backtest_from_trade(self, signal)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\backtesting.py", line 483, in run_backtest_from_trade
+    result.amount = list(results.take_profit_percentages.keys())[0]
+AttributeError: 'BackTestResult' object has no attribute 'take_profit_percentages'
+
+

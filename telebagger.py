@@ -227,9 +227,16 @@ class TelegramEvents:
             print('getting last week of signals')
             signals = db.generate_signals_from_timeframe(days = 7)
             db.generate_trades(signals, True)
+            print('Generated all the trades\n\n')
+            print('Backtesting....')
             db.backtest_trades(signals)
+            print('Backtested all the trades\n\n')
+            print('Posting...')
             db.post_trades(signals)
+            print('Posted all the trades')
+            print('Saving....')
             db.save_signals(signals)
+            print('Saved all the trades\n\n')
 
         elif signal_message.message == self.com.NEW_WEEK:
             print('getting last week of signals')
@@ -314,3 +321,5 @@ class TelegramEvents:
             print('new chat ID:', signal_message.origin.id, signal_message.origin.name)
             db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name + 'Didnt match: ' + str(self.com.SIGNAL_GROUP))
             #Deal with unrecognized telegram channels
+
+            

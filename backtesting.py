@@ -65,7 +65,7 @@ class BackTest:
         """ Initialize a BackTest instance. """
         self.signal_start_time = int(entry_time)
         self.entries = entries.copy()
-        self.take_profit_values = take_profit_values.copy()  
+        self.take_profit_values = take_profit_values.copy()
         self.stop_loss = stop_loss
         self.direction = direction
         self.symbol = symbol
@@ -461,10 +461,13 @@ def get_backtest_results(backtest):
 
 def run_backtest_from_trade(trade, signal):
     """Run specific backtest result for a quantifiable trade"""
-    try:
-        backtest = BackTest(signal.time_generated, trade.entry, [trade.take_profit], trade.stop_loss, signal.direction, signal.pair, client.KLINE_INTERVAL_1MINUTE)
-    except Exception as e:
-        return
+    backtest = BackTest(signal.time_generated, [trade.entry], [trade.take_profit], trade.stop_loss, signal.direction, signal.pair, client.KLINE_INTERVAL_1MINUTE)
+
+    # try:
+    #     backtest = BackTest(signal.time_generated, trade.entry, [trade.take_profit], trade.stop_loss, signal.direction, signal.pair, client.KLINE_INTERVAL_1MINUTE)
+    # except Exception as e:
+    #     print(e)
+    #     return
     print('Market_Price', signal.market_price)
     print(signal.source, type(trade))
     
@@ -475,28 +478,23 @@ def run_backtest_from_trade(trade, signal):
     print('\n\n', trade)
     print(results)
     result = DotMap()
-    if results.take_profit_hits > 0:
+    if results.exit_condition == 'take_profit':
         result.result = 'profit'
-        result.amount = list(results.take_profit_percentages.keys())[0]
-        result.percentage = list(results.take_profit_percentages.values())[0]
-        result.time_complete = list(results.take_profit_times.values())[0]
-    elif results.stop_price:
+        result.amount = results.exit_price
+        result.percentage = results.exit_percentage
+        result.time_complete = results.exit_time
+    elif results.exit_condition == 'stop_loss':
         result.result = 'loss'
-        result.amount = results.stop_price
-        result.percentage = results.stop_percentage
-        result.time_complete = results.stop_time
+        result.amount = results.exit_price
+        result.percentage = results.exit_percentage
+        result.time_complete = results.exit_time
     elif results.exit_condition == 'timeout':
         result.result = 'timeout'
-        result.amount = results.stop_price
-        result.percentage = results.stop_percentage
-        result.time_complete = results.stop_time
+        result.amount = results.exit_price
+        result.percentage = results.exit_percentage
+        result.time_complete = results.exit_time
     elif results.exit_condition == 'not_entered_ever':
         result.result = 'not_entered_ever'
-        result.amount = ''
-        result.percentage = ''
-        result.time_complete = ''
-    elif results.exit_condition == 'not_entered_yet':
-        result.result = 'not_entered_yet'
         result.amount = ''
         result.percentage = ''
         result.time_complete = ''
