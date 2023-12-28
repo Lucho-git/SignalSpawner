@@ -68,7 +68,8 @@ class SpotBasic:
         }
 
     def get_trade_dict(self, signal):
-        
+        print('\nGetting Dictionary')
+        print('Converting backtest dotmap', self.backtest.toDict())
         return {
             "source": signal.source,
             "coin": signal.coin,
@@ -78,7 +79,7 @@ class SpotBasic:
             "profit": self.take_profit,
             "loss": self.stop_loss,
             "direction": "LONG",
-            "backtest": vars(self.backtest),
+            "backtest": self.backtest.toDict(),
             "timeout": self.timeout,
             "time_generated": signal.time_generated
         }

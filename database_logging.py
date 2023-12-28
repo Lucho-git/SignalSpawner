@@ -227,7 +227,7 @@ def generate_trades(signals_list, override = False):
 
 def backtest_trades(signals_list):
     for signal in signals_list:
-        signal.backtest_trades(override = True) # Force Backtest
+        signal.backtest_trades() # Force Backtest
 
 
 def deep_backtest_signals(signals_list):
@@ -250,7 +250,7 @@ def post_trades(signals_list):
                 try:
                     print('test', post_data['timeout'])
                 except:
-                    print('postdata: no time genreated:', post_data)
+                    print('postdata: no time generated:', post_data)
                 time_generated_list.append(post_data)   
 
     time_sorted_data = sorted(time_generated_list, key=lambda x: x['timeout'])
