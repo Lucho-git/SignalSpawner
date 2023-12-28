@@ -67,16 +67,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     nest_asyncio.apply()
-<<<<<<< HEAD
-
-    # Schedule the scheduler.py script to run every minute
-    schedule.every(1).minutes.do(scheduled_job)
-
-
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(gather_tasks(args.local))
-=======
->>>>>>> new-main
 
     # Schedule the scheduler.py script to run every minute
     schedule.every(1).days.do(scheduled_job)

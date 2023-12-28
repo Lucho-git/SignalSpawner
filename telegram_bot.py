@@ -1,11 +1,8 @@
 from telethon import TelegramClient, events
 from dotenv import load_dotenv
 import os
-<<<<<<< HEAD
-=======
 import config
 
->>>>>>> new-main
 
 load_dotenv()
 # Replace these with your own values
