@@ -38,7 +38,7 @@ def error_log(error):
     storage.child(error_filepath).download("./", error_filepath)
     with open(error_filepath, 'a', encoding="utf8") as f:
         f.write(time_formatted + '| ' + str(error) + '\n\n')
-    storage.child(error_filepath).put(error_filepath)
+    # storage.child(error_filepath).put(error_filepath)
 
 
 
@@ -58,7 +58,7 @@ def gen_log(log):
     # If file exists, add to it, else create a new one
     with open(genlog_filepath, 'a+', encoding="utf8") as f:
         f.write(time_formatted + '| ' + log + '\n\n')
-    storage.child(genlog_filepath).put(genlog_filepath)
+    # storage.child(genlog_filepath).put(genlog_filepath)
 
 
 def failed_message(msg, origin, ex):
@@ -78,7 +78,7 @@ def failed_message(msg, origin, ex):
         f.write('__________________________\n')
         f.write(str(ex))
         f.write('\n\n')
-    storage.child(failedmsg_filepath).put(failedmsg_filepath)
+    # storage.child(failedmsg_filepath).put(failedmsg_filepath)
 
 
 def realtime_signal_logs(msg):

@@ -1,13 +1,13 @@
-📩 #COTIUSDT 30m | Mid-Term
-📈 Short Entry Zone: 0.05028-0.0516
-🎯Accuracy of this strategy - 89.55%
+📩 #SOLUSDT 15m | Short-Term
+📉 Long Entry Zone: 100.200 - 100.196
+🎯Accuracy of this strategy - 98.54%
 
 - ⏳ -  Signal details:
-Target 1:  0.0495
-Target 2:  0.0488
-Target 3:  0.0480
-Target 4:  0.0458
-_____
-🧲Trend-Line: 0.0516
-❌Stop-Loss: 0.0524
+Target 1: 100.600
+Target 2: 101.001
+Target 3: 101.402
+Target 4: 102.205
+_
+🧲Trend-Line: 100.196
+❌Stop-Loss: 95.190
 💡After reaching the first target you can put the rest of the position to breakeven

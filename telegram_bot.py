@@ -20,4 +20,4 @@ async def send_message_to_channel(channel_id, message):
 
 # Start the client
 with client:
-    client.loop.run_until_complete(send_message_to_channel(channel_id, '/last_week!'))
+    client.loop.run_until_complete(send_message_to_channel(channel_id, config.get_commands().LAST_WEEK))

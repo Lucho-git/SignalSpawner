@@ -1,0 +1,682 @@
+{
+    "signal_groups": [
+        {
+            "id": "1548802426",
+            "telegram_name": "Official Telegram Name 1",
+            "local_name": "Custom Local Name 1"
+        },
+        {
+            "id": "1248393106",
+            "telegram_name": "HIRN SIGNALS FREE",
+            "local_name": "Custom Local Name 2",
+            "trueId": -1001248393106
+        },
+        {
+            "id": "1558766055",
+            "telegram_name": "Predictum godleak Depreciated",
+            "local_name": "Predictum godleak Depreciated"
+        },
+        {
+            "id": "1825288627",
+            "telegram_name": "GGshot godleak Depreciated",
+            "local_name": "GGshot godleak Depreciated"
+        },
+        {
+            "id": "1737189058",
+            "telegram_name": "GGShot Vip Depreciated",
+            "local_name": "GGShot Vip Depreciated"
+        },
+        {
+            "id": "1175262142",
+            "telegram_name": "GG-Sh\u00f8t. Indicator & Signals",
+            "local_name": "GG-Shot Free",
+            "trueId": -1001175262142
+        },
+        {
+            "id": "1480838869",
+            "telegram_name": "GG Shot Leaked",
+            "local_name": "GG Shot Leaked",
+            "trueId": -1001480838869
+        },
+        {
+            "id": "1872890428",
+            "telegram_name": "Luchos Signal Dynasty",
+            "local_name": "Custom Local Name 2",
+            "trueId": -1001872890428
+        }
+    ],
+    "general_groups": [
+        {
+            "id": "1794870864",
+            "telegram_name": "Crypto Leak By GodLeak",
+            "local_name": "Custom Local Name A",
+            "trueId": -1001794870864
+        },
+        {
+            "id": "1250090891",
+            "telegram_name": "GodLeak",
+            "local_name": "Custom Local Name A",
+            "trueId": 1250090891
+        },
+        {
+            "id": "1617114456",
+            "telegram_name": "Bi 360 MTC Cx",
+            "local_name": "Bi 360 MTC Cx",
+            "trueId": -1001617114456
+        },
+        {
+            "id": "1757298920",
+            "telegram_name": "\u26a1\ufe0fCrypto Zone BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fCrypto Zone BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001757298920
+        },
+        {
+            "id": "1782836732",
+            "telegram_name": "\u26a1\ufe0fCredible BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fCredible BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001782836732
+        },
+        {
+            "id": "1539610458",
+            "telegram_name": "\u26a1\ufe0fwcse Leverage BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fwcse Leverage BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001539610458
+        },
+        {
+            "id": "1678634345",
+            "telegram_name": "\u26a1\ufe0fsaviour BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fsaviour BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001678634345
+        },
+        {
+            "id": "1733724072",
+            "telegram_name": "\u26a1\ufe0fAlex Friedman Premium BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fAlex Friedman Premium BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001733724072
+        },
+        {
+            "id": "1661461841",
+            "telegram_name": "\u26a1\ufe0fBermoda BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBermoda BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001661461841
+        },
+        {
+            "id": "1580251915",
+            "telegram_name": "\u26a1\ufe0fWWG Analysts BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fWWG Analysts BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001580251915
+        },
+        {
+            "id": "1764372704",
+            "telegram_name": "\u26a1\ufe0fCrypto Jobber BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fCrypto Jobber BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001764372704
+        },
+        {
+            "id": "1715846957",
+            "telegram_name": "\u26a1\ufe0fBulls Family BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBulls Family BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001715846957
+        },
+        {
+            "id": "1639277623",
+            "telegram_name": "\u26a1\ufe0fRich Trader VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fRich Trader VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001639277623
+        },
+        {
+            "id": "1716601671",
+            "telegram_name": "\u26a1\ufe0fJust Profit BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fJust Profit BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001716601671
+        },
+        {
+            "id": "1783933011",
+            "telegram_name": "\u26a1\ufe0fInner Circle By GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fInner Circle By GodLeak \u26a1\ufe0f",
+            "trueId": -1001783933011
+        },
+        {
+            "id": "1703418976",
+            "telegram_name": "\u26a1\ufe0fRaticoin Margin BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fRaticoin Margin BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001703418976
+        },
+        {
+            "id": "1635678235",
+            "telegram_name": "\u26a1\ufe0fWalsh wealth group BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fWalsh wealth group BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001635678235
+        },
+        {
+            "id": "1746425792",
+            "telegram_name": "\u26a1\ufe0fBinance Scalping 300 BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBinance Scalping 300 BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001746425792
+        },
+        {
+            "id": "1780529400",
+            "telegram_name": "\u26a1\ufe0fAman Crypto BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fAman Crypto BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001780529400
+        },
+        {
+            "id": "1741551342",
+            "telegram_name": "\u26a1\ufe0fFeyzian VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fFeyzian VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001741551342
+        },
+        {
+            "id": "1615133828",
+            "telegram_name": "\u26a1\ufe0fBlack Whale BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBlack Whale BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001615133828
+        },
+        {
+            "id": "1550318793",
+            "telegram_name": "\u26a1\ufe0fRose Premium BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fRose Premium BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001550318793
+        },
+        {
+            "id": "1567717575",
+            "telegram_name": "\ud83c\udf39 Rose premium Signals \ud83c\udf39",
+            "local_name": "\ud83c\udf39 Rose premium Signals \ud83c\udf39",
+            "trueId": -1001567717575
+        },
+        {
+            "id": "1781429654",
+            "telegram_name": "\u26a1\ufe0fAlex Rich BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fAlex Rich BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001781429654
+        },
+        {
+            "id": "1798606259",
+            "telegram_name": "\u26a1\ufe0fCrypto hounds Jackis BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fCrypto hounds Jackis BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001798606259
+        },
+        {
+            "id": "1781264371",
+            "telegram_name": "Predict\u016bm signals | Crypto",
+            "local_name": "Predict\u016bm signals | Crypto",
+            "trueId": -1001781264371
+        },
+        {
+            "id": "1690373783",
+            "telegram_name": "\u26a1\ufe0fDefi Alert BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fDefi Alert BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001690373783
+        },
+        {
+            "id": "1670845596",
+            "telegram_name": "\u26a1\ufe0fCrypto Currency VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fCrypto Currency VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001670845596
+        },
+        {
+            "id": "1740739900",
+            "telegram_name": "\u26a1\ufe0fWallstreet Queen BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fWallstreet Queen BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001740739900
+        },
+        {
+            "id": "1659089950",
+            "telegram_name": "\u26a1\ufe0fMaster of Binance Scalp BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fMaster of Binance Scalp BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001659089950
+        },
+        {
+            "id": "1681227295",
+            "telegram_name": "\u26a1\ufe0fCryptoBullet Premium BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fCryptoBullet Premium BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001681227295
+        },
+        {
+            "id": "1243154702",
+            "telegram_name": "\u26a1\ufe0fC Signal VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fC Signal VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001243154702
+        },
+        {
+            "id": "1673936791",
+            "telegram_name": "\u26a1\ufe0fPrice Action 500 BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fPrice Action 500 BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001673936791
+        },
+        {
+            "id": "1752384255",
+            "telegram_name": "\u26a1\ufe0fCoin Signal BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fCoin Signal BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001752384255
+        },
+        {
+            "id": "1665258678",
+            "telegram_name": "Al Win Premium",
+            "local_name": "Al Win Premium",
+            "trueId": -1001665258678
+        },
+        {
+            "id": "1751985953",
+            "telegram_name": "\u26a1\ufe0fAlways win trade BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fAlways win trade BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001751985953
+        },
+        {
+            "id": "1267319097",
+            "telegram_name": "\u26a1\ufe0fWCSE Spot BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fWCSE Spot BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001267319097
+        },
+        {
+            "id": "1655546981",
+            "telegram_name": "\u26a1\ufe0fBitcoin Ted BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBitcoin Ted BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001655546981
+        },
+        {
+            "id": "1657860853",
+            "telegram_name": "\u26a1\ufe0fBinance Wolves BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBinance Wolves BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001657860853
+        },
+        {
+            "id": "1675909522",
+            "telegram_name": "\u26a1\ufe0fForflies VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fForflies VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001675909522
+        },
+        {
+            "id": "1666751865",
+            "telegram_name": "\u26a1\ufe0fDr Profit Arena BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fDr Profit Arena BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001666751865
+        },
+        {
+            "id": "1674289749",
+            "telegram_name": "\u26a1\ufe0fWe Take Off BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fWe Take Off BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001674289749
+        },
+        {
+            "id": "1710180203",
+            "telegram_name": "\u26a1\ufe0fThe Bull BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fThe Bull BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001710180203
+        },
+        {
+            "id": "1769022420",
+            "telegram_name": "\u26a1\ufe0fHaji Crypto BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fHaji Crypto BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001769022420
+        },
+        {
+            "id": "1766265305",
+            "telegram_name": "\u26a1\ufe0fMYC Signals BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fMYC Signals BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001766265305
+        },
+        {
+            "id": "1721427556",
+            "telegram_name": "Bi 360 SRV Cx",
+            "local_name": "Bi 360 SRV Cx",
+            "trueId": -1001721427556
+        },
+        {
+            "id": "1561224799",
+            "telegram_name": "\u26a1\ufe0fSpot and Futures signals BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fSpot and Futures signals BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001561224799
+        },
+        {
+            "id": "1720127348",
+            "telegram_name": "\u26a1\ufe0fArka VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fArka VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001720127348
+        },
+        {
+            "id": "1593286144",
+            "telegram_name": "\u26a1 Future Max leverage by Godleak",
+            "local_name": "\u26a1 Future Max leverage by Godleak",
+            "trueId": -1001593286144
+        },
+        {
+            "id": "1724742594",
+            "telegram_name": "\u26a1\ufe0fFuture X125 vip BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fFuture X125 vip BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001724742594
+        },
+        {
+            "id": "1355946273",
+            "telegram_name": "Crypto Leak By VipKhoone",
+            "local_name": "",
+            "trueId": -1001355946273
+        },
+        {
+            "id": "1736724438",
+            "telegram_name": "\u26a1\ufe0fJetsol VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fJetsol VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001736724438
+        },
+        {
+            "id": "1625455532",
+            "telegram_name": "\u26a1\ufe0fCrypto Musk BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fCrypto Musk BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001625455532
+        },
+        {
+            "id": "1365182120",
+            "telegram_name": "\u26a1\ufe0fMC Private Crypto BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fMC Private Crypto BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001365182120
+        },
+        {
+            "id": "1497065622",
+            "telegram_name": "\u26a1\ufe0fHarmony VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fHarmony VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001497065622
+        },
+        {
+            "id": "1498898984",
+            "telegram_name": "\u26a1\ufe0fDZ871 BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fDZ871 BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001498898984
+        },
+        {
+            "id": "1532882637",
+            "telegram_name": "\u26a1\ufe0fBsignal BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBsignal BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001532882637
+        },
+        {
+            "id": "1529337555",
+            "telegram_name": "\u26a1\ufe0fCryptonit Premium BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fCryptonit Premium BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001529337555
+        },
+        {
+            "id": "1634824839",
+            "telegram_name": "\u26a1\ufe0fSM VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fSM VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001634824839
+        },
+        {
+            "id": "1573349626",
+            "telegram_name": "\u26a1\ufe0fPerfect Profit VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fPerfect Profit VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001573349626
+        },
+        {
+            "id": "1516867757",
+            "telegram_name": "\u26a1\ufe0fTrader SZ BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fTrader SZ BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001516867757
+        },
+        {
+            "id": "1702182404",
+            "telegram_name": "\u26a1\ufe0fHaven Pierre Premium BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fHaven Pierre Premium BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001702182404
+        },
+        {
+            "id": "1647623329",
+            "telegram_name": "\u26a1\ufe0fBehdark BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBehdark BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001647623329
+        },
+        {
+            "id": "5128388755",
+            "telegram_name": "GGShot_Bot",
+            "local_name": "GGShot_Bot",
+            "trueId": 5128388755
+        },
+        {
+            "id": "1661203761",
+            "telegram_name": "\u26a1\ufe0fBitmex Premium BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBitmex Premium BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001661203761
+        },
+        {
+            "id": "1403361225",
+            "telegram_name": "\u26a1\ufe0fEclubs Vip BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fEclubs Vip BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001403361225
+        },
+        {
+            "id": "1621249331",
+            "telegram_name": "\u26a1\ufe0fSignal Palace BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fSignal Palace BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001621249331
+        },
+        {
+            "id": "1605274063",
+            "telegram_name": "\u26a1\ufe0fBBB Challenge BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBBB Challenge BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001605274063
+        },
+        {
+            "id": "1583039188",
+            "telegram_name": "\u26a1\ufe0fMega Crypto 2 VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fMega Crypto 2 VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001583039188
+        },
+        {
+            "id": "1359703803",
+            "telegram_name": "\u26a1\ufe0fSadeghi VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fSadeghi VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001359703803
+        },
+        {
+            "id": "1795356416",
+            "telegram_name": "\u26a1\ufe0fKingsman Repass BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fKingsman Repass BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001795356416
+        },
+        {
+            "id": "1778907869",
+            "telegram_name": "\u26a1\ufe0fSignals Lifetime VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fSignals Lifetime VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001778907869
+        },
+        {
+            "id": "1616997045",
+            "telegram_name": "\u26a1\ufe0fCrypto Swings BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fCrypto Swings BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001616997045
+        },
+        {
+            "id": "1671862508",
+            "telegram_name": "\u26a1\ufe0fTrading by CF BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fTrading by CF BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001671862508
+        },
+        {
+            "id": "1260805523",
+            "telegram_name": "\u26a1\ufe0fBull Exclusive Premium BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBull Exclusive Premium BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001260805523
+        },
+        {
+            "id": "1744792461",
+            "telegram_name": "\u26a1\ufe0fCCC.IO BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fCCC.IO BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001744792461
+        },
+        {
+            "id": "1660540407",
+            "telegram_name": "\u26a1\ufe0fKlondike Scalping Nexus BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fKlondike Scalping Nexus BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001660540407
+        },
+        {
+            "id": "1542086237",
+            "telegram_name": "\u26a1\ufe0fFed Russian BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fFed Russian BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001542086237
+        },
+        {
+            "id": "1675059575",
+            "telegram_name": "\u26a1\ufe0fBinance 360 BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBinance 360 BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001675059575
+        },
+        {
+            "id": "1614544621",
+            "telegram_name": "\u26a1\ufe0fKaveh BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fKaveh BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001614544621
+        },
+        {
+            "id": "1433240125",
+            "telegram_name": "\u26a1\ufe0fBitcoin Assassins BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBitcoin Assassins BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001433240125
+        },
+        {
+            "id": "1767889954",
+            "telegram_name": "\u26a1\ufe0fHaven Krillin Premium BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fHaven Krillin Premium BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001767889954
+        },
+        {
+            "id": "1732576757",
+            "telegram_name": "\u26a1\ufe0fBitcoin bullets BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBitcoin bullets BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001732576757
+        },
+        {
+            "id": "1644820712",
+            "telegram_name": "\u26a1\ufe0fWolfx Signals BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fWolfx Signals BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001644820712
+        },
+        {
+            "id": "1690311955",
+            "telegram_name": "\u26a1\ufe0fGreen Crypto BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fGreen Crypto BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001690311955
+        },
+        {
+            "id": "1718815049",
+            "telegram_name": "\u26a1\ufe0fYo Crypto platinum BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fYo Crypto platinum BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001718815049
+        },
+        {
+            "id": "1676282937",
+            "telegram_name": "\u26a1\ufe0fHaven UB BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fHaven UB BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001676282937
+        },
+        {
+            "id": "1229270718",
+            "telegram_name": "\u26a1\ufe0fHaven Loma Premium BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fHaven Loma Premium BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001229270718
+        },
+        {
+            "id": "1662377329",
+            "telegram_name": "\u26a1\ufe0fHaven Mayne BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fHaven Mayne BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001662377329
+        },
+        {
+            "id": "1732521712",
+            "telegram_name": "\u26a1\ufe0fBris VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBris VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001732521712
+        },
+        {
+            "id": "1702209070",
+            "telegram_name": "\u26a1\ufe0fbinance killer BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fbinance killer BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001702209070
+        },
+        {
+            "id": "1534195735",
+            "telegram_name": "\u26a1\ufe0fHaven CBS BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fHaven CBS BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001534195735
+        },
+        {
+            "id": "1244131552",
+            "telegram_name": "Rose Premium Signals \ud83c\udf39",
+            "local_name": "Rose Premium Signals \ud83c\udf39",
+            "trueId": -1001244131552
+        },
+        {
+            "id": "1355910014",
+            "telegram_name": "Ascetus",
+            "local_name": "Ascetus",
+            "trueId": -1001355910014
+        },
+        {
+            "id": "1684783500",
+            "telegram_name": "\u26a1\ufe0fcrypto cove bitmex BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fcrypto cove bitmex BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001684783500
+        },
+        {
+            "id": "1731403573",
+            "telegram_name": "\u26a1\ufe0fFat Pig Premium BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fFat Pig Premium BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001731403573
+        },
+        {
+            "id": "1689402801",
+            "telegram_name": "Etsy Bandits",
+            "local_name": "JBZ",
+            "trueId": -1001689402801
+        },
+        {
+            "id": "1727255712",
+            "telegram_name": "\u26a1\ufe0fAlex Clay Scalping BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fAlex Clay Scalping BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001727255712
+        },
+        {
+            "id": "1727812610",
+            "telegram_name": "\u26a1\ufe0fHaven Additional BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fHaven Additional BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001727812610
+        },
+        {
+            "id": "1753765382",
+            "telegram_name": "\u26a1\ufe0fKucoin VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fKucoin VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001753765382
+        },
+        {
+            "id": "1588786616",
+            "telegram_name": "\u26a1\ufe0fMr profit BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fMr profit BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001588786616
+        },
+        {
+            "id": "1688505449",
+            "telegram_name": "\u26a1\ufe0fGenix VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fGenix VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001688505449
+        },
+        {
+            "id": "1396813143",
+            "telegram_name": "\u26a1\ufe0fESTR VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fESTR VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001396813143
+        }
+    ],
+    "bot_groups": [
+        {
+            "id": "5894740183",
+            "telegram_name": "telebagger_commands",
+            "local_name": "Custom Local Name A",
+            "trueId": 5894740183
+        },
+        {
+            "id": "2011337092",
+            "telegram_name": "Telebagger Channel",
+            "local_name": "Bot Group 1",
+            "trueId": -1002011337092
+        }
+    ]
+}

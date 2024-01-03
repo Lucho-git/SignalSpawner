@@ -4,6 +4,7 @@ import json
 import backtesting
 import traceback
 from types import SimpleNamespace
+from dotmap import DotMap
 
 '''
 Defines a set of conditions and parameters, 
@@ -21,9 +22,13 @@ class SpotBasic:
         self.take_profit = take_profit
         self.stop_loss = stop_loss
         self.timeout = time_generated + 604800000 #7 Days timeout in seconds
-        self.backtest=backtest
-        if not self.backtest:
-            self.backtest = SimpleNamespace(result='undetermined', amount='', percentage='', time_complete='')
+
+        #Convert old namespaces into a DotMap, can remove once they are all gone
+        if isinstance(backtest, SimpleNamespace):
+            DotMap(backtest.__dict__)
+        elif backtest is None:
+            backtest = DotMap(result='undetermined', amount='', percentage='', time_complete='')
+        self.backtest = backtest
 
     def check_timeout(self, trade):
         '''Checks to see if trade has timed out'''
@@ -69,7 +74,7 @@ class SpotBasic:
 
     def get_trade_dict(self, signal):
         print('\nGetting Dictionary')
-        print('Converting backtest dotmap', self.backtest.toDict())
+        print('Converting backtest dotmap', dict(self.backtest))
         return {
             "source": signal.source,
             "coin": signal.coin,
@@ -79,7 +84,7 @@ class SpotBasic:
             "profit": self.take_profit,
             "loss": self.stop_loss,
             "direction": "LONG",
-            "backtest": self.backtest.toDict(),
+            "backtest": dict(self.backtest),
             "timeout": self.timeout,
             "time_generated": signal.time_generated
         }

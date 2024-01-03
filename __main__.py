@@ -69,7 +69,7 @@ if __name__ == '__main__':
     nest_asyncio.apply()
 
     # Schedule the scheduler.py script to run every minute
-    schedule.every(1).days.do(scheduled_job)
+    schedule.every().day.at("00:00").do(scheduled_job)
 
 
     loop = asyncio.get_event_loop()

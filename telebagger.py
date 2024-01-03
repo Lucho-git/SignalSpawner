@@ -2,6 +2,7 @@
 
 from telethon import events, utils
 from dotenv import load_dotenv
+import json
 import requests
 import asyncio
 import sys
@@ -19,7 +20,6 @@ from collections import defaultdict
 
 import utility
 import handle_signal_message
-from config import get_telegram_config, get_commands
 import database_logging as db
 
 
@@ -27,6 +27,7 @@ class TelegramEvents:
     '''Handles telegram events'''
     def __init__(self, clientChannel):
         self.com = config.get_commands()
+        self.channels = config.get_telegram_channels()
         self.clientChannel = clientChannel
         self.client = config.get_telegram_config()
         self.lock = asyncio.Lock()
@@ -78,6 +79,45 @@ class TelegramEvents:
                     pass
                 else:
                     print('has photo')
+
+    def is_signal_in_group(self, signal_message):
+        if any(signal_message.origin.id == channel['id'] for channel in self.channels['signal_groups']):
+            return 'SIGNAL_GROUP'
+        if any(signal_message.origin.id == channel['id'] for channel in self.channels['general_groups']):
+            return 'GENERAL_GROUP'
+        if any(signal_message.origin.id == channel['id'] for channel in self.channels['bot_groups']):
+            return 'BOT_GROUP'
+        else:
+            return None
+
+
+    async def update_true_id(self):
+        # Retrieve all dialogs
+        dialogs = await self.client.get_dialogs()
+
+        # Load channel data from JSON file
+        with open('config/telegram_channels.json', 'r') as file:
+            channels = json.load(file)
+
+
+
+        # Check for matching IDs and update trueId
+        updated = False
+        for group in channels.values():
+            for channel in group:
+                if not 'trueId' in channel:
+                    for dialog in dialogs:
+                        if str(dialog.entity.id) == channel['id']:
+                            print('Found a trueId for channel', dialog.name)
+                            channel['trueId'] = dialog.id
+                            channel['telegram_name'] = dialog.name
+                            updated = True
+                            break
+
+        # Save updated data back to JSON file if there was an update
+        if updated:
+            with open('config/telegram_channels.json', 'w') as file:
+                json.dump(channels, file, indent=4)
 
     def shared_chars(self, str1, str2):
         counter1 = collections.Counter(str1)
@@ -173,6 +213,8 @@ class TelegramEvents:
         elif '/get_dialogs' in signal_message.message:
                     for dialog in await self.client.get_dialogs():
                         print(f"Found channel with ID: {dialog.id, dialog.name}")
+                        entity = await self.client.get_entity(dialog.id)
+                        print(entity)
 
 
         elif '/new_tele_channel ' in signal_message.message:
@@ -204,8 +246,8 @@ class TelegramEvents:
         elif signal_message.message == self.com.GGSHOT:
             with open('docs/ggshot_example.txt', 'r', encoding='utf-8') as f:
                 signal_message.message = f.read()
-            signal_message.origin.id = '1825288627'
-            signal_message.origin.name = 'testGGshot'
+            signal_message.origin.id = '1480838869'
+            signal_message.origin.name = 'testGGshotLeaked'
             await handle_signal_message.process_message(signal_message)
 
         elif signal_message.message == self.com.GGSHOTVIP:
@@ -273,6 +315,19 @@ class TelegramEvents:
         elif signal_message.message == self.com.GET_SIGNALS:
             db.get_old_signals()
 
+        elif signal_message.message == self.com.KNOWN_CHANNELS:
+            i = 0
+            for group in self.channels.values():
+                for channel in group:  
+                    i += 1
+                    print(f"ID: {channel.id}, Name: {channel.telegram_name}")
+            print(f"Known Channels: {i}")
+                    
+
+        elif signal_message.message == self.com.TRUE_ID:
+            await self.update_true_id()
+
+
     async def start_telegram_handler(self, client):
         '''telegram message event handler'''
         '''Receive message logic!!!'''
@@ -299,10 +354,21 @@ class TelegramEvents:
         print('Ready...')
         await self.client.run_until_disconnected()
 
+    def update_telegram_channels(self, new_channel):
+        with open('config/telegram_channels.json', 'r') as file:
+            data = json.load(file)
+
+        # Append the new channel to general_groups
+        data['general_groups'].append(new_channel)
+
+        # Save the updated data back to the file
+        with open('config/telegram_channels.json', 'w') as file:
+            json.dump(data, file, indent=4)
 
     async def handle_new_message(self, signal_message):
         #Handles the logic for new messages
-        if signal_message.origin.id in self.com.SIGNAL_GROUP:
+        channel_type = self.is_signal_in_group(signal_message)
+        if channel_type == 'SIGNAL_GROUP':
             properties = [f'{name}: {getattr(signal_message, name)}' for name in dir(signal_message) if not name.startswith('__')]
             properties_string = '\n'.join(properties)
             logs = 'New Signal Message:' + properties_string
@@ -312,14 +378,20 @@ class TelegramEvents:
                 return
             await handle_signal_message.process_message(signal_message)
 
-        elif signal_message.origin.id == '5894740183' or signal_message.origin.id == '5935711140' or signal_message.origin.id == '2011337092':
-            await self.telegram_command(signal_message)
-        elif signal_message.origin.id in self.com.GENERAL_GROUP:
+        elif channel_type == 'GENERAL_GROUP':
             pass
+
+        elif channel_type == 'BOT_GROUP':
+            await self.telegram_command(signal_message)
 
         else:
             print('new chat ID:', signal_message.origin.id, signal_message.origin.name)
-            db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name + 'Didnt match: ' + str(self.com.SIGNAL_GROUP))
+            db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name + 'Didnt match: anything' )
             #Deal with unrecognized telegram channels
-
-            
+            new_channel = {
+                "id": signal_message.origin.id,
+                "telegram_name": signal_message.origin.name,
+                "local_name": signal_message.origin.name  # Using telegram_name as placeholder
+            }
+            self.update_telegram_channels(new_channel)
+            self.channels = config.get_telegram_channels()

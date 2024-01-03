@@ -1,0 +1,158 @@
+00:59:01:| [Errno 402 Client Error: Payment Required for url: https://firebasestorage.googleapis.com/v0/b/telebagger.appspot.com/o?name=logs/general_logs/January-2024/03-Jan-24.txt] {
+  "error": {
+    "code": 402,
+    "message": "Quota has been exceeded for this project. Please visit the Firebase pricing page to learn more."
+  }
+}
+Message:📈THETA/USDT Long 📈
+
+➡️Entry Price: 1.4200
+
+💫Take-Profit 1: 1.4650
+💫Take-Profit 2: 1.5100
+
+MID-TERM TARGET
+💫Take-Profit 3: 1.6000
+
+⛔️Stop-Loss: 1.3700
+
+☄️ Leverage [20x Cross] 
+
+⚠️Trading is highly risky. Use only 5% funds 
+
+📌Published by
+
+☆ᶜʳʸᵖᵗᵒᴸᵉᵃᵏˢᶻ
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pyrebase\pyrebase.py", line 512, in raise_detailed_error
+    request_object.raise_for_status()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\requests\models.py", line 943, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 402 Client Error: Payment Required for url: https://firebasestorage.googleapis.com/v0/b/telebagger.appspot.com/o?name=logs/general_logs/January-2024/03-Jan-24.txt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 342, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 393, in handle_new_message
+    db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name + 'Didnt match: anything' )
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 61, in gen_log
+    storage.child(genlog_filepath).put(genlog_filepath)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pyrebase\pyrebase.py", line 459, in put
+    raise_detailed_error(request_object)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pyrebase\pyrebase.py", line 516, in raise_detailed_error
+    raise HTTPError(e, request_object.text)
+requests.exceptions.HTTPError: [Errno 402 Client Error: Payment Required for url: https://firebasestorage.googleapis.com/v0/b/telebagger.appspot.com/o?name=logs/general_logs/January-2024/03-Jan-24.txt] {
+  "error": {
+    "code": 402,
+    "message": "Quota has been exceeded for this project. Please visit the Firebase pricing page to learn more."
+  }
+}
+
+
+01:09:51:| [Errno 402 Client Error: Payment Required for url: https://firebasestorage.googleapis.com/v0/b/telebagger.appspot.com/o?name=logs/general_logs/January-2024/03-Jan-24.txt] {
+  "error": {
+    "code": 402,
+    "message": "Quota has been exceeded for this project. Please visit the Firebase pricing page to learn more."
+  }
+}
+Message:📈ICP/USDT Long 📈
+
+➡️Entry Price: 14.20
+
+💫Take-Profit 1: 14.80
+💫Take-Profit 2: 15.40
+
+MID-TERM TARGET
+💫Take-Profit 3: 17.20
+
+⛔️Stop-Loss: 13.50
+
+☄️ Leverage [20x Cross] 
+
+⚠️Trading is highly risky. Use only 5% funds 
+
+📌Published by
+
+☆ᶜʳʸᵖᵗᵒᴸᵉᵃᵏˢᶻ
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pyrebase\pyrebase.py", line 512, in raise_detailed_error
+    request_object.raise_for_status()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\requests\models.py", line 943, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 402 Client Error: Payment Required for url: https://firebasestorage.googleapis.com/v0/b/telebagger.appspot.com/o?name=logs/general_logs/January-2024/03-Jan-24.txt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 342, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 393, in handle_new_message
+    db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name + 'Didnt match: anything' )
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\database_logging.py", line 61, in gen_log
+    storage.child(genlog_filepath).put(genlog_filepath)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pyrebase\pyrebase.py", line 459, in put
+    raise_detailed_error(request_object)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\pyrebase\pyrebase.py", line 516, in raise_detailed_error
+    raise HTTPError(e, request_object.text)
+requests.exceptions.HTTPError: [Errno 402 Client Error: Payment Required for url: https://firebasestorage.googleapis.com/v0/b/telebagger.appspot.com/o?name=logs/general_logs/January-2024/03-Jan-24.txt] {
+  "error": {
+    "code": 402,
+    "message": "Quota has been exceeded for this project. Please visit the Firebase pricing page to learn more."
+  }
+}
+
+
+06:11:58:| 'list' object has no attribute 'id'
+Message:/known_channels
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 334, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 381, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 320, in telegram_command
+    print(f"ID: {group.id}, Name: {group.telegram_name}")
+AttributeError: 'list' object has no attribute 'id'
+
+
+06:12:19:| 'list' object has no attribute 'id'
+Message:/known_channels
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 335, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 382, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 321, in telegram_command
+    print(f"ID: {group.id}, Name: {group.telegram_name}")
+AttributeError: 'list' object has no attribute 'id'
+
+
+06:13:17:| telegram_na
+Message:/known_channels
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 103, in __getattr__
+    return object.__getattribute__(self, k)
+AttributeError: 'Munch' object has no attribute 'telegram_na'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 106, in __getattr__
+    return self[k]
+KeyError: 'telegram_na'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 338, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 385, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 323, in telegram_command
+    print(f"ID: {channel.id}, Name: {channel.telegram_na}")
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 108, in __getattr__
+    raise AttributeError(k)
+AttributeError: telegram_na
+
+

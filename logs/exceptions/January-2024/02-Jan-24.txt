@@ -1,0 +1,447 @@
+06:23:35:| 'signal_groups'
+Message:/get_dialogs
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 286, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 308, in handle_new_message
+    if self.is_signal_in_group(signal_message):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 83, in is_signal_in_group
+    return any(signal_message.origin.id == channel['id'] for channel in self.channels['signal_groups'])
+KeyError: 'signal_groups'
+
+
+06:23:45:| 'signal_groups'
+Message:NEW TRADES AFTER THIS 4 HR CLOSE
+provided by
+
+✯ᶜʳʸᵖᵗᵒˡᵉᵃᵏˢᶻ
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 286, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 308, in handle_new_message
+    if self.is_signal_in_group(signal_message):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 83, in is_signal_in_group
+    return any(signal_message.origin.id == channel['id'] for channel in self.channels['signal_groups'])
+KeyError: 'signal_groups'
+
+
+06:23:47:| 'signal_groups'
+Message:NEW TRADES AFTER THIS 4 HR CLOSE
+
+☆ᶜʳʸᵖᵗᵒᴸᵉᵃᵏˢᶻ
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 286, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 308, in handle_new_message
+    if self.is_signal_in_group(signal_message):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 83, in is_signal_in_group
+    return any(signal_message.origin.id == channel['id'] for channel in self.channels['signal_groups'])
+KeyError: 'signal_groups'
+
+
+06:24:46:| 'signal_groups'
+Message:/get_dialogs
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 287, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 309, in handle_new_message
+    if self.is_signal_in_group(signal_message):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 84, in is_signal_in_group
+    return any(signal_message.origin.id == channel['id'] for channel in self.channels['signal_groups'])
+KeyError: 'signal_groups'
+
+
+06:45:07:| SIGNAL_GROUP
+Message:➖➖➖➖➖➖➖
+$EOS/USDT 
+LONG 
+Entry: 0.8920 - 0.8500
+Targets: 0.9010, 0.9100, 0.9200, 0.9300, 0.9410, 0.9640
+StopLoss: 0.8400
+Leverage 20x
+Binance : 0.883 now
+
+☆ᶜʳʸᵖᵗᵒᴸᵉᵃᵏˢᶻ
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 103, in __getattr__
+    return object.__getattribute__(self, k)
+AttributeError: 'Munch' object has no attribute 'SIGNAL_GROUP'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 106, in __getattr__
+    return self[k]
+KeyError: 'SIGNAL_GROUP'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 335, in handle_new_message
+    db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name + 'Didnt match: ' + str(self.com.SIGNAL_GROUP))
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 108, in __getattr__
+    raise AttributeError(k)
+AttributeError: SIGNAL_GROUP
+
+
+06:45:12:| SIGNAL_GROUP
+Message:Binance Futures
+#EOS/USDT Entry 1 ✅
+Average Entry Price: 0.892
+
+☆ᶜʳʸᵖᵗᵒᴸᵉᵃᵏˢᶻ
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 103, in __getattr__
+    return object.__getattribute__(self, k)
+AttributeError: 'Munch' object has no attribute 'SIGNAL_GROUP'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 106, in __getattr__
+    return self[k]
+KeyError: 'SIGNAL_GROUP'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 335, in handle_new_message
+    db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name + 'Didnt match: ' + str(self.com.SIGNAL_GROUP))
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 108, in __getattr__
+    raise AttributeError(k)
+AttributeError: SIGNAL_GROUP
+
+
+06:45:33:| SIGNAL_GROUP
+Message:➖➖➖➖➖➖➖
+RSR/USDT
+Short 20X
+Entry 0.003422 
+Take profit 
+1. 0.003375
+2. 0.003305
+3. 0.003200
+4. 0.003020 
+Stop 0.003527, рекомендую заходить половиной объёма,
+Binance : 0.003409 now
+
+☆ᶜʳʸᵖᵗᵒᴸᵉᵃᵏˢᶻ
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 103, in __getattr__
+    return object.__getattribute__(self, k)
+AttributeError: 'Munch' object has no attribute 'SIGNAL_GROUP'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 106, in __getattr__
+    return self[k]
+KeyError: 'SIGNAL_GROUP'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 335, in handle_new_message
+    db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name + 'Didnt match: ' + str(self.com.SIGNAL_GROUP))
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 108, in __getattr__
+    raise AttributeError(k)
+AttributeError: SIGNAL_GROUP
+
+
+06:45:43:| SIGNAL_GROUP
+Message:🦝｜pat
+paatta: 
+https://twitter.com/PattaTrades/status/1742074523296416208?t=oWGYMvN2Rw9PBoLlR8plLQ&s=19
+
+✯ᶜʳʸᵖᵗᵒˡᵉᵃᵏˢᶻ
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 103, in __getattr__
+    return object.__getattribute__(self, k)
+AttributeError: 'Munch' object has no attribute 'SIGNAL_GROUP'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 106, in __getattr__
+    return self[k]
+KeyError: 'SIGNAL_GROUP'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 335, in handle_new_message
+    db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name + 'Didnt match: ' + str(self.com.SIGNAL_GROUP))
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 108, in __getattr__
+    raise AttributeError(k)
+AttributeError: SIGNAL_GROUP
+
+
+06:45:45:| SIGNAL_GROUP
+Message:pat
+
+✯ᶜʳʸᵖᵗᵒˡᵉᵃᵏˢᶻ
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 103, in __getattr__
+    return object.__getattribute__(self, k)
+AttributeError: 'Munch' object has no attribute 'SIGNAL_GROUP'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 106, in __getattr__
+    return self[k]
+KeyError: 'SIGNAL_GROUP'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 335, in handle_new_message
+    db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name + 'Didnt match: ' + str(self.com.SIGNAL_GROUP))
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 108, in __getattr__
+    raise AttributeError(k)
+AttributeError: SIGNAL_GROUP
+
+
+06:45:47:| SIGNAL_GROUP
+Message:➖➖➖➖➖➖➖
+#ton/usdt 
+Break through the $2.5 supply zone and go
+
+☆ᶜʳʸᵖᵗᵒᴸᵉᵃᵏˢᶻ
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 103, in __getattr__
+    return object.__getattribute__(self, k)
+AttributeError: 'Munch' object has no attribute 'SIGNAL_GROUP'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 106, in __getattr__
+    return self[k]
+KeyError: 'SIGNAL_GROUP'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 335, in handle_new_message
+    db.gen_log('new chat ID:' + str(signal_message.origin.id) + signal_message.origin.name + 'Didnt match: ' + str(self.com.SIGNAL_GROUP))
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\.venv\lib\site-packages\munch\__init__.py", line 108, in __getattr__
+    raise AttributeError(k)
+AttributeError: SIGNAL_GROUP
+
+
+06:57:13:| name 'update_telegram_channels' is not defined
+Message:#SignalPalace
+
+It is getting interesting.
+
+In proper BTC halving , BTC dominance must shoot up. Is either alts are stagnant or they keep dropping(that does not mean there will not be some scam pumps
+
+✯ᶜʳʸᵖᵗᵒˡᵉᵃᵏˢᶻ
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 295, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 348, in handle_new_message
+    update_telegram_channels(self, {
+NameError: name 'update_telegram_channels' is not defined
+
+
+07:15:23:| string indices must be integers
+Message:/known_channels
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 292, in telegram_command
+    channel_entity = await self.client.get_entity(channel['id'])
+TypeError: string indices must be integers
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 306, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 353, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 295, in telegram_command
+    print(f"Could not retrieve channel {channel['id']}: {e}")
+TypeError: string indices must be integers
+
+
+07:17:10:| string indices must be integers
+Message:/known_channels
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 292, in telegram_command
+    channel_entity = await client.get_entity(channel['id'])
+NameError: name 'client' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 305, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 352, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 295, in telegram_command
+    print(f"Could not retrieve channel {channel['id']}: {e}")
+TypeError: string indices must be integers
+
+
+07:17:34:| string indices must be integers
+Message:/known_channels
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 292, in telegram_command
+    channel_entity = await self.client.get_entity(channel['id'])
+TypeError: string indices must be integers
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 305, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 352, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 295, in telegram_command
+    print(f"Could not retrieve channel {channel['id']}: {e}")
+TypeError: string indices must be integers
+
+
+07:18:25:| string indices must be integers
+Message:/known_channels
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 292, in telegram_command
+    channel_entity = await self.client.get_entity(channel['id'])
+TypeError: string indices must be integers
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 306, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 353, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 296, in telegram_command
+    print(f"Could not retrieve channel {channel['id']}: {e}")
+TypeError: string indices must be integers
+
+
+07:19:28:| string indices must be integers
+Message:/known_channels
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 292, in telegram_command
+    channel_entity = await self.client.get_entity(channel['id'])
+TypeError: string indices must be integers
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 306, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 353, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 296, in telegram_command
+    print(f"Could not retrieve channel {channel['id']}: {e}")
+TypeError: string indices must be integers
+
+
+07:20:12:| string indices must be integers
+Message:/known_channels
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 293, in telegram_command
+    channel_entity = await self.client.get_entity(channel['id'])
+TypeError: string indices must be integers
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 307, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 354, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 297, in telegram_command
+    print(f"Could not retrieve channel {channel['id']}: {e}")
+TypeError: string indices must be integers
+
+
+07:20:38:| string indices must be integers
+Message:/known_channels
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 294, in telegram_command
+    channel_entity = await self.client.get_entity(channel['id'])
+TypeError: string indices must be integers
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 308, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 355, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 298, in telegram_command
+    print(f"Could not retrieve channel {channel['id']}: {e}")
+TypeError: string indices must be integers
+
+
+07:48:09:| string indices must be integers
+Message:/true_id
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 336, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 383, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 326, in telegram_command
+    await self.update_true_id()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 106, in update_true_id
+    if str(dialog.id) == channel['id']:
+TypeError: string indices must be integers
+
+
+07:52:01:| local variable 'channel_link' referenced before assignment
+Message:/get_dialogs
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 342, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 389, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 216, in telegram_command
+    entity = await self.client.get_entity(channel_link)
+UnboundLocalError: local variable 'channel_link' referenced before assignment
+
+
+07:56:12:| 'Dialog' object has no attribute 'channel'
+Message:/true_id
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 342, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 389, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 332, in telegram_command
+    await self.update_true_id()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 109, in update_true_id
+    print(dialog.channel)
+AttributeError: 'Dialog' object has no attribute 'channel'
+
+
+08:01:11:| 'User' object has no attribute 'title'
+Message:/true_id
+Except:Traceback (most recent call last):
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 343, in handle_new_telegram_event
+    await self.handle_new_message(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 390, in handle_new_message
+    await self.telegram_command(signal_message)
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 333, in telegram_command
+    await self.update_true_id()
+  File "C:\Users\lachl\Repos\GitHub\SignalSpawner\telebagger.py", line 114, in update_true_id
+    channel['telegram_name'] = dialog.entity.title
+AttributeError: 'User' object has no attribute 'title'
+
+

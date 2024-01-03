@@ -1,8 +1,6 @@
 '''This module contains references to all of the different trade groups, sends signal info to them and recieves trade info'''
 import json
 import traceback
-from types import SimpleNamespace
-
 import database_logging as db
 from trade import Trade
 from signal_sources import hirn, predictum, ggshot, ggshot_vip
@@ -12,6 +10,7 @@ hirn_controller = hirn.HirnSignal()
 predictum_controller = predictum.PredictumSignal()
 ggshot_controller = ggshot.GGShotSignal()
 ggshot_free_controller = ggshot.GGShotSignal('GGshot_free')
+ggshot_leaked_controller = ggshot.GGShotSignal('GGshot_Leaked')
 ggshot_vip_controller = ggshot_vip.GGShotVipSignal()
 
 controller_mapping = {
@@ -19,6 +18,7 @@ controller_mapping = {
     '1248393106': hirn_controller,
     '1825288627': ggshot_controller,
     '1175262142': ggshot_free_controller,
+    '1480838869': ggshot_leaked_controller,
     '1737189058': ggshot_vip_controller,
 }
 

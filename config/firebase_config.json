@@ -1,0 +1,10 @@
+{
+    "apiKey": "ENV_FIREBASE_API_KEY",
+    "authDomain": "telebagger.firebaseapp.com",
+    "projectId": "telebagger",
+    "messagingSenderId": "332905720250",
+    "storageBucket": "telebagger.appspot.com",
+    "appId": "1:332905720250:web:e2006e777fa8d980d61583",
+    "measurementId": "G-02W82CCF85",
+    "databaseURL":  "https://telebagger-default-rtdb.firebaseio.com/"
+}

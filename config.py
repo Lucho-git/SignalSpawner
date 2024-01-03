@@ -1,134 +1,81 @@
 """Configures Various interconnected components"""
 import os
+import json
+import platform
 import pyrebase
 import pytz
-import json
 from binance.client import Client
 from dotenv import load_dotenv
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 import munch
-import discord
+# import discord
 from discord.ext import commands
 
-# Load locally, or from server
-local = [True]
-if os.name == 'nt':
-    local[0] = True
-    print('Windows Detected...')
-else:
-    # code is reachable, vscode lying
-    local[0] = False
-    print('Linux Detected...')
-local[0] = False
+# Detect environment
+environment = "local" if platform.system() == 'Windows' else "server"
+print(f'{environment.capitalize()} Environment Detected...')
 
 load_dotenv()
-    #print(os.environ)
 
-def run_local():
-    local[0] = True
-
+# Firebase Configuration
 def get_firebase_config():
-    """Init Database Connection"""
-    config = {
-    "apiKey": str(os.getenv("FIREBASE_API")),
-    "authDomain": "telebagger.firebaseapp.com",
-    "projectId": "telebagger",
-    "messagingSenderId": "332905720250",
-    "storageBucket": "telebagger.appspot.com",
-    "appId": "1:332905720250:web:e2006e777fa8d980d61583",
-    "measurementId": "G-02W82CCF85",
-    "databaseURL":  "https://telebagger-default-rtdb.firebaseio.com/",
-    }
+    with open('config/firebase_config.json', 'r') as file:
+        config = json.load(file)
+    config['apiKey'] = str(os.getenv("FIREBASE_API"))
     return pyrebase.initialize_app(config)
 
+# Timezone Configuration
 def get_timezone_config():
     """Returns consistent timezone"""
     return pytz.timezone('Australia/Perth')
 
+# Binance Client Configuration
 def get_binance_config():
     """Gets binance client"""
     r_api_key = os.getenv('LACH_BINANCE_KEY')
     r_api_secret = os.getenv('LACH_BINANCE_SECRET')
+    return Client(r_api_key, r_api_secret)
 
-    realclient = Client(r_api_key, r_api_secret)
-    return realclient   
-
+# Telegram Client Configuration
 def get_telegram_config():
     """Returns Telegram Client"""
     api_id = os.getenv('TELEGRAM_ID')
     api_hash = os.getenv('TELEGRAM_HASH')
-    if local[0]:
-        stringsesh = os.getenv('TELEGRAM_LOCALSAVE')
-    else:
-        stringsesh = os.getenv('TELEGRAM_SERVERSAVE')
-    return TelegramClient(StringSession(stringsesh), api_id, api_hash)
+    session_key = 'TELEGRAM_LOCALSAVE' if environment == 'local' else 'TELEGRAM_SERVERSAVE'
+    session = StringSession(os.getenv(session_key))
 
+    return TelegramClient(session, api_id, api_hash)
+
+# Discord Client Configuration
 def get_discord_config():
-    """Returns Discord Client"""
-    SELF_TOKEN = os.getenv('DISCORD_TOKEN')
-    
+    token = os.getenv('DISCORD_TOKEN')
     bot = commands.Bot(command_prefix='!', self_bot=True)
-    return [bot, SELF_TOKEN]
+    return bot, token
 
+# Telegram Commands
 def get_commands():
     """Returns set of telegram commands"""
     # Stream Commands Local
-    chat_commands = {
-    'STOP': '/stop',
-    'STREAM': '/stream',
-    'STOPSTREAM': '/stopstream',
-    'RESTART': '/restart',
-    'MENU': '/menu',
-    'ADD': '/add',
-    'ADD2': '/add2',
-    'ADD3': '/add3',
-    'UPDATE': '/update',
-    'UPDATE2': '/update2',
-    'PRE_AW': '/pre_aw',
-    'ALWAYS_WIN_SIGNAL': '/aw',
-    'HIRN_SIGNAL': '/hirn',
-    'RAND_HIRN_SIGNAL': '/new_hirn',
-    'PREDICTUM': '/predictum',
-    'PREDICTUM2': '/predictum2',
-    'GGSHOT': '/ggshot',
-    'GGSHOTVIP': '/ggshotvip',
-    'UPDATE_NOW': '/now',
-    'STATUS': '/status',
-    'PAST': '/past',
-    'EXCEPT': '/except',
-    'DUMP': '/dump',
-    'SMOOTH_DUMP': '/smooth_dump',
-    'NEW_PORTFOLIO': '/newport',
-    'CLEAR_PORTFOLIO': '/clear_folio',
-    'DISPLAY_PORTFOLIO': '/display_folio',
-    'SNAPSHOT': '/snapshot',
-    'CLOSE_FUTURE': '/close_future',
-    'GET_DB': '/get ',
-    'LAST_WEEK': '/last_week',
-    'NEW_WEEK': '/new_week',
-    'UPDATE_HISTORY': '/update_history',
-    'CHANGE_VALUE': '/change_value',
-    'BACK_TEST': '/back_test',
-    'DEEP_BACK_TEST': '/deep_back_test',
-    'GET_SIGNALS': '/get_signals',
-    'DELETE_DUPLICATES': '/delete_duplicates',
-    'DELETE_NEAR_DUPLICATES': '/delete_near_duplicates',
-
-    }
-    if not local[0]:
+    with open('config/telegram_commands.json', 'r') as file:
+        chat_commands = json.load(file)
+    if not environment == 'local':
         # Stream Commands Heroku Hosted
         chat_commands = {key: command + '!' for key, command in chat_commands.items()}
-    chat_commands['SIGNAL_GROUP'] = ['1548802426', '1248393106', '1558766055', '1825288627', '1737189058', '1175262142', '1872890428']
-    # predictum pro|free channel, 1960417797
-    chat_commands['GENERAL_GROUP'] = ['1576065688', '1220789766', '1794870864', '1798277168', '1109500936', '1250090891', '1649213804']
     return munch.munchify(chat_commands)
+
+# Telegram channels
+def get_telegram_channels():
+    """Returns set of telegram channels"""
+    with open('config/telegram_channels.json', 'r') as file:
+        telegram_channels = json.load(file)
+    return munch.munchify(telegram_channels)
 
 def get_storage_paths():
     """Returns filepaths"""
     UNIQUE_ID = 'heroku/'
 
-    if local[0]:
+    if environment == 'local':
         # Firebase Cloud Storage File Paths
         file_paths = {
         "ADD_MESSAGE": "trade_result/message_count/",
