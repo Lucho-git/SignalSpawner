@@ -5,7 +5,7 @@ import platform
 import pyrebase
 import pytz
 from binance.client import Client
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 import munch
@@ -16,7 +16,7 @@ from discord.ext import commands
 environment = "local" if platform.system() == 'Windows' else "server"
 print(f'{environment.capitalize()} Environment Detected...')
 
-load_dotenv()
+load_dotenv(override=True)
 
 # Firebase Configuration
 def get_firebase_config():

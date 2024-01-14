@@ -663,6 +663,17 @@
             "telegram_name": "\u26a1\ufe0fESTR VIP BY GodLeak \u26a1\ufe0f",
             "local_name": "\u26a1\ufe0fESTR VIP BY GodLeak \u26a1\ufe0f",
             "trueId": -1001396813143
+        },
+        {
+            "id": "1593001808",
+            "telegram_name": "\u26a1\ufe0fpentagon English BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fpentagon English BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001593001808
+        },
+        {
+            "id": "1620874899",
+            "telegram_name": "\u26a1\ufe0fHamam King VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fHamam King VIP BY GodLeak \u26a1\ufe0f"
         }
     ],
     "bot_groups": [

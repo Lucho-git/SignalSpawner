@@ -257,6 +257,14 @@ class TelegramEvents:
             signal_message.origin.name = 'testGGshotVip'
             await handle_signal_message.process_message(signal_message)
 
+        elif signal_message.message == self.com.BINANCEKILLERS:
+            with open('docs/binance_killers_example.txt', 'r', encoding='utf-8') as f:
+                signal_message.message = f.read()
+            signal_message.origin.id = '1702209070'
+            signal_message.origin.name = 'testBinanceKillers'
+            print('test binance killers signal')
+            await handle_signal_message.process_message(signal_message)
+
         elif signal_message.message == self.com.UPDATE:
             print('getting last week of signals')
             signals = db.generate_signals_from_timeframe(days = 200)

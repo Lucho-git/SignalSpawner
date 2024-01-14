@@ -1,0 +1,26 @@
+📪 #KAVA
+Open Long | Current price: 0.788
+Strategy type: DCA + SL
+
+➖ WEEKLY STATS (8 weeks): ➖
+▪️🔼🔼🔼▪️🔼▪️▪️
+
+➖ ℹ️ OPEN HERE: ➖
+Entry 1: 0.7924 or lower (deposit 1%)
+Entry 2: 0.7594 (deposit 1.3%)
+Entry 3: 0.7265 (deposit 1.7%)
+
+➖ 💶 CLOSE HERE: ➖
+Scalp targets:
+Target 1: 0.8055 (Accuracy: 96% | All-time PNL: 108%)
+Target 2: 0.8185 (Accuracy: 96% | All-time PNL: 397%)
+Target 3: 0.8316 (Accuracy: 95% | All-time PNL: 569%)
+Target 4: 0.8447 (Accuracy: 95% | All-time PNL: 590%)
+
+Primary target: 0.9231 (Accuracy: 95% | All-time PNL: 501%)
+Or reverse signal 🔁
+
+🙅🏽‍♂️ Stop-loss: 0.6617
+💳 Leverage: 10x cross
+
+ID: #Long_KAVA_11_01_2024_00_30_WithDCA

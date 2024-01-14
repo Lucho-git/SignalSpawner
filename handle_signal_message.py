@@ -3,7 +3,7 @@ import json
 import traceback
 import database_logging as db
 from trade import Trade
-from signal_sources import hirn, predictum, ggshot, ggshot_vip
+from signal_sources import hirn, predictum, ggshot, ggshot_vip, binance_killers
 from signal_conditions import Signal
 
 hirn_controller = hirn.HirnSignal()
@@ -12,6 +12,7 @@ ggshot_controller = ggshot.GGShotSignal()
 ggshot_free_controller = ggshot.GGShotSignal('GGshot_free')
 ggshot_leaked_controller = ggshot.GGShotSignal('GGshot_Leaked')
 ggshot_vip_controller = ggshot_vip.GGShotVipSignal()
+binance_killers_controller = binance_killers.BinanceKillers()
 
 controller_mapping = {
     '1558766055': predictum_controller,
@@ -20,6 +21,7 @@ controller_mapping = {
     '1175262142': ggshot_free_controller,
     '1480838869': ggshot_leaked_controller,
     '1737189058': ggshot_vip_controller,
+    '1702209070': binance_killers_controller,
 }
 
 
