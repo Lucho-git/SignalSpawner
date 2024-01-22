@@ -38,3 +38,37 @@
 
 08:48:27:| Telegram Robot: /bk
 
+08:53:21:| Launching Telegram Scraper...
+
+08:53:24:| Telegram Robot: /true_id
+
+08:54:03:| Telegram Robot: /known_channels
+
+08:54:18:| Telegram Robot: /true_id!
+
+08:54:49:| Telegram Robot: /known_channels!
+
+09:10:51:| Launching Telegram Scraper...
+
+09:11:20:| new chat ID:1627987047⚡️Signalchi BY GodLeak ⚡️Didnt match: anything
+
+09:12:19:| Telegram Robot: /true_id
+
+09:19:13:| new chat ID:1697360876⚡️ARS Crypto Call BY GodLeak ⚡️Didnt match: anything
+
+09:19:22:| Telegram Robot: /true_id
+
+10:10:36:| Launching Telegram Scraper...
+
+11:00:12:| new chat ID:1616989349⚡️Kim Altcoin BY GodLeak ⚡️Didnt match: anything
+
+11:26:17:| new chat ID:1189615571⚡️ Ca Lang Trading BY GodLeak ⚡️Didnt match: anything
+
+14:28:30:| new chat ID:1283434476⚡️Milad Sniper BY GodLeak ⚡️Didnt match: anything
+
+14:59:19:| new chat ID:1155068617⚡️Best VIP BY GodLeak ⚡️Didnt match: anything
+
+16:31:54:| new chat ID:1456872361Predictūm Indicator | CryptoDidnt match: anything
+
+23:37:49:| new chat ID:1643434755⚡️Alexander Crypto BY GodLeak ⚡️Didnt match: anything
+

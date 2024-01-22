@@ -673,7 +673,62 @@
         {
             "id": "1620874899",
             "telegram_name": "\u26a1\ufe0fHamam King VIP BY GodLeak \u26a1\ufe0f",
-            "local_name": "\u26a1\ufe0fHamam King VIP BY GodLeak \u26a1\ufe0f"
+            "local_name": "\u26a1\ufe0fHamam King VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001620874899
+        },
+        {
+            "id": "1627987047",
+            "telegram_name": "\u26a1\ufe0fSignalchi BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fSignalchi BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001627987047
+        },
+        {
+            "id": "1697360876",
+            "telegram_name": "\u26a1\ufe0fARS Crypto Call BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fARS Crypto Call BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001697360876
+        },
+        {
+            "id": "1616989349",
+            "telegram_name": "\u26a1\ufe0fKim Altcoin BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fKim Altcoin BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001616989349
+        },
+        {
+            "id": "1189615571",
+            "telegram_name": "\u26a1\ufe0f Ca Lang Trading BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0f Ca Lang Trading BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001189615571
+        },
+        {
+            "id": "1283434476",
+            "telegram_name": "\u26a1\ufe0fMilad Sniper BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fMilad Sniper BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001283434476
+        },
+        {
+            "id": "1155068617",
+            "telegram_name": "\u26a1\ufe0fBest VIP BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fBest VIP BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001155068617
+        },
+        {
+            "id": "1456872361",
+            "telegram_name": "Predict\u016bm Indicator | Crypto",
+            "local_name": "Predict\u016bm Indicator | Crypto",
+            "trueId": -1001456872361
+        },
+        {
+            "id": "1643434755",
+            "telegram_name": "\u26a1\ufe0fAlexander Crypto BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fAlexander Crypto BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001643434755
+        },
+        {
+            "id": "1538287981",
+            "telegram_name": "\u26a1\ufe0fMiladical BY GodLeak \u26a1\ufe0f",
+            "local_name": "\u26a1\ufe0fMiladical BY GodLeak \u26a1\ufe0f",
+            "trueId": -1001538287981
         }
     ],
     "bot_groups": [

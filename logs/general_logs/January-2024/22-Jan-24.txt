@@ -1,0 +1,10 @@
+05:05:38:| Launching Telegram Scraper...
+
+05:05:53:| Telegram Robot: /true_id
+
+05:06:01:| Telegram Robot: /bk
+
+05:10:56:| Launching Telegram Scraper...
+
+05:11:01:| Telegram Robot: /bk
+

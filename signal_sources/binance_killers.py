@@ -15,6 +15,8 @@ class BinanceKillers(SignalProviderBase):
         base = 'USDT'
         direction = ''
         entry = sanitised_message[4].split(':')[1].split('-')
+        ote= sanitised_message[5].split(':')[1]
+        entry.insert(1, ote)
         print(entry)
         take_profit = []
         stop_loss = ''
@@ -33,7 +35,7 @@ class BinanceKillers(SignalProviderBase):
     def get_all_trades_from_signal(self, signal):
         '''Convert Signal into trade values'''
         trades = []
-        trade = FutureBasic(self.source+'|0|1|0|standard_entry', signal.time_generated, signal.entry[0], signal.take_profit[1], signal.stop_loss, signal.direction, 1)
+        trade = FutureBasic(self.source+'|0|1|0|standard_entry', signal.time_generated, signal.entry[1], signal.take_profit[0], signal.stop_loss, signal.direction, 1)
         trades.append(trade)
         return trades
 
